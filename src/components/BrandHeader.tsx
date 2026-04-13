@@ -12,7 +12,7 @@ export function BrandHeader({
 }) {
   return (
     <div
-      className="px-4 sm:px-6 lg:px-24 py-6 sm:py-8"
+      className="px-4 sm:px-6 lg:px-12 py-6 sm:py-8"
       style={{ borderBottom: "1px solid var(--color-border)" }}
     >
       <Link

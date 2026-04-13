@@ -31,7 +31,7 @@ export function BrandIndex({
   });
 
   return (
-    <section className="px-4 sm:px-6 lg:px-24 py-10 sm:py-14">
+    <section className="px-4 sm:px-6 lg:px-12 py-10 sm:py-14">
       <div className="mb-6">
         <h2
           className="text-[20px] sm:text-[24px]"
@@ -40,7 +40,7 @@ export function BrandIndex({
           Find Designs
         </h2>
       </div>
-      <div className="flex flex-col lg:flex-row gap-6">
+      <div className="flex flex-col lg:flex-row gap-6 lg:gap-16">
         <CategorySidebar
           categories={categories}
           totalCount={brands.length}

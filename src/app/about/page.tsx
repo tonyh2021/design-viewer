@@ -1,6 +1,6 @@
 export default function AboutPage() {
   return (
-    <section className="px-4 sm:px-6 lg:px-24 py-10 sm:py-14 max-w-3xl">
+    <section className="px-4 sm:px-6 lg:px-12 py-10 sm:py-14 max-w-3xl">
       <h1
         className="text-[20px] sm:text-[24px] mb-6"
         style={{ color: "var(--color-accent)", fontFamily: "var(--font-mono)" }}

@@ -16,7 +16,7 @@ export function CategorySidebar({
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <div className="w-full lg:w-64 flex-shrink-0">
+    <div className="w-full lg:w-80 flex-shrink-0">
       {/* Mobile toggle */}
       <button
         type="button"
@@ -89,15 +89,16 @@ function CategoryButton({
   return (
     <button
       type="button"
-      className="flex items-center gap-2.5 py-2 transition-colors duration-150 px-1 lg:px-0"
+      className={`flex items-center gap-2.5 py-2 px-3 rounded-md transition-all duration-150 ${
+        active
+          ? "text-[#ededed] bg-white/[0.08]"
+          : "text-[#a0a0a0] hover:text-[#ededed] hover:bg-white/[0.05]"
+      }`}
       style={{
         width: "100%",
         textAlign: "left",
-        background: "none",
         border: "none",
-        borderBottom: active ? "1px solid var(--color-gray-1000)" : "none",
         cursor: "pointer",
-        color: active ? "var(--color-gray-1000)" : "#a0a0a0",
       }}
       onClick={onClick}
     >

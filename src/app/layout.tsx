@@ -21,7 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${geistMono.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col bg-[#0a0a0a] text-[#ededed]">
-        <header className="flex items-center justify-between px-4 sm:px-6 lg:px-24 py-4 border-b border-[#1a1a1a]">
+        <header className="flex items-center justify-between px-4 sm:px-6 lg:px-12 py-4 border-b border-[#1a1a1a]">
           <a
             href="/"
             className="text-[20px] font-semibold tracking-tight"

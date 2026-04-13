@@ -170,21 +170,23 @@ function rewritePreviewNav(html, slug) {
     const text = $nav.text();
     if (!text.includes("getdesign.md") && !text.includes("awesome-design-md")) return;
 
-    // Rewrite brand link → "Design Viewer" pointing to brand page on getdesign.md
+    // Rewrite brand link text to "Design Viewer", remove href (not navigable in iframe)
     const $brandLink = $nav.find(".nav-brand-link");
     if ($brandLink.length) {
-      $brandLink.attr("href", `https://getdesign.md/${slug}/design-md`);
+      $brandLink.removeAttr("href");
+      $brandLink.removeAttr("target");
       $brandLink.find(".nav-brand").text("Design Viewer");
+    } else {
+      const $brand = $nav.find("a.nav-brand");
+      if ($brand.length) {
+        $brand.removeAttr("href");
+        $brand.removeAttr("target");
+        $brand.text("Design Viewer");
+      }
     }
 
-    // Rewrite GitHub link → placeholder
-    const $github = $nav.find(".nav-github");
-    if ($github.length) {
-      $github.attr("href", "#");
-      $github.attr("aria-label", "GitHub");
-      // Remove SVG icon and text, replace with simple text
-      $github.empty().text("GitHub");
-    }
+    // Remove GitHub link
+    $nav.find(".nav-github").remove();
 
     // Keep .nav-links and .nav-cta as-is
   });
@@ -196,6 +198,14 @@ function rewritePreviewNav(html, slug) {
       $(el).remove();
     }
   });
+
+  // Inject script to fix anchor links in srcdoc iframes
+  // (href="#id" navigates parent instead of scrolling within iframe)
+  if (!$("script#__anchor_fix__").length) {
+    $("body").append(
+      '<script id="__anchor_fix__">document.addEventListener("click",function(e){var a=e.target.closest(\'a[href^="#"]\');if(a){e.preventDefault();var id=a.getAttribute("href").slice(1);var el=document.getElementById(id);if(el)el.scrollIntoView({behavior:"smooth"});}});</script>'
+    );
+  }
 
   // Clean up getdesign.md-specific CSS comments but keep the nav styles functional
   $("style").each((_, el) => {
