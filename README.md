@@ -1,4 +1,4 @@
-# designviewer
+# Design Viewer
 
 A browser for [DESIGN.md](https://getdesign.md/what-is-design-md) design systems. Browse, search, and preview design tokens and components from brands that publish a `DESIGN.md` file.
 
@@ -54,6 +54,7 @@ pnpm sync --force
 ```
 
 This generates:
+
 - `data/brands.json` — brand metadata (name, category, stats)
 - `data/brands/{slug}/DESIGN.md` — raw markdown (via `getdesign` CLI)
 - `data/brands/{slug}/preview.html` — light theme preview
