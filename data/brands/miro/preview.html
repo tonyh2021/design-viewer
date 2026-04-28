@@ -1,7 +1,7 @@
 <!DOCTYPE html><html lang="en"><head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Design System Inspired by Miro</title>
+<title>Design System Preview: Miro (Light)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Noto+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet">
@@ -79,53 +79,11 @@
   .footer a { color:var(--blue); text-decoration:underline; }
 
   @media (max-width:768px) { .hero h1 { font-size:36px; letter-spacing:-1.08px; } .nav-links { display:none; } .section { padding:32px 16px; } .card-grid { grid-template-columns:1fr; } }
-
-  /* preview nav */
-  .nav-left { display: flex; align-items: center; gap: 20px; }
-  .nav-brand-link,
-  .nav-brand-link:link,
-  .nav-brand-link:visited,
-  .nav-brand-link:hover,
-  .nav-brand-link:active { text-decoration: none; color: inherit; }
-  .nav-github,
-  .nav-github:link,
-  .nav-github:visited,
-  .nav-github:hover,
-  .nav-github:active {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 12px;
-    font-weight: 600;
-    color: inherit;
-    text-decoration: none;
-    padding: 5px 10px;
-    border: 1px solid rgba(128, 128, 128, 0.3);
-    border-radius: 6px;
-    opacity: 0.75;
-    transition: opacity 200ms ease, border-color 200ms ease;
-    font-family: inherit;
-    line-height: 1;
-    white-space: nowrap;
-  }
-  .nav-github:hover { opacity: 1; border-color: rgba(128, 128, 128, 0.55); }
-  .nav-github svg { display: block; flex-shrink: 0; }
-
-  /* preview nav */
-  .nav { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; }
-  .nav > .nav-left { justify-self: start; }
-  .nav > .nav-links { justify-self: center; }
-  .nav > :last-child { justify-self: end; }
 </style>
 </head>
 <body>
 
-<nav class="nav"><div class="nav-left">
-    <a rel="noopener noreferrer" class="nav-brand-link">
-      <span class="nav-brand">Design Viewer</span>
-    </a>
-    
-  </div><ul class="nav-links"><li><a href="#colors">Colors</a></li><li><a href="#typography">Typography</a></li><li><a href="#buttons">Buttons</a></li><li><a href="#cards">Cards</a></li><li><a href="#forms">Forms</a></li></ul><a class="nav-cta" href="#">Sign up free</a></nav>
+<nav class="nav"><a class="nav-brand">Design Viewer</a><ul class="nav-links"><li><a href="#colors">Colors</a></li><li><a href="#typography">Typography</a></li><li><a href="#buttons">Buttons</a></li><li><a href="#cards">Cards</a></li><li><a href="#forms">Forms</a></li></ul><a class="nav-cta" href="#">Sign up free</a></nav>
 
 <section class="hero"><h1>Design System<br>Inspired by <span>Miro</span></h1><p>Every color, font, and component — visualized with collaborative precision.</p><div class="hero-buttons"><a class="btn-blue" href="#">Sign up free</a><a class="btn-outline" href="#">Contact sales</a></div></section>
 
@@ -207,7 +165,7 @@
 <section class="section"><div class="section-label">08 / Elevation</div><h2 class="section-title">Depth</h2>
 <div class="elevation-grid"><div class="elevation-card" style="box-shadow:var(--ring) 0px 0px 0px 1px;"><div class="elevation-label">Ring</div><div class="elevation-desc">1px ring border</div></div><div class="elevation-card" style="box-shadow:0 0 0 1px var(--blue);"><div class="elevation-label">Focus</div><div class="elevation-desc">Blue ring</div></div></div></section>
 
-
+<footer class="footer">Generated from <a href="https://miro.com/">miro.com</a> DESIGN.md — awesome-design-md</footer>
 
 
 

@@ -1,7 +1,7 @@
 <!DOCTYPE html><html lang="en"><head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Design System Inspired by HashiCorp</title>
+<title>Design System Preview: HashiCorp (Dark)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
@@ -69,6 +69,22 @@
     line-height: 1.63;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* DARK MODE BADGE */
+  .dark-badge {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    z-index: 200;
+    background: var(--color-action-blue);
+    color: #ffffff;
+    padding: 6px 14px;
+    border-radius: 5px;
+    font-family: var(--font-brand);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
   }
 
   /* NAV */
@@ -675,53 +691,17 @@
     text-decoration: none;
   }
   .footer a:hover { text-decoration: underline; }
-
-  /* preview nav */
-  .nav-left { display: flex; align-items: center; gap: 20px; }
-  .nav-brand-link,
-  .nav-brand-link:link,
-  .nav-brand-link:visited,
-  .nav-brand-link:hover,
-  .nav-brand-link:active { text-decoration: none; color: inherit; }
-  .nav-github,
-  .nav-github:link,
-  .nav-github:visited,
-  .nav-github:hover,
-  .nav-github:active {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 12px;
-    font-weight: 600;
-    color: inherit;
-    text-decoration: none;
-    padding: 5px 10px;
-    border: 1px solid rgba(128, 128, 128, 0.3);
-    border-radius: 6px;
-    opacity: 0.75;
-    transition: opacity 200ms ease, border-color 200ms ease;
-    font-family: inherit;
-    line-height: 1;
-    white-space: nowrap;
-  }
-  .nav-github:hover { opacity: 1; border-color: rgba(128, 128, 128, 0.55); }
-  .nav-github svg { display: block; flex-shrink: 0; }
-
-  /* preview nav */
-  .nav { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; }
-  .nav > .nav-left { justify-self: start; }
-  .nav > .nav-links { justify-self: center; }
-  .nav > :last-child { justify-self: end; }
 </style>
 </head>
 <body>
+
+<!-- DARK MODE BADGE -->
+<div class="dark-badge">Dark Mode</div>
+
 <!-- NAV -->
 <nav class="nav">
-  <div class="nav-left">
-    <a rel="noopener noreferrer" class="nav-brand-link">
-      <span class="nav-brand">Design Viewer</span>
-    </a>
-    
+  <div class="nav-brand">
+    awesome-design-md
   </div>
   <div class="nav-links">
     <a href="#colors">Colors</a>
@@ -1216,7 +1196,9 @@
 </section>
 
 <!-- FOOTER -->
-
+<footer class="footer">
+  <p>Design system tokens extracted from the public <a href="https://hashicorp.com" target="_blank">hashicorp.com</a> website. This is not the official HashiCorp design system.<br>Built for <strong>awesome-design-md</strong> — a curated collection of design system references.</p>
+</footer>
 
 
 <script id="__anchor_fix__">document.addEventListener("click",function(e){var a=e.target.closest('a[href^="#"]');if(a){e.preventDefault();var id=a.getAttribute("href").slice(1);var el=document.getElementById(id);if(el)el.scrollIntoView({behavior:"smooth"});}});</script></body></html>

@@ -1,979 +1,364 @@
-<!DOCTYPE html><html lang="en"><head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Design System Inspired by Composio</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet">
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Design System Inspiration of Composio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
 <style>
-  :root {
-    --color-white: #ffffff;
-    --color-brand: #0007cd;
-    --color-black: #000000;
-    --color-void: #0f0f0f;
-    --color-charcoal: #2c2c2c;
-    --color-muted-smoke: #444444;
-    --color-cyan: #00ffff;
-    --color-signal-blue: #0089ff;
-    --color-ocean-blue: #0096ff;
-    --color-light-border: #e0e0e0;
-    --ghost-white: rgba(255,255,255,0.6);
-    --whisper-white: rgba(255,255,255,0.5);
-    --phantom-white: rgba(255,255,255,0.2);
-    --border-mist-12: rgba(255,255,255,0.12);
-    --border-mist-10: rgba(255,255,255,0.10);
-    --border-mist-08: rgba(255,255,255,0.08);
-    --border-mist-06: rgba(255,255,255,0.06);
-    --border-mist-04: rgba(255,255,255,0.04);
-    --cyan-12: rgba(0,255,255,0.12);
-    --font-sans: 'abcDiatype', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-    /* Dark mode overrides */
-    --page-bg: #000000;
-    --surface: #0a0a0a;
-    --card-bg: #050505;
-  }
-
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-
-  body {
-    background: var(--page-bg);
-    color: var(--color-white);
-    font-family: var(--font-sans);
-    font-size: 16px;
-    line-height: 1.5;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  /* NAV */
-  .nav {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 16px 40px;
-    background: rgba(0,0,0,0.92);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border-mist-04);
-  }
-  .nav-brand { font-size: 18px; font-weight: 500; letter-spacing: -0.3px; }
-  .nav-links { display: flex; gap: 32px; align-items: center; }
-  .nav-links a { color: var(--ghost-white); text-decoration: none; font-size: 14px; transition: color 0.2s; }
-  .nav-links a:hover { color: var(--color-white); }
-  .nav-cta {
-    background: var(--color-white);
-    color: var(--color-black);
-    padding: 8px 20px;
-    border: none;
-    border-radius: 4px;
-    font-size: 14px;
-    font-family: var(--font-sans);
-    font-weight: 500;
-    cursor: pointer;
-  }
-
-  /* HERO */
-  .hero {
-    position: relative;
-    text-align: center;
-    padding: 120px 40px 100px;
-    overflow: hidden;
-  }
-  .hero::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 700px;
-    height: 700px;
-    transform: translate(-50%, -50%);
-    background: radial-gradient(circle, rgba(0,7,205,0.3) 0%, rgba(0,255,255,0.1) 35%, transparent 65%);
-    pointer-events: none;
-  }
-  .hero h1 {
-    font-size: 64px;
-    font-weight: 400;
-    line-height: 0.87;
-    letter-spacing: -1px;
-    margin-bottom: 24px;
-    position: relative;
-  }
-  .hero p {
-    color: var(--ghost-white);
-    font-size: 18px;
-    line-height: 1.5;
-    margin-bottom: 40px;
-    position: relative;
-  }
-  .hero-buttons { display: flex; gap: 16px; justify-content: center; position: relative; }
-  .btn-primary {
-    background: var(--color-white);
-    color: var(--color-black);
-    padding: 10px 28px;
-    border: none;
-    border-radius: 4px;
-    font-size: 16px;
-    font-family: var(--font-sans);
-    cursor: pointer;
-  }
-  .btn-cyan {
-    background: var(--cyan-12);
-    color: var(--color-white);
-    padding: 10px 28px;
-    border: 1px solid var(--color-ocean-blue);
-    border-radius: 4px;
-    font-size: 16px;
-    font-family: var(--font-sans);
-    cursor: pointer;
-  }
-
-  /* SECTIONS */
-  .section {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 80px 40px;
-  }
-  .section-title {
-    font-size: 13px;
-    font-family: var(--font-mono);
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.55px;
-    color: var(--color-cyan);
-    margin-bottom: 12px;
-  }
-  .section-heading {
-    font-size: 40px;
-    font-weight: 400;
-    line-height: 1.0;
-    margin-bottom: 48px;
-  }
-  .section-divider {
-    border: none;
-    border-top: 1px solid var(--border-mist-04);
-    margin: 0 40px;
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  /* COLOR PALETTE */
-  .color-group { margin-bottom: 40px; }
-  .color-group-title {
-    font-size: 20px;
-    font-weight: 500;
-    line-height: 1.2;
-    margin-bottom: 20px;
-    color: var(--ghost-white);
-  }
-  .color-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-    gap: 16px;
-  }
-  .color-swatch {
-    border: 1px solid var(--border-mist-08);
-    border-radius: 4px;
-    overflow: hidden;
-  }
-  .color-swatch-block {
-    height: 80px;
-    position: relative;
-  }
-  .color-swatch-info {
-    padding: 12px;
-    background: var(--card-bg);
-  }
-  .color-swatch-name { font-size: 13px; font-weight: 500; margin-bottom: 2px; }
-  .color-swatch-hex { font-family: var(--font-mono); font-size: 12px; color: var(--ghost-white); margin-bottom: 4px; }
-  .color-swatch-role { font-size: 12px; color: var(--muted-smoke); line-height: 1.4; }
-
-  /* TYPOGRAPHY */
-  .type-sample { margin-bottom: 32px; padding-bottom: 32px; border-bottom: 1px solid var(--border-mist-04); }
-  .type-sample:last-child { border-bottom: none; }
-  .type-sample-text { margin-bottom: 8px; }
-  .type-sample-label {
-    font-family: var(--font-mono);
-    font-size: 12px;
-    color: var(--muted-smoke);
-    letter-spacing: -0.24px;
-  }
-
-  /* BUTTONS */
-  .button-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    align-items: flex-start;
-  }
-  .button-demo { text-align: center; }
-  .button-demo-label {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    color: var(--muted-smoke);
-    margin-top: 10px;
-    text-transform: uppercase;
-    letter-spacing: 0.55px;
-  }
-  .btn-ghost-blue {
-    background: transparent;
-    color: var(--color-white);
-    padding: 10px 24px;
-    border: 1px solid var(--color-signal-blue);
-    border-radius: 4px;
-    font-size: 16px;
-    font-family: var(--font-sans);
-    cursor: pointer;
-  }
-  .btn-ghost-charcoal {
-    background: transparent;
-    color: var(--color-white);
-    padding: 10px 24px;
-    border: 1px solid var(--color-charcoal);
-    border-radius: 4px;
-    font-size: 16px;
-    font-family: var(--font-sans);
-    cursor: pointer;
-  }
-  .btn-phantom {
-    background: var(--phantom-white);
-    color: var(--whisper-white);
-    padding: 10px 24px;
-    border: none;
-    border-radius: 4px;
-    font-size: 16px;
-    font-family: var(--font-sans);
-    cursor: pointer;
-  }
-
-  /* CARDS */
-  .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
-  .card {
-    background: var(--card-bg);
-    border-radius: 4px;
-    padding: 28px;
-  }
-  .card-standard { border: 1px solid var(--border-mist-08); }
-  .card-brutalist {
-    border: 1px solid var(--border-mist-08);
-    box-shadow: 4px 4px 0px 0px rgba(0,0,0,0.4);
-  }
-  .card-glow {
-    border: 1px solid var(--border-mist-08);
-    box-shadow: 0px 8px 32px rgba(0,0,0,0.7);
-    position: relative;
-  }
-  .card-glow::before {
-    content: '';
-    position: absolute;
-    inset: -1px;
-    border-radius: 4px;
-    background: radial-gradient(ellipse at center, rgba(0,255,255,0.05) 0%, transparent 70%);
-    pointer-events: none;
-    z-index: 0;
-  }
-  .card h3 { font-size: 24px; font-weight: 500; line-height: 1.2; margin-bottom: 12px; position: relative; z-index: 1; }
-  .card p { color: var(--ghost-white); font-size: 15px; line-height: 1.63; position: relative; z-index: 1; }
-  .card-label {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 0.55px;
-    color: var(--color-cyan);
-    margin-bottom: 16px;
-    position: relative;
-    z-index: 1;
-  }
-
-  /* FORMS */
-  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-  .form-group { margin-bottom: 20px; }
-  .form-label {
-    display: block;
-    font-size: 13px;
-    font-weight: 500;
-    margin-bottom: 8px;
-    color: var(--ghost-white);
-  }
-  .form-input {
-    width: 100%;
-    padding: 10px 14px;
-    background: transparent;
-    border: 1px solid var(--border-mist-08);
-    border-radius: 4px;
-    color: var(--color-white);
-    font-size: 16px;
-    font-family: var(--font-sans);
-    outline: none;
-    transition: border-color 0.2s;
-  }
-  .form-input::placeholder { color: var(--whisper-white); }
-  .form-input-focus { border-color: var(--color-signal-blue); }
-  .form-input-error { border-color: #ff4444; }
-  .form-error-text { font-size: 12px; color: #ff4444; margin-top: 6px; }
-  textarea.form-input { min-height: 100px; resize: vertical; }
-
-  /* SPACING */
-  .spacing-row { display: flex; flex-wrap: wrap; gap: 12px; align-items: flex-end; }
-  .spacing-item { text-align: center; }
-  .spacing-box {
-    background: var(--cyan-12);
-    border: 1px solid rgba(0,255,255,0.2);
-    border-radius: 2px;
-    margin-bottom: 8px;
-  }
-  .spacing-label {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    color: var(--muted-smoke);
-  }
-
-  /* RADIUS */
-  .radius-row { display: flex; flex-wrap: wrap; gap: 20px; align-items: center; }
-  .radius-item { text-align: center; }
-  .radius-box {
-    width: 80px;
-    height: 80px;
-    background: var(--surface);
-    border: 1px solid var(--border-mist-10);
-    margin-bottom: 8px;
-  }
-  .radius-label {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    color: var(--muted-smoke);
-  }
-  .radius-context {
-    font-size: 11px;
-    color: var(--muted-smoke);
-    margin-top: 2px;
-  }
-
-  /* ELEVATION */
-  .elevation-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; }
-  .elevation-card {
-    background: var(--card-bg);
-    border-radius: 4px;
-    padding: 24px;
-    min-height: 140px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-  .elevation-flat { border: none; }
-  .elevation-contained { border: 1px solid var(--border-mist-04); }
-  .elevation-standard { border: 1px solid var(--border-mist-08); }
-  .elevation-brutalist {
-    border: 1px solid var(--border-mist-08);
-    box-shadow: 4px 4px 0px 0px rgba(0,0,0,0.4);
-  }
-  .elevation-floating {
-    border: 1px solid var(--border-mist-08);
-    box-shadow: 0px 8px 32px rgba(0,0,0,0.7);
-  }
-  .elevation-name { font-size: 16px; font-weight: 500; margin-bottom: 8px; }
-  .elevation-desc { font-size: 13px; color: var(--ghost-white); line-height: 1.5; }
-  .elevation-level {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    color: var(--color-cyan);
-    text-transform: uppercase;
-    letter-spacing: 0.55px;
-    margin-top: 12px;
-  }
-
-  /* RESPONSIVE */
-  @media (max-width: 768px) {
-    .nav { padding: 12px 20px; }
-    .nav-links a:not(.nav-cta-wrapper) { display: none; }
-    .hero { padding: 80px 20px 60px; }
-    .hero h1 { font-size: 36px; }
-    .section { padding: 60px 20px; }
-    .section-heading { font-size: 28px; }
-    .color-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); }
-    .form-grid { grid-template-columns: 1fr; }
-    .card-grid { grid-template-columns: 1fr; }
-    .hero-buttons { flex-direction: column; align-items: center; }
-    .button-row { flex-direction: column; align-items: flex-start; }
-    
-  }
-
-  /* preview nav */
-  .nav-left { display: flex; align-items: center; gap: 20px; }
-  .nav-brand-link,
-  .nav-brand-link:link,
-  .nav-brand-link:visited,
-  .nav-brand-link:hover,
-  .nav-brand-link:active { text-decoration: none; color: inherit; }
-  .nav-github,
-  .nav-github:link,
-  .nav-github:visited,
-  .nav-github:hover,
-  .nav-github:active {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 12px;
-    font-weight: 600;
-    color: inherit;
-    text-decoration: none;
-    padding: 5px 10px;
-    border: 1px solid rgba(128, 128, 128, 0.3);
-    border-radius: 6px;
-    opacity: 0.75;
-    transition: opacity 200ms ease, border-color 200ms ease;
-    font-family: inherit;
-    line-height: 1;
-    white-space: nowrap;
-  }
-  .nav-github:hover { opacity: 1; border-color: rgba(128, 128, 128, 0.55); }
-  .nav-github svg { display: block; flex-shrink: 0; }
-
-  /* preview nav */
-  .nav { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; }
-  .nav > .nav-left { justify-self: start; }
-  .nav > .nav-links { justify-self: center; }
-  .nav > :last-child { justify-self: end; }
-</style>
-</head>
+:root{--primary:#0007cd;--primary-active:#0005a3;--primary-glow:#1a26ff;--ink:#ffffff;--body:rgba(255,255,255,0.85);--body-strong:#ffffff;--muted:rgba(255,255,255,0.6);--muted-soft:rgba(255,255,255,0.4);--hairline:rgba(255,255,255,0.12);--hairline-soft:rgba(255,255,255,0.06);--hairline-strong:rgba(255,255,255,0.22);--canvas:#0c0c0e;--canvas-deep:#000;--surface-card:#161618;--surface-card-elevated:#222226;--surface-strong:#1d1d20;--on-primary:#fff;--accent-cyan:#00d4ff;--accent-violet:#7b3aed;--semantic-error:#ff4d4d;--semantic-success:#33d17a;--display:'Inter','abcDiatype',ui-sans-serif,system-ui,sans-serif;--text:'Inter','abcDiatype',sans-serif;--mono:'JetBrains Mono',monospace}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--canvas);color:var(--body);font-family:var(--text);font-size:16px;line-height:1.5}
+.nav{position:sticky;top:0;z-index:100;background:var(--canvas);border-bottom:1px solid var(--hairline);padding: 0 48px;height:64px}
+.nav-links{list-style:none;display:flex;gap:24px;align-items:center}
+.nav-links a{color:var(--body-strong);text-decoration:none;font-size:14px;font-weight:500}
+.nav-cta{background:var(--primary);color:var(--on-primary);border:none;padding:10px 18px;font-weight:500;font-size:14px;cursor:pointer;font-family:inherit;border-radius:8px;height:40px}
+.hero{padding:96px 48px;background:var(--canvas);display:block;align-items:center;max-width:1440px;margin:0 auto;position:relative;overflow:hidden}
+.hero-content{max-width:1200px;position:relative;z-index:1}
+.hero h1{font-family:var(--display);font-size:72px;font-weight:500;line-height:1.2;color:var(--body-strong);margin:0 0 40px;letter-spacing:-2.16px;text-align:left}
+.hero p{font-size:18px;color:var(--body);max-width:900px;margin:0 0 40px;text-align:left}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;justify-content:flex-start}
+.btn-hero-primary{background:var(--primary);color:var(--on-primary);border:none;padding:12px 24px;height:48px;font-weight:500;font-size:14px;cursor:pointer;font-family:inherit;border-radius:8px}
+.btn-hero-secondary{background:var(--surface-card-elevated);color:var(--body-strong);border:none;padding:12px 24px;height:48px;font-weight:500;font-size:14px;cursor:pointer;font-family:inherit;border-radius:8px}
+.hero-art{aspect-ratio:1;background:var(--canvas-deep);border-radius:16px;padding:32px;display:grid;grid-template-columns:1fr 1fr;gap:16px;position:relative;z-index:1;border:1px solid var(--hairline-strong)}
+.term-pane{background:var(--surface-card);border-radius:12px;padding:16px;font-family:var(--mono);font-size:11px;color:var(--body);overflow:hidden}
+.term-pane .ln{display:block;line-height:1.6;white-space:nowrap}
+.term-pane .k{color:var(--accent-cyan)}
+.term-pane .s{color:var(--semantic-success)}
+.term-pane .c{color:var(--muted)}
+section{max-width:1440px;margin:0 auto;padding:80px 48px;border-top:1px solid var(--hairline)}
+.section-label{font-size:11px;text-transform:uppercase;letter-spacing:0.88px;color:var(--muted);font-weight:600;margin-bottom:12px}
+.section-heading{font-family:var(--display);font-size:44px;font-weight:500;color:var(--body-strong);margin-bottom:16px;line-height:1.1;letter-spacing:-1.32px}
+.section-intro{font-size:16px;color:var(--body);max-width:720px;margin-bottom:48px;line-height:1.5}
+.palette-group{margin-bottom:48px}
+.palette-group h3{font-size:11px;font-weight:600;color:var(--body-strong);margin-bottom:16px;text-transform:uppercase;letter-spacing:0.88px}
+.palette-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px}
+.swatch{border:1px solid var(--hairline);background:var(--surface-card);border-radius:12px;overflow:hidden}
+.swatch-color{height:90px}
+.swatch-meta{padding:12px 14px}
+.swatch-name{font-weight:600;font-size:13px;color:var(--body-strong);margin-bottom:4px}
+.swatch-hex{font-family:var(--mono);font-size:12px;color:var(--muted);margin-bottom:6px}
+.swatch-role{font-size:13px;color:var(--body);line-height:1.5}
+.type-row{display:grid;grid-template-columns:320px 1fr;gap:32px;align-items:baseline;padding:20px 0;border-bottom:1px solid var(--hairline-soft)}
+.type-row:last-child{border-bottom:none}
+.type-meta{font-size:12px;color:var(--muted);line-height:1.5}
+.type-meta strong{display:block;color:var(--body-strong);font-weight:600;font-size:12px;margin-bottom:4px;text-transform:uppercase;letter-spacing:0.5px}
+.type-sample{color:var(--body-strong)}
+.button-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px}
+.button-cell{border:1px solid var(--hairline);padding:28px;background:var(--surface-card);border-radius:12px;min-width:0}
+.button-label{font-size:11px;color:var(--body-strong);font-weight:600;margin-bottom:14px;text-transform:uppercase;letter-spacing:0.5px}
+.button-meta{font-size:12px;color:var(--muted);margin-top:14px;line-height:1.5}
+.btn{display:inline-block;padding:10px 18px;height:40px;font-size:14px;font-weight:500;border:none;cursor:pointer;font-family:inherit;line-height:1;border-radius:8px}
+.btn-primary{background:var(--primary);color:var(--on-primary)}
+.btn-primary-active{background:var(--primary-active);color:var(--on-primary)}
+.btn-secondary-dark{background:var(--surface-card-elevated);color:var(--body-strong)}
+.btn-outline{background:transparent;color:var(--body-strong);border:1px solid var(--hairline-strong);padding:9px 17px}
+.btn-tertiary-text{background:transparent;color:var(--body);padding:0;height:auto}
+.card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px}
+.card-grid>*{min-width:0}
+.feature-card{background:var(--surface-card);border:1px solid var(--hairline);border-radius:16px;padding:28px}
+.feature-card .glyph{width:40px;height:40px;border-radius:8px;background:var(--surface-card-elevated);margin-bottom:16px;display:flex;align-items:center;justify-content:center;color:var(--primary-glow);font-weight:700;font-size:18px}
+.feature-card h4{font-size:18px;font-weight:600;color:var(--body-strong);margin-bottom:8px}
+.feature-card p{font-size:14px;color:var(--body);line-height:1.5;margin-bottom:16px}
+.toolkit-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.toolkit-card{background:var(--surface-card);border:1px solid var(--hairline);border-radius:12px;padding:20px}
+.toolkit-card .icon{width:40px;height:40px;border-radius:8px;background:var(--surface-card-elevated);margin-bottom:12px;display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--body-strong);font-size:14px}
+.toolkit-card h5{font-size:16px;font-weight:600;color:var(--body-strong);margin-bottom:4px}
+.toolkit-card p{font-size:13px;color:var(--body)}
+.terminal-mockup-grid{background:var(--canvas-deep);border:1px solid var(--hairline-strong);border-radius:16px;padding:32px;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:16px;height:480px}
+.terminal-pane{background:var(--surface-card);border-radius:12px;padding:20px;font-family:var(--mono);font-size:12px;color:var(--body);overflow:hidden}
+.terminal-pane .ln{display:block;line-height:1.7;white-space:nowrap}
+.spotlight-glow-card{background:var(--surface-card);border:1px solid var(--hairline);border-radius:16px;padding:48px;text-align:center;position:relative;overflow:hidden}
+.spotlight-glow-card::before{content:'';position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:400px;height:400px;background:radial-gradient(circle,rgba(26,38,255,0.18) 0%,transparent 60%);pointer-events:none}
+.spotlight-glow-card h3{font-family:var(--display);font-size:32px;font-weight:500;color:var(--body-strong);position:relative;z-index:1;letter-spacing:-0.96px}
+.code-block{background:var(--canvas-deep);border-radius:12px;padding:20px;font-family:var(--mono);font-size:13px;color:var(--body);line-height:1.5;border:1px solid var(--hairline-strong)}
+.code-block .k{color:var(--accent-cyan)}
+.code-block .s{color:var(--semantic-success)}
+.code-block .c{color:var(--muted)}
+.badge-pill{display:inline-block;background:var(--surface-card-elevated);color:var(--body-strong);border-radius:9999px;padding:4px 10px;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.88px}
+.form-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px}
+.form-cell{min-width:0}
+.form-label{font-size:13px;font-weight:600;color:var(--body-strong);margin-bottom:8px;display:block}
+.text-input{width:100%;background:var(--surface-card);color:var(--body-strong);border:1px solid var(--hairline-strong);padding:12px 16px;height:44px;font-size:16px;font-family:inherit;border-radius:8px;outline:none}
+.text-input::placeholder{color:var(--muted)}
+.text-input.focused{border:1px solid var(--primary);padding:12px 16px}
+.spacing-row{display:flex;align-items:flex-end;gap:16px;flex-wrap:wrap}
+.spacing-block{display:flex;flex-direction:column;align-items:center;gap:8px}
+.spacing-bar{background:var(--body-strong);height:28px}
+.spacing-label{font-size:11px;color:var(--muted);font-family:var(--mono)}
+.radius-row{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.radius-block{width:96px;height:96px;background:var(--surface-card);border:1px solid var(--hairline);display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--body-strong);font-weight:600;font-family:var(--mono)}
+.elevation-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:24px}
+.elevation-card{padding:24px;font-size:13px;color:var(--body);border:1px solid var(--hairline);border-radius:12px}
+.elevation-card.canvas{background:var(--canvas)}
+.elevation-card.recessed{background:var(--canvas-deep)}
+.elevation-card.card-bg{background:var(--surface-card)}
+.elevation-card.elevated{background:var(--surface-card-elevated)}
+.elevation-card h5{font-weight:600;color:var(--body-strong);margin-bottom:8px;font-size:13px}
+.responsive-table{width:100%;border-collapse:collapse;margin-bottom:32px;font-size:14px}
+.responsive-table th,.responsive-table td{text-align:left;padding:14px 16px;border-bottom:1px solid var(--hairline)}
+.responsive-table th{font-weight:600;color:var(--body-strong);font-size:12px;text-transform:uppercase;letter-spacing:0.96px}
+.responsive-table td{color:var(--body)}
+.device-ladder{display:flex;align-items:flex-end;gap:16px;margin-bottom:32px;flex-wrap:wrap}
+.device-bar{background:var(--surface-card);border:1px solid var(--hairline);color:var(--muted);text-align:center;padding:8px;font-size:11px;font-family:var(--mono);border-radius:8px}
+.responsive-sub{margin-top:32px}
+.responsive-sub h4{font-size:18px;font-weight:600;color:var(--body-strong);margin-bottom:12px}
+.responsive-sub ul{padding-left:20px;color:var(--body);font-size:14px;line-height:1.5}
+.footer{background:var(--canvas);color:var(--body);padding:32px 48px;font-size:13px;text-align:center;border-top:1px solid var(--hairline)}
+.footer a{color:var(--body)}
+.cell,.cell>*,.demo,.button-cell,.component-cell{min-width:0}
+.cell.wide,.button-cell.wide,.component-cell.wide{grid-column:span 2}
+@media (max-width:1024px){section{padding:64px 32px}.section-heading{font-size:32px}.nav>:last-child{display:none}.hero{grid-template-columns:1fr;gap:32px;padding:64px 32px}.hero h1{font-size:48px;letter-spacing:-1.5px}.hero-art,.hero-art-photo{display:none}.type-row{grid-template-columns:1fr;gap:8px}.toolkit-grid{grid-template-columns:repeat(2,1fr)}.terminal-mockup-grid{height:auto}}
+@media (max-width:720px){.cell.wide,.button-cell.wide,.component-cell.wide{grid-column:span 1}.nav{padding: 0 48px;height:auto;min-height:56px}.nav-links{display:none}.hero{padding:48px 20px}.hero h1{font-size:32px;letter-spacing:-1px}.hero p{font-size:16px}section{padding:48px 20px}.section-heading{font-size:24px}.palette-grid,.button-grid,.card-grid,.form-grid,.elevation-grid,.toolkit-grid{grid-template-columns:1fr!important;gap:16px}.terminal-mockup-grid{grid-template-columns:1fr;grid-template-rows:auto;height:auto}.spacing-row,.radius-row{gap:12px}.responsive-table{font-size:12px}.responsive-table th,.responsive-table td{padding:10px 8px}.device-ladder{gap:8px}.footer{padding:24px 16px;font-size:12px}}
+.nav-left{display:flex;align-items:center;gap:20px}
+.nav-brand-link,.nav-brand-link:link,.nav-brand-link:visited,.nav-brand-link:hover,.nav-brand-link:active{text-decoration:none;color:inherit}
+.nav-brand{font-family:var(--display);font-weight:600;font-size:16px;color:var(--body-strong)}
+.nav-github,.nav-github:link,.nav-github:visited,.nav-github:hover,.nav-github:active{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;color:inherit;text-decoration:none;padding:5px 10px;border:1px solid rgba(128,128,128,0.3);border-radius:6px;opacity:0.75;transition:opacity 200ms ease,border-color 200ms ease;font-family:inherit;line-height:1;white-space:nowrap}
+.nav-github:hover{opacity:1;border-color:rgba(128,128,128,0.55)}
+.nav-github svg{display:block;flex-shrink:0}
+.nav{display:grid;grid-template-columns:1fr auto 1fr;align-items:center}
+.nav>.nav-left{justify-self:start}
+.nav>.nav-links{justify-self:center}
+.nav>:last-child{justify-self:end}
+.nav .nav-github{color:#fff;border-color:rgba(255,255,255,0.25)}
+.nav .nav-github:hover{border-color:rgba(255,255,255,0.5)}
+</style></head>
 <body>
-<!-- NAV -->
 <nav class="nav">
   <div class="nav-left">
-    <a rel="noopener noreferrer" class="nav-brand-link">
-      <span class="nav-brand">Design Viewer</span>
-    </a>
+    <a rel="noopener noreferrer" class="nav-brand-link"><span class="nav-brand">Design Viewer</span></a>
     
   </div>
-  <div class="nav-links">
-    <a href="#colors">Colors</a>
-    <a href="#typography">Typography</a>
-    <a href="#buttons">Buttons</a>
-    <a href="#cards">Cards</a>
-    <a href="#forms">Forms</a>
-    <a href="#spacing">Spacing</a>
-    <a href="#elevation">Elevation</a>
-    
-  </div>
-  <button class="nav-cta">Get Started</button>
-
+  <ul class="nav-links"><li><a href="#colors">Colors</a></li><li><a href="#typography">Typography</a></li><li><a href="#components">Components</a></li><li><a href="#responsive">Responsive</a></li></ul>
+  <button class="nav-cta">Get started</button>
 </nav>
+<div class="hero">
+  <div class="hero-content">
+    <h1>Design System Inspiration of Composio</h1>
+    <p>AI-agent tool integration platform. Deep electric blue (#0007cd) on compact 8px-radius CTAs — developer-tool dialect on a dark monolithic canvas.</p>
+    <div class="hero-actions">
+      <button class="btn-hero-primary">Get started</button>
+      <button class="btn-hero-secondary">View docs</button>
+    </div>
+  </div>
+  </div>
 
-<!-- HERO -->
-<section class="hero">
-  <h1>Design System<br>Inspired by Composio</h1>
-  <p>Auto-generated design token catalog from DESIGN.md — Dark Mode</p>
-  <div class="hero-buttons">
-    <button class="btn-primary">Explore Tokens</button>
-    <button class="btn-cyan">View Source</button>
+<section id="colors">
+  <div class="section-label">01 — Color Palette</div>
+  <h2 class="section-heading">Composio Blue + monolithic dark</h2>
+  <p class="section-intro">Single brand voltage on a near-black canvas. Brightness-step ladder for elevation; cyan/violet are illustrative-only.</p>
+  <div class="palette-group"><h3>Brand</h3><div class="palette-grid">
+    <div class="swatch"><div class="swatch-color" style="background:#0007cd"></div><div class="swatch-meta"><div class="swatch-name">primary</div><div class="swatch-hex">#0007cd</div><div class="swatch-role">All primary CTAs, wordmark, spotlight glow center.</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#0005a3"></div><div class="swatch-meta"><div class="swatch-name">primary-active</div><div class="swatch-hex">#0005a3</div><div class="swatch-role">Press state.</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#1a26ff"></div><div class="swatch-meta"><div class="swatch-name">primary-glow</div><div class="swatch-hex">#1a26ff</div><div class="swatch-role">Inside radial atmospheric glows.</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#00d4ff"></div><div class="swatch-meta"><div class="swatch-name">accent-cyan</div><div class="swatch-hex">#00d4ff</div><div class="swatch-role">Sparingly on data-flow visualizations.</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#7b3aed"></div><div class="swatch-meta"><div class="swatch-name">accent-violet</div><div class="swatch-hex">#7b3aed</div><div class="swatch-role">Inside specific product illustrations only.</div></div></div>
+  </div></div>
+  <div class="palette-group"><h3>Surface</h3><div class="palette-grid">
+    <div class="swatch"><div class="swatch-color" style="background:#0f0f0f"></div><div class="swatch-meta"><div class="swatch-name">canvas</div><div class="swatch-hex">#0f0f0f</div><div class="swatch-role">Page floor.</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#000"></div><div class="swatch-meta"><div class="swatch-name">canvas-deep</div><div class="swatch-hex">#000000</div><div class="swatch-role">Terminal mockup grid background, code blocks.</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#181818"></div><div class="swatch-meta"><div class="swatch-name">surface-card</div><div class="swatch-hex">#181818</div><div class="swatch-role">Default content card.</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#222"></div><div class="swatch-meta"><div class="swatch-name">surface-card-elevated</div><div class="swatch-hex">#222222</div><div class="swatch-role">Terminal panes, secondary buttons.</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#2a2a2a"></div><div class="swatch-meta"><div class="swatch-name">surface-strong</div><div class="swatch-hex">#2a2a2a</div><div class="swatch-role">Dropdown menus.</div></div></div>
+  </div></div>
+  <div class="palette-group"><h3>Text &amp; Hairlines</h3><div class="palette-grid">
+    <div class="swatch"><div class="swatch-color" style="background:#fff;border-bottom:1px solid #222"></div><div class="swatch-meta"><div class="swatch-name">ink</div><div class="swatch-hex">#ffffff</div><div class="swatch-role">Display headlines.</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#a8a8a8"></div><div class="swatch-meta"><div class="swatch-name">body</div><div class="swatch-hex">#a8a8a8</div><div class="swatch-role">Default running-text.</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#888"></div><div class="swatch-meta"><div class="swatch-name">muted</div><div class="swatch-hex">#888888</div><div class="swatch-role">Sub-titles.</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#666"></div><div class="swatch-meta"><div class="swatch-name">muted-soft</div><div class="swatch-hex">#666666</div><div class="swatch-role">Disabled text.</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#222"></div><div class="swatch-meta"><div class="swatch-name">hairline</div><div class="swatch-hex">#222222</div><div class="swatch-role">1px divider.</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#333"></div><div class="swatch-meta"><div class="swatch-name">hairline-strong</div><div class="swatch-hex">#333333</div><div class="swatch-role">Stronger panel outline.</div></div></div>
+  </div></div>
+  <div class="palette-group"><h3>Semantic</h3><div class="palette-grid">
+    <div class="swatch"><div class="swatch-color" style="background:#33d17a"></div><div class="swatch-meta"><div class="swatch-name">success</div><div class="swatch-hex">#33d17a</div><div class="swatch-role">Online indicators.</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#ff4d4d"></div><div class="swatch-meta"><div class="swatch-name">error</div><div class="swatch-hex">#ff4d4d</div><div class="swatch-role">Validation errors.</div></div></div>
+  </div></div>
+</section>
+
+<section id="typography">
+  <div class="section-label">02 — Typography</div>
+  <h2 class="section-heading">abcDiatype 500 + JetBrains Mono</h2>
+  <p class="section-intro">Single sans family across every text role; mono on every code surface.</p>
+  <div class="type-row"><div class="type-meta"><strong>display-mega</strong>72px / 500 / 1.05 / -2.16px</div><div class="type-sample" style="font-family:var(--display);font-size:64px;font-weight:500;letter-spacing:-2.16px">Your agent decides what to do.</div></div>
+  <div class="type-row"><div class="type-meta"><strong>display-xl</strong>56px / 500 / 1.05 / -1.68px</div><div class="type-sample" style="font-family:var(--display);font-size:48px;font-weight:500;letter-spacing:-1.68px">Composio for sales</div></div>
+  <div class="type-row"><div class="type-meta"><strong>display-lg</strong>44px / 500 / 1.1 / -1.32px</div><div class="type-sample" style="font-family:var(--display);font-size:40px;font-weight:500;letter-spacing:-1.32px">Section heading</div></div>
+  <div class="type-row"><div class="type-meta"><strong>display-md</strong>32px / 500 / 1.15 / -0.96px</div><div class="type-sample" style="font-family:var(--display);font-size:32px;font-weight:500;letter-spacing:-0.96px">Sub-section heading</div></div>
+  <div class="type-row"><div class="type-meta"><strong>title-md</strong>18px / 600 / 1.4</div><div class="type-sample" style="font-size:18px;font-weight:600">Component title</div></div>
+  <div class="type-row"><div class="type-meta"><strong>body-md</strong>16px / 400 / 1.5</div><div class="type-sample" style="font-size:16px">Default body — soft gray on dark canvas.</div></div>
+  <div class="type-row"><div class="type-meta"><strong>body-sm</strong>14px / 400 / 1.5</div><div class="type-sample" style="font-size:14px">Footer body.</div></div>
+  <div class="type-row"><div class="type-meta"><strong>caption-uppercase</strong>11px / 600 / 1.4 / 0.88px</div><div class="type-sample" style="font-size:11px;font-weight:600;letter-spacing:0.88px;text-transform:uppercase">Section label</div></div>
+  <div class="type-row"><div class="type-meta"><strong>code</strong>13px / 400 / 1.5 (JetBrains Mono)</div><div class="type-sample" style="font-family:var(--mono);font-size:13px">composio.tools().run({task: 'analyze'})</div></div>
+  <div class="type-row"><div class="type-meta"><strong>button</strong>14px / 500 / 1.0</div><div class="type-sample" style="font-size:14px;font-weight:500">Get started</div></div>
+  <div class="type-row"><div class="type-meta"><strong>nav-link</strong>14px / 500 / 1.4</div><div class="type-sample" style="font-size:14px;font-weight:500">Product · Toolkits · Docs · Pricing</div></div>
+</section>
+
+<section id="components">
+  <div class="section-label">03 — Buttons</div>
+  <h2 class="section-heading">8px radius — developer dialect</h2>
+  <p class="section-intro">Compact CTAs at 8px radius, not full pills. Brightness-step secondaries.</p>
+  <div class="button-grid">
+    <div class="button-cell"><div class="button-label">button-primary</div><button class="btn btn-primary">Get started</button><div class="button-meta">Composio Blue / 8px / 40px height</div></div>
+    <div class="button-cell"><div class="button-label">button-primary-active</div><button class="btn btn-primary-active">Pressed</button><div class="button-meta">Deeper press state.</div></div>
+    <div class="button-cell"><div class="button-label">button-secondary-dark</div><button class="btn btn-secondary-dark">View docs</button><div class="button-meta">Surface-elevated.</div></div>
+    <div class="button-cell"><div class="button-label">button-outline</div><button class="btn btn-outline">Learn more</button><div class="button-meta">Transparent + hairline border.</div></div>
+    <div class="button-cell"><div class="button-label">button-tertiary-text</div><button class="btn btn-tertiary-text">Documentation →</button><div class="button-meta">Inline body-color text.</div></div>
   </div>
 </section>
 
-<hr class="section-divider">
-
-<!-- COLORS -->
-<section class="section" id="colors">
-  <div class="section-title">01 / Color Palette</div>
-  <h2 class="section-heading">Color Palette &amp; Roles</h2>
-
-  <div class="color-group">
-    <h3 class="color-group-title">Primary</h3>
-    <div class="color-grid">
-      <div class="color-swatch">
-        <div class="color-swatch-block" style="background: #0007cd;"></div>
-        <div class="color-swatch-info">
-          <div class="color-swatch-name">Composio Cobalt</div>
-          <div class="color-swatch-hex">#0007cd</div>
-          <div class="color-swatch-role">Core brand color for high-priority interactive elements</div>
-        </div>
-      </div>
+<section>
+  <div class="section-label">04 — Terminal Mockup Grid</div>
+  <h2 class="section-heading">Brand signature: 2×2 panes</h2>
+  <p class="section-intro">The homepage hero anchor. canvas-deep outer + surface-card panes, JetBrains Mono code, blue spotlight glow behind.</p>
+  <div class="terminal-mockup-grid">
+    <div class="terminal-pane">
+      <span class="ln" style="color:var(--muted)">// agent.ts</span>
+      <span class="ln"><span style="color:var(--accent-cyan)">import</span> { Composio } <span style="color:var(--accent-cyan)">from</span> <span style="color:var(--semantic-success)">'composio'</span></span>
+      <span class="ln"></span>
+      <span class="ln"><span style="color:var(--accent-cyan)">const</span> tools = composio</span>
+      <span class="ln">  .tools()</span>
+      <span class="ln">  .filter(<span style="color:var(--semantic-success)">'sales'</span>)</span>
+      <span class="ln"></span>
+      <span class="ln"><span style="color:var(--accent-cyan)">await</span> agent.run(tools)</span>
     </div>
-  </div>
-
-  <div class="color-group">
-    <h3 class="color-group-title">Secondary &amp; Accent</h3>
-    <div class="color-grid">
-      <div class="color-swatch">
-        <div class="color-swatch-block" style="background: #00ffff;"></div>
-        <div class="color-swatch-info">
-          <div class="color-swatch-name">Electric Cyan</div>
-          <div class="color-swatch-hex">#00ffff</div>
-          <div class="color-swatch-role">Attention-grabbing accent for glows and highlights</div>
-        </div>
-      </div>
-      <div class="color-swatch">
-        <div class="color-swatch-block" style="background: #0089ff;"></div>
-        <div class="color-swatch-info">
-          <div class="color-swatch-name">Signal Blue</div>
-          <div class="color-swatch-hex">#0089ff</div>
-          <div class="color-swatch-role">Button borders and interactive focus states</div>
-        </div>
-      </div>
-      <div class="color-swatch">
-        <div class="color-swatch-block" style="background: #0096ff;"></div>
-        <div class="color-swatch-info">
-          <div class="color-swatch-name">Ocean Blue</div>
-          <div class="color-swatch-hex">#0096ff</div>
-          <div class="color-swatch-role">CTA button accent borders</div>
-        </div>
-      </div>
+    <div class="terminal-pane">
+      <span class="ln" style="color:var(--muted)">→ Running agent...</span>
+      <span class="ln" style="color:var(--semantic-success)">✓ slack: message posted</span>
+      <span class="ln" style="color:var(--semantic-success)">✓ github: PR opened</span>
+      <span class="ln" style="color:var(--semantic-success)">✓ stripe: invoice sent</span>
+      <span class="ln" style="color:var(--semantic-success)">✓ notion: doc updated</span>
+      <span class="ln"></span>
+      <span class="ln" style="color:var(--accent-cyan)">→ 4/4 tools succeeded</span>
     </div>
-  </div>
-
-  <div class="color-group">
-    <h3 class="color-group-title">Surface &amp; Background</h3>
-    <div class="color-grid">
-      <div class="color-swatch">
-        <div class="color-swatch-block" style="background: #000000; border-bottom: 1px solid var(--border-mist-08);"></div>
-        <div class="color-swatch-info">
-          <div class="color-swatch-name">Pure Black</div>
-          <div class="color-swatch-hex">#000000</div>
-          <div class="color-swatch-role">Dark mode page background</div>
-        </div>
-      </div>
-      <div class="color-swatch">
-        <div class="color-swatch-block" style="background: #0f0f0f; border-bottom: 1px solid var(--border-mist-08);"></div>
-        <div class="color-swatch-info">
-          <div class="color-swatch-name">Void Black</div>
-          <div class="color-swatch-hex">#0f0f0f</div>
-          <div class="color-swatch-role">Standard page background</div>
-        </div>
-      </div>
-      <div class="color-swatch">
-        <div class="color-swatch-block" style="background: #2c2c2c;"></div>
-        <div class="color-swatch-info">
-          <div class="color-swatch-name">Charcoal</div>
-          <div class="color-swatch-hex">#2c2c2c</div>
-          <div class="color-swatch-role">Secondary button borders and dividers</div>
-        </div>
-      </div>
+    <div class="terminal-pane">
+      <span class="ln" style="color:var(--muted)">// toolkits</span>
+      <span class="ln">▸ slack       (12 actions)</span>
+      <span class="ln">▸ github      (28 actions)</span>
+      <span class="ln">▸ stripe      (16 actions)</span>
+      <span class="ln">▸ notion      (10 actions)</span>
+      <span class="ln">▸ linear      (14 actions)</span>
+      <span class="ln">▸ hubspot     (22 actions)</span>
     </div>
-  </div>
-
-  <div class="color-group">
-    <h3 class="color-group-title">Neutrals &amp; Text</h3>
-    <div class="color-grid">
-      <div class="color-swatch">
-        <div class="color-swatch-block" style="background: #ffffff;"></div>
-        <div class="color-swatch-info">
-          <div class="color-swatch-name">Pure White</div>
-          <div class="color-swatch-hex">#ffffff</div>
-          <div class="color-swatch-role">Primary headings and high-emphasis text</div>
-        </div>
-      </div>
-      <div class="color-swatch">
-        <div class="color-swatch-block" style="background: #444444;"></div>
-        <div class="color-swatch-info">
-          <div class="color-swatch-name">Muted Smoke</div>
-          <div class="color-swatch-hex">#444444</div>
-          <div class="color-swatch-role">De-emphasized body text, metadata</div>
-        </div>
-      </div>
-      <div class="color-swatch">
-        <div class="color-swatch-block" style="background: rgba(255,255,255,0.6);"></div>
-        <div class="color-swatch-info">
-          <div class="color-swatch-name">Ghost White</div>
-          <div class="color-swatch-hex">rgba(255,255,255,0.6)</div>
-          <div class="color-swatch-role">Secondary body text and link labels</div>
-        </div>
-      </div>
-      <div class="color-swatch">
-        <div class="color-swatch-block" style="background: rgba(255,255,255,0.5);"></div>
-        <div class="color-swatch-info">
-          <div class="color-swatch-name">Whisper White</div>
-          <div class="color-swatch-hex">rgba(255,255,255,0.5)</div>
-          <div class="color-swatch-role">Tertiary button text and placeholders</div>
-        </div>
-      </div>
-      <div class="color-swatch">
-        <div class="color-swatch-block" style="background: rgba(255,255,255,0.2);"></div>
-        <div class="color-swatch-info">
-          <div class="color-swatch-name">Phantom White</div>
-          <div class="color-swatch-hex">rgba(255,255,255,0.2)</div>
-          <div class="color-swatch-role">Subtle button backgrounds and receded UI</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="color-group">
-    <h3 class="color-group-title">Border System</h3>
-    <div class="color-grid">
-      <div class="color-swatch">
-        <div class="color-swatch-block" style="background: var(--page-bg); display: flex; align-items: center; justify-content: center;"><div style="width: 60%; height: 60%; border: 1px solid rgba(255,255,255,0.12); border-radius: 4px;"></div></div>
-        <div class="color-swatch-info">
-          <div class="color-swatch-name">Border Mist 12</div>
-          <div class="color-swatch-hex">rgba(255,255,255,0.12)</div>
-          <div class="color-swatch-role">Prominent card edges, content separators</div>
-        </div>
-      </div>
-      <div class="color-swatch">
-        <div class="color-swatch-block" style="background: var(--page-bg); display: flex; align-items: center; justify-content: center;"><div style="width: 60%; height: 60%; border: 1px solid rgba(255,255,255,0.10); border-radius: 4px;"></div></div>
-        <div class="color-swatch-info">
-          <div class="color-swatch-name">Border Mist 10</div>
-          <div class="color-swatch-hex">rgba(255,255,255,0.10)</div>
-          <div class="color-swatch-role">Standard container borders</div>
-        </div>
-      </div>
-      <div class="color-swatch">
-        <div class="color-swatch-block" style="background: var(--page-bg); display: flex; align-items: center; justify-content: center;"><div style="width: 60%; height: 60%; border: 1px solid rgba(255,255,255,0.06); border-radius: 4px;"></div></div>
-        <div class="color-swatch-info">
-          <div class="color-swatch-name">Border Mist 06</div>
-          <div class="color-swatch-hex">rgba(255,255,255,0.06)</div>
-          <div class="color-swatch-role">Section dividers, subtle groupings</div>
-        </div>
-      </div>
-      <div class="color-swatch">
-        <div class="color-swatch-block" style="background: var(--page-bg); display: flex; align-items: center; justify-content: center;"><div style="width: 60%; height: 60%; border: 1px solid rgba(255,255,255,0.04); border-radius: 4px;"></div></div>
-        <div class="color-swatch-info">
-          <div class="color-swatch-name">Border Mist 04</div>
-          <div class="color-swatch-hex">rgba(255,255,255,0.04)</div>
-          <div class="color-swatch-role">Faintest atmospheric separation</div>
-        </div>
-      </div>
+    <div class="terminal-pane">
+      <span class="ln"><span style="color:var(--muted)">$</span> composio auth slack</span>
+      <span class="ln" style="color:var(--semantic-success)">✓ Workspace authorized</span>
+      <span class="ln"></span>
+      <span class="ln"><span style="color:var(--muted)">$</span> composio status</span>
+      <span class="ln" style="color:var(--semantic-success)">● 6 toolkits connected</span>
+      <span class="ln" style="color:var(--accent-cyan)">→ ready to run agents</span>
     </div>
   </div>
 </section>
 
-<hr class="section-divider">
-
-<!-- TYPOGRAPHY -->
-<section class="section" id="typography">
-  <div class="section-title">02 / Typography Scale</div>
-  <h2 class="section-heading">Typography Rules</h2>
-
-  <div class="type-sample">
-    <div class="type-sample-text" style="font-size: 64px; font-weight: 400; line-height: 0.87;">Display Hero</div>
-    <div class="type-sample-label">Display / Hero — 64px / 400 / 0.87 / normal — abcDiatype</div>
+<section>
+  <div class="section-label">05 — Cards &amp; Toolkits</div>
+  <h2 class="section-heading">Feature cards + toolkit grid</h2>
+  <p class="section-intro">Brightness-step layered cards. Toolkit cards in 4-up grid; feature cards in 3-up.</p>
+  <div class="card-grid" style="margin-bottom:32px">
+    <div class="feature-card"><div class="glyph">⚡</div><h4>Smart triggers</h4><p>Listen to events from any toolkit. Run agents on webhook fire.</p><button class="btn btn-tertiary-text">Learn more →</button></div>
+    <div class="feature-card"><div class="glyph">🔒</div><h4>Built-in auth</h4><p>OAuth flows, API keys, per-user credentials — managed.</p><button class="btn btn-tertiary-text">Learn more →</button></div>
+    <div class="feature-card"><div class="glyph">📊</div><h4>Observability</h4><p>Trace every tool call; replay agent runs; debug failures.</p><button class="btn btn-tertiary-text">Learn more →</button></div>
   </div>
-
-  <div class="type-sample">
-    <div class="type-sample-text" style="font-size: 48px; font-weight: 400; line-height: 1.0;">Section Heading</div>
-    <div class="type-sample-label">Section Heading — 48px / 400 / 1.00 / normal — abcDiatype</div>
-  </div>
-
-  <div class="type-sample">
-    <div class="type-sample-text" style="font-size: 40px; font-weight: 400; line-height: 1.0;">Sub-heading Large</div>
-    <div class="type-sample-label">Sub-heading Large — 40px / 400 / 1.00 / normal — abcDiatype</div>
-  </div>
-
-  <div class="type-sample">
-    <div class="type-sample-text" style="font-size: 28px; font-weight: 400; line-height: 1.2;">Sub-heading</div>
-    <div class="type-sample-label">Sub-heading — 28px / 400 / 1.20 / normal — abcDiatype</div>
-  </div>
-
-  <div class="type-sample">
-    <div class="type-sample-text" style="font-size: 24px; font-weight: 500; line-height: 1.2;">Card Title</div>
-    <div class="type-sample-label">Card Title — 24px / 500 / 1.20 / normal — abcDiatype</div>
-  </div>
-
-  <div class="type-sample">
-    <div class="type-sample-text" style="font-size: 20px; font-weight: 500; line-height: 1.2;">Feature Label</div>
-    <div class="type-sample-label">Feature Label — 20px / 500 / 1.20 / normal — abcDiatype</div>
-  </div>
-
-  <div class="type-sample">
-    <div class="type-sample-text" style="font-size: 18px; font-weight: 400; line-height: 1.2;">Body Large</div>
-    <div class="type-sample-label">Body Large — 18px / 400 / 1.20 / normal — abcDiatype</div>
-  </div>
-
-  <div class="type-sample">
-    <div class="type-sample-text" style="font-size: 16px; font-weight: 400; line-height: 1.5;">Body / Button Text</div>
-    <div class="type-sample-label">Body / Button — 16px / 400 / 1.50 / normal — abcDiatype</div>
-  </div>
-
-  <div class="type-sample">
-    <div class="type-sample-text" style="font-size: 15px; font-weight: 400; line-height: 1.63;">Body Small — used for longer-form content blocks</div>
-    <div class="type-sample-label">Body Small — 15px / 400 / 1.63 / normal — abcDiatype</div>
-  </div>
-
-  <div class="type-sample">
-    <div class="type-sample-text" style="font-size: 14px; font-weight: 400; line-height: 1.63; color: var(--ghost-white);">Caption text for descriptions and metadata</div>
-    <div class="type-sample-label">Caption — 14px / 400 / 1.63 / normal — abcDiatype</div>
-  </div>
-
-  <div class="type-sample">
-    <div class="type-sample-text" style="font-size: 13px; font-weight: 500; line-height: 1.5;">Label Text</div>
-    <div class="type-sample-label">Label — 13px / 500 / 1.50 / normal — abcDiatype</div>
-  </div>
-
-  <div class="type-sample">
-    <div class="type-sample-text" style="font-size: 12px; font-weight: 500; line-height: 1.0; text-transform: uppercase; letter-spacing: 0.3px;">TAG / OVERLINE</div>
-    <div class="type-sample-label">Tag / Overline — 12px / 500 / 1.00 / 0.3px / uppercase — abcDiatype</div>
-  </div>
-
-  <div class="type-sample">
-    <div class="type-sample-text" style="font-family: var(--font-mono); font-size: 16px; font-weight: 400; line-height: 1.5; letter-spacing: -0.32px;">const agent = composio.create({ tools: ["github", "slack"] })</div>
-    <div class="type-sample-label">Code Body — 16px / 400 / 1.50 / -0.32px — JetBrains Mono</div>
-  </div>
-
-  <div class="type-sample">
-    <div class="type-sample-text" style="font-family: var(--font-mono); font-size: 14px; font-weight: 400; line-height: 1.5; letter-spacing: -0.28px;">npx composio-cli init --framework langchain</div>
-    <div class="type-sample-label">Code Small — 14px / 400 / 1.50 / -0.28px — JetBrains Mono</div>
-  </div>
-
-  <div class="type-sample">
-    <div class="type-sample-text" style="font-family: var(--font-mono); font-size: 12px; font-weight: 400; line-height: 1.5; letter-spacing: -0.28px;">import { Composio } from "composio-core"</div>
-    <div class="type-sample-label">Code Caption — 12px / 400 / 1.50 / -0.28px — JetBrains Mono</div>
-  </div>
-
-  <div class="type-sample">
-    <div class="type-sample-text" style="font-family: var(--font-mono); font-size: 14px; font-weight: 400; line-height: 1.43; text-transform: uppercase; letter-spacing: 0.7px;">CODE OVERLINE</div>
-    <div class="type-sample-label">Code Overline — 14px / 400 / 1.43 / 0.7px / uppercase — JetBrains Mono</div>
-  </div>
-
-  <div class="type-sample">
-    <div class="type-sample-text" style="font-family: var(--font-mono); font-size: 11px; font-weight: 400; line-height: 1.33; text-transform: uppercase; letter-spacing: 0.55px;">CODE MICRO TAG</div>
-    <div class="type-sample-label">Code Micro — 11px / 400 / 1.33 / 0.55px / uppercase — JetBrains Mono</div>
+  <div class="toolkit-grid">
+    <div class="toolkit-card"><div class="icon">SL</div><h5>Slack</h5><p>12 actions</p></div>
+    <div class="toolkit-card"><div class="icon">GH</div><h5>GitHub</h5><p>28 actions</p></div>
+    <div class="toolkit-card"><div class="icon">ST</div><h5>Stripe</h5><p>16 actions</p></div>
+    <div class="toolkit-card"><div class="icon">NT</div><h5>Notion</h5><p>10 actions</p></div>
+    <div class="toolkit-card"><div class="icon">LN</div><h5>Linear</h5><p>14 actions</p></div>
+    <div class="toolkit-card"><div class="icon">HB</div><h5>HubSpot</h5><p>22 actions</p></div>
+    <div class="toolkit-card"><div class="icon">GD</div><h5>Google Drive</h5><p>18 actions</p></div>
+    <div class="toolkit-card"><div class="icon">SF</div><h5>Salesforce</h5><p>30 actions</p></div>
   </div>
 </section>
 
-<hr class="section-divider">
-
-<!-- BUTTONS -->
-<section class="section" id="buttons">
-  <div class="section-title">03 / Button Variants</div>
-  <h2 class="section-heading">Buttons</h2>
-
-  <div class="button-row">
-    <div class="button-demo">
-      <button class="btn-primary">Get Started</button>
-      <div class="button-demo-label">Primary / White Fill</div>
-    </div>
-    <div class="button-demo">
-      <button class="btn-cyan">View Docs</button>
-      <div class="button-demo-label">Cyan Accent CTA</div>
-    </div>
-    <div class="button-demo">
-      <button class="btn-ghost-blue">Learn More</button>
-      <div class="button-demo-label">Ghost / Signal Blue</div>
-    </div>
-    <div class="button-demo">
-      <button class="btn-ghost-charcoal">Secondary</button>
-      <div class="button-demo-label">Ghost / Charcoal</div>
-    </div>
-    <div class="button-demo">
-      <button class="btn-phantom">Dismiss</button>
-      <div class="button-demo-label">Phantom</div>
-    </div>
-  </div>
+<section>
+  <div class="section-label">06 — Spotlight Glow Card</div>
+  <h2 class="section-heading">CTA atmospheric depth</h2>
+  <p class="section-intro">Centered display headline with radial blue glow behind. The atmospheric pattern.</p>
+  <div class="spotlight-glow-card"><h3>Your agents are ready. Are you?</h3></div>
 </section>
 
-<hr class="section-divider">
-
-<!-- CARDS -->
-<section class="section" id="cards">
-  <div class="section-title">04 / Card Examples</div>
-  <h2 class="section-heading">Cards &amp; Containers</h2>
-
-  <div class="card-grid">
-    <div class="card card-standard">
-      <div class="card-label">Standard Card</div>
-      <h3>Border Mist 08</h3>
-      <p>Standard content card with subtle white border at 8% opacity on pure black surface. Deeper darkness for the dark mode variant.</p>
-    </div>
-    <div class="card card-brutalist">
-      <div class="card-label">Brutalist Shadow</div>
-      <h3>Hard Offset 4px</h3>
-      <p>Hard-offset shadow intensified to 40% opacity on pure black. The brutalist personality cuts deeper against the absolute dark.</p>
-    </div>
-    <div class="card card-glow">
-      <div class="card-label">Floating + Glow</div>
-      <h3>Cyan Glow Halo</h3>
-      <p>Soft diffuse shadow at 70% opacity with restrained cyan glow. The deeper black makes the glow more pronounced.</p>
-    </div>
-  </div>
+<section>
+  <div class="section-label">07 — Code Block</div>
+  <h2 class="section-heading">JetBrains Mono on canvas-deep</h2>
+  <div class="code-block"><span class="c">// Quickstart — connect a toolkit and run an agent</span><br><span class="k">import</span> { Composio } <span class="k">from</span> <span class="s">'composio'</span><br><br><span class="k">const</span> composio = <span class="k">new</span> Composio({ apiKey: process.env.COMPOSIO_KEY })<br><span class="k">const</span> tools = <span class="k">await</span> composio.tools().filter(<span class="s">'slack'</span>)<br><span class="k">const</span> result = <span class="k">await</span> agent.run({ tools, task: <span class="s">'post weekly update'</span> })</div>
 </section>
 
-<hr class="section-divider">
-
-<!-- FORMS -->
-<section class="section" id="forms">
-  <div class="section-title">05 / Form Elements</div>
-  <h2 class="section-heading">Inputs &amp; Forms</h2>
-
+<section>
+  <div class="section-label">08 — Forms</div>
+  <h2 class="section-heading">Inputs</h2>
   <div class="form-grid">
-    <div>
-      <div class="form-group">
-        <label class="form-label">Default Input</label>
-        <input type="text" class="form-input" placeholder="Enter your API key...">
-      </div>
-      <div class="form-group">
-        <label class="form-label">Focus State</label>
-        <input type="text" class="form-input form-input-focus" value="composio-api-key-xxxxx">
-      </div>
-      <div class="form-group">
-        <label class="form-label">Error State</label>
-        <input type="text" class="form-input form-input-error" value="invalid-key">
-        <div class="form-error-text">Invalid API key format</div>
-      </div>
-    </div>
-    <div>
-      <div class="form-group">
-        <label class="form-label">Textarea</label>
-        <textarea class="form-input" placeholder="Describe your agent's task..."></textarea>
-      </div>
-    </div>
+    <div class="form-cell"><label class="form-label">Email</label><input class="text-input" type="email" placeholder="you@example.com"></div>
+    <div class="form-cell"><label class="form-label">API Key</label><input class="text-input focused" type="text" value="sk_live_••••••••"></div>
+    <div class="form-cell"><label class="form-label">Workspace</label><input class="text-input" type="text" placeholder="Search workspaces"></div>
   </div>
 </section>
 
-<hr class="section-divider">
+<section>
+  <div class="section-label">09 — Badges</div>
+  <p class="section-intro">Small uppercase pills.</p>
+  <div style="display:flex;gap:12px;flex-wrap:wrap">
+    <span class="badge-pill">New</span><span class="badge-pill">Beta</span><span class="badge-pill">Stable</span><span class="badge-pill">Pro</span>
+  </div>
+</section>
 
-<!-- SPACING -->
-<section class="section" id="spacing">
-  <div class="section-title">06 / Spacing Scale</div>
-  <h2 class="section-heading">Spacing System</h2>
-  <p style="color: var(--ghost-white); margin-bottom: 32px;">Base unit: 8px. Scale builds from 1px to 40px.</p>
-
+<section>
+  <div class="section-label">10 — Spacing Scale</div>
+  <p class="section-intro">4px base, 96px section rhythm.</p>
   <div class="spacing-row">
-    <div class="spacing-item">
-      <div class="spacing-box" style="width: 4px; height: 4px;"></div>
-      <div class="spacing-label">1px</div>
-    </div>
-    <div class="spacing-item">
-      <div class="spacing-box" style="width: 8px; height: 8px;"></div>
-      <div class="spacing-label">2px</div>
-    </div>
-    <div class="spacing-item">
-      <div class="spacing-box" style="width: 16px; height: 16px;"></div>
-      <div class="spacing-label">4px</div>
-    </div>
-    <div class="spacing-item">
-      <div class="spacing-box" style="width: 24px; height: 24px;"></div>
-      <div class="spacing-label">6px</div>
-    </div>
-    <div class="spacing-item">
-      <div class="spacing-box" style="width: 32px; height: 32px;"></div>
-      <div class="spacing-label">8px</div>
-    </div>
-    <div class="spacing-item">
-      <div class="spacing-box" style="width: 40px; height: 40px;"></div>
-      <div class="spacing-label">10px</div>
-    </div>
-    <div class="spacing-item">
-      <div class="spacing-box" style="width: 48px; height: 48px;"></div>
-      <div class="spacing-label">12px</div>
-    </div>
-    <div class="spacing-item">
-      <div class="spacing-box" style="width: 56px; height: 56px;"></div>
-      <div class="spacing-label">14px</div>
-    </div>
-    <div class="spacing-item">
-      <div class="spacing-box" style="width: 64px; height: 64px;"></div>
-      <div class="spacing-label">16px</div>
-    </div>
-    <div class="spacing-item">
-      <div class="spacing-box" style="width: 72px; height: 72px;"></div>
-      <div class="spacing-label">18px</div>
-    </div>
-    <div class="spacing-item">
-      <div class="spacing-box" style="width: 80px; height: 80px;"></div>
-      <div class="spacing-label">20px</div>
-    </div>
-    <div class="spacing-item">
-      <div class="spacing-box" style="width: 96px; height: 96px;"></div>
-      <div class="spacing-label">24px</div>
-    </div>
-    <div class="spacing-item">
-      <div class="spacing-box" style="width: 120px; height: 120px;"></div>
-      <div class="spacing-label">30px</div>
-    </div>
-    <div class="spacing-item">
-      <div class="spacing-box" style="width: 128px; height: 128px;"></div>
-      <div class="spacing-label">32px</div>
-    </div>
-    <div class="spacing-item">
-      <div class="spacing-box" style="width: 160px; height: 160px;"></div>
-      <div class="spacing-label">40px</div>
-    </div>
+    <div class="spacing-block"><div class="spacing-bar" style="width:4px"></div><div class="spacing-label">xxs · 4</div></div>
+    <div class="spacing-block"><div class="spacing-bar" style="width:8px"></div><div class="spacing-label">xs · 8</div></div>
+    <div class="spacing-block"><div class="spacing-bar" style="width:12px"></div><div class="spacing-label">sm · 12</div></div>
+    <div class="spacing-block"><div class="spacing-bar" style="width:16px"></div><div class="spacing-label">base · 16</div></div>
+    <div class="spacing-block"><div class="spacing-bar" style="width:20px"></div><div class="spacing-label">md · 20</div></div>
+    <div class="spacing-block"><div class="spacing-bar" style="width:24px"></div><div class="spacing-label">lg · 24</div></div>
+    <div class="spacing-block"><div class="spacing-bar" style="width:32px"></div><div class="spacing-label">xl · 32</div></div>
+    <div class="spacing-block"><div class="spacing-bar" style="width:48px"></div><div class="spacing-label">xxl · 48</div></div>
+    <div class="spacing-block"><div class="spacing-bar" style="width:96px"></div><div class="spacing-label">section · 96</div></div>
   </div>
 </section>
 
-<hr class="section-divider">
-
-<!-- BORDER RADIUS -->
-<section class="section">
-  <div class="section-title">07 / Border Radius Scale</div>
-  <h2 class="section-heading">Border Radius</h2>
-
+<section>
+  <div class="section-label">11 — Border Radius</div>
+  <p class="section-intro">Compact developer-ergonomic radii.</p>
   <div class="radius-row">
-    <div class="radius-item">
-      <div class="radius-box" style="border-radius: 0px;"></div>
-      <div class="radius-label">0px</div>
-      <div class="radius-context">Sharp / None</div>
-    </div>
-    <div class="radius-item">
-      <div class="radius-box" style="border-radius: 2px;"></div>
-      <div class="radius-label">2px</div>
-      <div class="radius-context">Nearly squared</div>
-    </div>
-    <div class="radius-item">
-      <div class="radius-box" style="border-radius: 4px;"></div>
-      <div class="radius-label">4px</div>
-      <div class="radius-context">Subtly rounded</div>
-    </div>
-    <div class="radius-item">
-      <div class="radius-box" style="border-radius: 37px;"></div>
-      <div class="radius-label">37px</div>
-      <div class="radius-context">Pill-shaped</div>
-    </div>
-    <div class="radius-item">
-      <div class="radius-box" style="border-radius: 9999px;"></div>
-      <div class="radius-label">9999px</div>
-      <div class="radius-context">Full round</div>
-    </div>
+    <div class="radius-block" style="border-radius:0">0 · none</div>
+    <div class="radius-block" style="border-radius:4px">4 · xs</div>
+    <div class="radius-block" style="border-radius:6px">6 · sm</div>
+    <div class="radius-block" style="border-radius:8px">8 · md</div>
+    <div class="radius-block" style="border-radius:12px">12 · lg</div>
+    <div class="radius-block" style="border-radius:16px">16 · xl</div>
+    <div class="radius-block" style="border-radius:9999px">pill</div>
   </div>
 </section>
 
-<hr class="section-divider">
-
-<!-- ELEVATION -->
-<section class="section" id="elevation">
-  <div class="section-title">08 / Elevation &amp; Depth</div>
-  <h2 class="section-heading">Depth &amp; Elevation</h2>
-
+<section>
+  <div class="section-label">12 — Elevation &amp; Depth</div>
+  <p class="section-intro">Brightness-step ladder + atmospheric blue glow.</p>
   <div class="elevation-grid">
-    <div class="elevation-card elevation-flat">
-      <div>
-        <div class="elevation-name">Flat</div>
-        <div class="elevation-desc">No shadow, no border. Page background and inline text.</div>
-      </div>
-      <div class="elevation-level">Level 0</div>
-    </div>
-    <div class="elevation-card elevation-contained">
-      <div>
-        <div class="elevation-name">Contained</div>
-        <div class="elevation-desc">Border Mist 04. Background groupings, subtle sections.</div>
-      </div>
-      <div class="elevation-level">Level 1</div>
-    </div>
-    <div class="elevation-card elevation-standard">
-      <div>
-        <div class="elevation-name">Card</div>
-        <div class="elevation-desc">Border Mist 08. Standard content cards, code blocks.</div>
-      </div>
-      <div class="elevation-level">Level 2</div>
-    </div>
-    <div class="elevation-card elevation-brutalist">
-      <div>
-        <div class="elevation-name">Brutalist</div>
-        <div class="elevation-desc">Hard offset shadow (4px 4px, 40% black). Distinctive feature highlights.</div>
-      </div>
-      <div class="elevation-level">Level 3</div>
-    </div>
-    <div class="elevation-card elevation-floating">
-      <div>
-        <div class="elevation-name">Floating</div>
-        <div class="elevation-desc">Soft diffuse shadow (0px 8px 32px, 70% black). Modals, overlays.</div>
-      </div>
-      <div class="elevation-level">Level 4</div>
-    </div>
+    <div class="elevation-card canvas"><h5>Flat / Canvas</h5><p>#0f0f0f — body bands, footer.</p></div>
+    <div class="elevation-card recessed"><h5>Recessed</h5><p>#000000 — terminal grids, code blocks.</p></div>
+    <div class="elevation-card card-bg"><h5>Card</h5><p>#181818 — default content cards.</p></div>
+    <div class="elevation-card elevated"><h5>Card Elevated</h5><p>#222222 — terminal panes, secondary buttons.</p></div>
   </div>
 </section>
 
-<div style="height: 80px;"></div>
+<section id="responsive">
+  <div class="section-label">13 — Responsive Behavior</div>
+  <table class="responsive-table">
+    <thead><tr><th>Name</th><th>Width</th><th>Key Changes</th></tr></thead>
+    <tbody>
+      <tr><td>Mobile</td><td>&lt; 640px</td><td>Hero h1 72→32px; terminal grid collapses to single pane; toolkit grid 1-up; nav hamburger.</td></tr>
+      <tr><td>Tablet</td><td>640–1024px</td><td>Hero h1 56px; terminal grid 2×2; toolkit grid 2-up.</td></tr>
+      <tr><td>Desktop</td><td>1024–1280px</td><td>Full hero h1 72px; toolkit grid 4-up.</td></tr>
+      <tr><td>Wide</td><td>&gt; 1280px</td><td>Content caps at 1200px.</td></tr>
+    </tbody>
+  </table>
+  <div class="device-ladder">
+    <div class="device-bar" style="width:60px;height:120px">375<br>mobile</div>
+    <div class="device-bar" style="width:90px;height:140px">640<br>small</div>
+    <div class="device-bar" style="width:140px;height:160px">768<br>tablet</div>
+    <div class="device-bar" style="width:200px;height:180px">1024<br>laptop</div>
+    <div class="device-bar" style="width:260px;height:200px">1280<br>desktop</div>
+  </div>
+  <div class="responsive-sub"><h4>Touch Targets</h4><ul><li>Primary CTA at 40px height — at WCAG AA, padded for AAA.</li><li>Search input 40px.</li></ul></div>
+  <div class="responsive-sub"><h4>Collapsing Strategy</h4><ul><li>Top nav switches to hamburger below 768px.</li><li>Terminal mockup 2×2 collapses to single pane on mobile.</li><li>Toolkit grid: 4-up → 2-up → 1-up.</li><li>Hero spotlight glow stays at every breakpoint.</li></ul></div>
+</section>
 
 
 

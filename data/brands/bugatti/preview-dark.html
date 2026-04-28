@@ -4,590 +4,256 @@
 <title>Design System Inspiration of Bugatti</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;500;700&amp;family=Space+Mono:wght@400;700&amp;family=Inter:wght@400;500&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@400;500&amp;family=EB+Garamond:wght@400;500&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
 <style>
   :root {
-    --velvet-black: #000000;
-    --showroom-white: #ffffff;
-    --silver-mist: #999999;
-
-    --canvas: #000000;
-    --canvas-inverted: #ffffff;
-    --primary-text: #ffffff;
-    --secondary-text: #cccccc;
-    --tertiary-text: #999999;
-    --hairline: rgba(255, 255, 255, 0.12);
-    --hairline-strong: #999999;
-
-    --font-display: 'Unbounded', 'Bugatti Display', ui-sans-serif, system-ui, sans-serif;
-    --font-mono: 'Space Mono', 'Bugatti Monospace', ui-sans-serif, system-ui, monospace;
-    --font-text: 'Inter', 'Bugatti Text Regular', ui-sans-serif, system-ui, sans-serif;
+    --primary: #ffffff;
+    --ink: #ffffff;
+    --body: rgba(255,255,255,0.85);
+    --body-strong: #ffffff;
+    --muted: rgba(255,255,255,0.6);
+    --muted-soft: rgba(255,255,255,0.4);
+    --hairline: rgba(255,255,255,0.12);
+    --hairline-strong: rgba(255,255,255,0.22);
+    --canvas: #0c0c0e;
+    --surface-soft: #161618;
+    --surface-card: #161618;
+    --surface-elevated: #1f1f1f;
+    --on-primary: #000000;
+    --on-dark: #ffffff;
+    --link: #c3d9f3;
+    --warning: #d4a017;
+    --success: #5fa657;
+    --display: 'Saira Condensed', 'Bugatti Display', sans-serif;
+    --text: 'EB Garamond', 'Bugatti Text Regular', serif;
+    --mono: 'JetBrains Mono', 'Bugatti Monospace', ui-monospace, monospace;
   }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
-  body {
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
     background: var(--canvas);
-    color: var(--primary-text);
-    font-family: var(--font-text);
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 1.50;
-  }
-  a { color: inherit; text-decoration: none; transition: opacity 250ms ease; }
-  a:hover { opacity: 0.65; }
-  button { font-family: inherit; cursor: pointer; border: none; background: none; }
-
-  /* NAV */
-  .nav {
-    position: sticky; top: 0; z-index: 100;
-    padding: 18px 48px;
-    background: var(--canvas);
-    border-bottom: 1px solid var(--hairline);
-  }
-  .nav-brand {
-    font-family: var(--font-display);
-    font-size: 18px;
-    font-weight: 500;
-    color: var(--primary-text);
-    letter-spacing: 1.4px;
-    text-transform: uppercase;
-  }
-  .nav-links {
-    display: flex; gap: 32px; list-style: none; align-items: center;
-  }
-  .nav-links a {
-    font-family: var(--font-mono);
-    font-size: 12px;
-    font-weight: 400;
-    color: var(--primary-text);
-    text-transform: uppercase;
-    letter-spacing: 1.2px;
-  }
-  .nav-cta {
-    display: inline-block;
-    background: transparent;
-    color: var(--primary-text);
-    padding: 10px 20px;
-    border: 1px solid var(--primary-text);
-    border-radius: 9999px;
-    font-family: var(--font-mono);
-    font-size: 12px;
-    font-weight: 400;
-    letter-spacing: 1.2px;
-    text-transform: uppercase;
-    transition: background 250ms ease, color 250ms ease;
-  }
-  .nav-cta:hover {
-    background: var(--primary-text);
-    color: var(--canvas);
-    opacity: 1;
-  }
-
-  /* HERO */
-  .hero {
-    padding: 96px 48px 96px;
-    background: var(--canvas);
-    position: relative;
-    overflow: hidden;
-  }
-  .hero-eyebrow {
-    display: block;
-    font-family: var(--font-mono);
-    font-size: 12px;
-    font-weight: 400;
-    color: var(--primary-text);
-    text-transform: uppercase;
-    letter-spacing: 1.4px;
-    margin-bottom: 36px;
-  }
-  .hero h1 {
-    font-family: var(--font-display);
-    font-size: clamp(48px, 7vw, 104px);
-    font-weight: 400;
-    line-height: 1.05;
-    letter-spacing: -0.5px;
-    color: var(--primary-text);
-    margin-bottom: 48px;
-    text-transform: uppercase;
-    max-width: 1200px;
-  }
-  .hero p {
-    font-family: var(--font-text);
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 1.50;
-    color: var(--secondary-text);
-    max-width: 580px;
-    margin-bottom: 48px;
-  }
-  .hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; }
-
-  /* BUTTONS */
-  .btn-primary {
-    display: inline-block;
-    background: transparent;
-    color: var(--primary-text);
-    padding: 12px 24px;
-    border: 1px solid var(--primary-text);
-    border-radius: 9999px;
-    font-family: var(--font-mono);
+    color: var(--body);
+    font-family: var(--text);
     font-size: 14px;
-    font-weight: 400;
-    letter-spacing: 1.4px;
-    text-transform: uppercase;
-    transition: background 250ms ease, color 250ms ease;
-  }
-  .btn-primary:hover {
-    background: var(--primary-text);
-    color: var(--canvas);
-    opacity: 1;
-  }
-  .btn-inverted {
-    display: inline-block;
-    background: var(--primary-text);
-    color: var(--canvas);
-    padding: 12px 24px;
-    border: 1px solid var(--primary-text);
-    border-radius: 9999px;
-    font-family: var(--font-mono);
-    font-size: 14px;
-    font-weight: 400;
-    letter-spacing: 1.4px;
-    text-transform: uppercase;
-    transition: background 250ms ease, color 250ms ease;
-  }
-  .btn-inverted:hover {
-    background: transparent;
-    color: var(--primary-text);
-    opacity: 1;
-  }
-  .btn-secondary {
-    display: inline-block;
-    background: transparent;
-    color: var(--primary-text);
-    padding: 6px 12px;
-    border: 1px solid var(--silver-mist);
-    border-radius: 6px;
-    font-family: var(--font-mono);
-    font-size: 12px;
-    font-weight: 400;
-    letter-spacing: 1.2px;
-    text-transform: uppercase;
-    transition: border-color 250ms ease;
-  }
-  .btn-secondary:hover {
-    border-color: var(--primary-text);
-    opacity: 1;
-  }
-  .btn-ghost {
-    display: inline-block;
-    background: transparent;
-    color: var(--primary-text);
-    padding: 0;
-    border: none;
-    font-family: var(--font-mono);
-    font-size: 12px;
-    font-weight: 400;
-    letter-spacing: 1.2px;
-    text-transform: uppercase;
-    transition: opacity 250ms ease;
-  }
-
-  /* SECTION FRAME */
-  section.preview-section {
-    padding: 120px 48px;
-    background: var(--canvas);
-    border-top: 1px solid var(--hairline);
-  }
-  .section-eyebrow {
-    display: block;
-    font-family: var(--font-mono);
-    font-size: 12px;
-    font-weight: 400;
-    color: var(--primary-text);
-    text-transform: uppercase;
-    letter-spacing: 1.4px;
-    margin-bottom: 24px;
-  }
-  .section-title {
-    font-family: var(--font-display);
-    font-size: clamp(36px, 6vw, 96px);
-    font-weight: 400;
-    line-height: 1.00;
-    letter-spacing: -0.5px;
-    color: var(--primary-text);
-    text-transform: uppercase;
-    margin-bottom: 20px;
-  }
-  .section-subtitle {
-    font-family: var(--font-text);
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 1.50;
-    color: var(--secondary-text);
-    margin-bottom: 64px;
-    max-width: 620px;
-  }
-
-  /* COLOR PALETTE */
-  .color-group { margin-bottom: 48px; }
-  .color-group-label {
-    font-family: var(--font-mono);
-    font-size: 12px;
-    font-weight: 400;
-    text-transform: uppercase;
-    letter-spacing: 1.4px;
-    color: var(--primary-text);
-    padding-bottom: 16px;
-    margin-bottom: 28px;
-    border-bottom: 1px solid var(--hairline);
-  }
-  .color-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 28px;
-  }
-  .color-swatch {
-    background: var(--canvas);
-    border: 1px solid var(--hairline);
-    padding: 0;
-    overflow: hidden;
-  }
-  .color-block { height: 180px; }
-  .color-meta { padding: 24px 26px 28px; }
-  .color-name {
-    font-family: var(--font-display);
-    font-size: 22px;
-    font-weight: 400;
-    line-height: 1.10;
-    color: var(--primary-text);
-    letter-spacing: 0.3px;
-    margin-bottom: 10px;
-    text-transform: uppercase;
-  }
-  .color-hex {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    font-weight: 400;
-    text-transform: uppercase;
-    letter-spacing: 1.2px;
-    color: var(--tertiary-text);
-    margin-bottom: 14px;
-  }
-  .color-role {
-    font-family: var(--font-text);
-    font-size: 13px;
-    font-weight: 400;
-    line-height: 1.50;
-    color: var(--secondary-text);
-  }
-
-  /* TYPOGRAPHY */
-  .type-row {
-    display: grid;
-    grid-template-columns: 260px 1fr;
-    gap: 48px;
-    padding: 48px 0;
-    border-bottom: 1px solid var(--hairline);
-    align-items: baseline;
-  }
-  .type-row:last-child { border-bottom: none; }
-  .type-meta {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    font-weight: 400;
-    text-transform: uppercase;
-    letter-spacing: 1.2px;
-    color: var(--tertiary-text);
-    line-height: 1.7;
-  }
-  .type-meta strong {
-    display: block;
-    color: var(--primary-text);
-    font-weight: 700;
-    margin-bottom: 8px;
-    font-size: 12px;
-  }
-  .type-sample { color: var(--primary-text); overflow-wrap: break-word; }
-
-  /* BUTTONS GRID */
-  .button-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 24px;
-  }
-  .button-cell {
-    padding: 48px 36px;
-    border: 1px solid var(--hairline);
-    background: var(--canvas);
-    display: flex;
-    flex-direction: column;
-    gap: 28px;
-  }
-  .button-cell .label {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    font-weight: 400;
-    text-transform: uppercase;
-    letter-spacing: 1.4px;
-    color: var(--tertiary-text);
-  }
-
-  /* MEDIA BLOCK (film chapter) */
-  .media-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 64px;
-  }
-  .media-block {
-    position: relative;
-    aspect-ratio: 21 / 9;
-    background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: 64px;
-    color: var(--primary-text);
-    border: 1px solid var(--hairline);
-  }
-  .media-block::after {
-    content: '';
-    position: absolute; inset: 0;
-    background: linear-gradient(180deg, transparent 40%, rgba(0, 0, 0, 0.6) 100%);
-    pointer-events: none;
-  }
-  .media-block > * { position: relative; z-index: 1; }
-  .media-eyebrow {
-    font-family: var(--font-mono);
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: 1.4px;
-    margin-bottom: 20px;
-    opacity: 0.85;
-  }
-  .media-headline {
-    font-family: var(--font-display);
-    font-size: clamp(48px, 8vw, 120px);
-    font-weight: 400;
-    line-height: 1.00;
-    text-transform: uppercase;
-    letter-spacing: -0.5px;
-    margin-bottom: 28px;
-    max-width: 900px;
-  }
-  .media-cta {
-    display: inline-block;
-    background: transparent;
-    color: var(--primary-text);
-    padding: 12px 24px;
-    border: 1px solid var(--primary-text);
-    border-radius: 9999px;
-    font-family: var(--font-mono);
-    font-size: 14px;
-    font-weight: 400;
-    letter-spacing: 1.4px;
-    text-transform: uppercase;
-    align-self: flex-start;
-    transition: background 250ms ease, color 250ms ease;
-  }
-  .media-cta:hover {
-    background: var(--primary-text);
-    color: var(--canvas);
-    opacity: 1;
-  }
-
-  /* FORMS */
-  .form-stack {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 36px;
-    max-width: 920px;
-  }
-  .form-field { display: flex; flex-direction: column; gap: 14px; }
-  .form-label {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    font-weight: 400;
-    text-transform: uppercase;
-    letter-spacing: 1.4px;
-    color: var(--primary-text);
-  }
-  .form-input {
-    background: var(--canvas);
-    border: 1px solid var(--silver-mist);
-    border-radius: 6px;
-    padding: 16px 18px;
-    font-family: var(--font-text);
-    font-size: 16px;
-    font-weight: 400;
-    color: var(--primary-text);
-    outline: none;
-    transition: border-color 250ms ease;
-  }
-  .form-input::placeholder { color: var(--tertiary-text); }
-  .form-input.focus { border-color: var(--primary-text); }
-  .form-input.error { border-color: var(--silver-mist); color: var(--primary-text); }
-  .form-error {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    font-weight: 400;
-    text-transform: uppercase;
-    letter-spacing: 1.2px;
-    color: var(--tertiary-text);
-  }
-  .form-textarea {
-    min-height: 120px;
-    resize: vertical;
     line-height: 1.5;
   }
 
-  /* SPACING */
-  .spacing-row {
-    display: flex;
-    align-items: flex-end;
-    gap: 32px;
-    flex-wrap: wrap;
+  .nav {
+    position: sticky; top: 0; z-index: 100;
+    background: var(--canvas);
+    border-bottom: 1px solid var(--hairline);
+    padding: 0 48px;
+    height: 56px;
   }
-  .spacing-item { display: flex; flex-direction: column; gap: 14px; align-items: flex-start; }
-  .spacing-block {
-    background: var(--primary-text);
-    height: 80px;
-  }
-  .spacing-label {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    font-weight: 400;
-    text-transform: uppercase;
-    letter-spacing: 1.2px;
-    color: var(--primary-text);
+  .nav-links { list-style: none; display: flex; gap: 28px; align-items: center; }
+  .nav-links a { color: var(--ink); text-decoration: none; font-size: 12px; font-weight: 400; font-family: var(--mono); letter-spacing: 2px; text-transform: uppercase; }
+  .nav-cta {
+    background: transparent; color: var(--ink); border: 1px solid var(--ink);
+    padding: 10px 24px; height: 40px;
+    font-weight: 400; font-size: 12px; cursor: pointer; font-family: var(--mono);
+    text-transform: uppercase; letter-spacing: 2px;
+    border-radius: 9999px;
   }
 
-  /* RADIUS */
-  .radius-row {
-    display: flex;
-    gap: 48px;
-    flex-wrap: wrap;
-    align-items: flex-end;
-  }
-  .radius-item { display: flex; flex-direction: column; gap: 18px; align-items: center; }
-  .radius-block {
-    width: 130px;
-    height: 130px;
-    background: transparent;
-    border: 1px solid var(--primary-text);
-  }
-  .radius-block.r0 { border-radius: 0; }
-  .radius-block.r6 { border-radius: 6px; }
-  .radius-block.r9999 { border-radius: 9999px; width: 180px; height: 56px; }
-  .radius-label {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    font-weight: 400;
-    text-transform: uppercase;
-    letter-spacing: 1.2px;
-    color: var(--primary-text);
-    text-align: center;
-  }
-  .radius-label small { display: block; color: var(--tertiary-text); margin-top: 6px; font-weight: 400; font-size: 10px; letter-spacing: 1px; }
-
-  /* ELEVATION */
-  .elevation-grid {
+  .hero {
+    padding: 96px 48px;
+    background: var(--canvas);
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    gap: 28px;
-  }
-  .elevation-cell {
-    padding: 52px 32px;
-    background: var(--canvas);
-    text-align: center;
-    min-height: 200px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 64px;
     align-items: center;
-    gap: 18px;
-    color: var(--primary-text);
+    max-width: 1440px;
+    margin: 0 auto;
   }
-  .elevation-cell.lvl-0 { border: none; }
-  .elevation-cell.lvl-1 { border: 1px solid var(--silver-mist); }
-  .elevation-cell.lvl-2 { border: 1px solid var(--primary-text); }
-  .elevation-cell.lvl-3 {
-    background: linear-gradient(180deg, #000000 0%, #000000 50%, rgba(255, 255, 255, 0.12) 100%);
-    position: relative;
-    border: 1px solid var(--hairline);
+  .hero-content { max-width: 720px; }
+  .hero h1 {
+    font-family: var(--display);
+    font-size: 64px; font-weight: 400; line-height: 1.05; color: var(--ink);
+    margin: 0 0 16px; letter-spacing: 4px;
+    text-transform: uppercase; text-align: left;
   }
-  .elevation-cell .label {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    font-weight: 400;
-    text-transform: uppercase;
-    letter-spacing: 1.4px;
-    color: var(--primary-text);
+  .hero p { font-family: var(--text); font-size: 18px; color: var(--body); max-width: 540px; margin: 0 0 40px; line-height: 1.5; text-align: left; }
+  .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; justify-content: flex-start; }
+  .btn-hero-primary, .btn-hero-secondary {
+    background: transparent; color: var(--ink); border: 1px solid var(--ink);
+    padding: 14px 32px; height: 44px;
+    font-weight: 400; font-size: 14px; cursor: pointer; font-family: var(--mono);
+    text-transform: uppercase; letter-spacing: 2.5px;
+    border-radius: 9999px;
   }
-  .elevation-cell .desc {
-    font-family: var(--font-text);
-    font-size: 13px;
-    line-height: 1.50;
-    color: var(--secondary-text);
+  .hero-art-photo {
+    width: 100%; aspect-ratio: 4/3;
+    background: linear-gradient(180deg, #0d0d0d 0%, #1a1a1a 100%);
+    position: relative; overflow: hidden;
+  }
+  .hero-art-photo::after {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(circle at 60% 40%, rgba(195,217,243,0.08) 0%, transparent 60%);
   }
 
-  /* FOOTER */
-  .footer {
-    background: var(--canvas);
-    color: var(--primary-text);
-    padding: 56px 48px;
-    font-family: var(--font-mono);
-    font-size: 11px;
-    font-weight: 400;
-    text-transform: uppercase;
-    letter-spacing: 1.4px;
-    text-align: center;
-    border-top: 1px solid var(--hairline);
-  }
-  .footer a { color: var(--primary-text); }
+  section { max-width: 1280px; margin: 0 auto; padding: 120px 48px; border-top: 1px solid var(--hairline); }
+  .section-label { font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: var(--muted); font-weight: 400; margin-bottom: 12px; }
+  .section-heading { font-family: var(--display); font-size: 48px; font-weight: 400; color: var(--ink); margin-bottom: 16px; text-transform: uppercase; letter-spacing: 3px; }
+  .section-intro { font-family: var(--text); font-size: 16px; color: var(--body); max-width: 640px; margin-bottom: 64px; line-height: 1.5; }
 
-  /* RESPONSIVE */
-  @media (max-width: 900px) {
-    .hero { padding: 72px 24px 72px; }
-    .hero h1 { font-size: clamp(48px, 12vw, 96px); }
-    .section-title { font-size: clamp(36px, 9vw, 60px); }
-    section.preview-section { padding: 80px 24px; }
-    .form-stack { grid-template-columns: 1fr; }
-    .type-row { grid-template-columns: 1fr; gap: 20px; }
-    .nav { padding: 14px 20px; }
+  .palette-group { margin-bottom: 64px; }
+  .palette-group h3 { font-family: var(--display); font-size: 16px; font-weight: 400; color: var(--ink); margin-bottom: 24px; text-transform: uppercase; letter-spacing: 2px; }
+  .palette-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 24px; }
+  .swatch { border: 1px solid var(--hairline); background: var(--surface-card); }
+  .swatch-color { height: 100px; }
+  .swatch-meta { padding: 16px; }
+  .swatch-name { font-family: var(--mono); font-weight: 400; font-size: 11px; color: var(--ink); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 1.5px; }
+  .swatch-hex { font-family: var(--mono); font-size: 12px; color: var(--muted); margin-bottom: 8px; letter-spacing: 1px; }
+  .swatch-role { font-family: var(--text); font-size: 13px; color: var(--body); line-height: 1.5; }
+
+  .type-row { display: grid; grid-template-columns: 320px 1fr; gap: 32px; align-items: baseline; padding: 24px 0; border-bottom: 1px solid var(--hairline); }
+  .type-row:last-child { border-bottom: none; }
+  .type-meta { font-family: var(--mono); font-size: 11px; color: var(--muted); line-height: 1.5; letter-spacing: 1px; }
+  .type-meta strong { display: block; color: var(--ink); font-weight: 400; font-size: 11px; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 1.5px; }
+  .type-sample { color: var(--ink); }
+
+  .button-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 24px; }
+  .button-cell { border: 1px solid var(--hairline); padding: 32px; background: var(--canvas); min-width: 0; }
+  .button-cell.on-photo { background: linear-gradient(135deg, #1a1a1a 0%, #000 100%); }
+  .button-label { font-family: var(--mono); font-size: 11px; color: var(--ink); font-weight: 400; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 1.5px; }
+  .button-meta { font-family: var(--text); font-size: 13px; color: var(--muted); margin-top: 16px; line-height: 1.5; }
+  .btn {
+    display: inline-block; padding: 14px 32px; height: 44px;
+    font-family: var(--mono); font-size: 14px; font-weight: 400;
+    border: 1px solid var(--ink); background: transparent; color: var(--ink);
+    cursor: pointer; line-height: 1; border-radius: 9999px;
+    text-transform: uppercase; letter-spacing: 2.5px;
+  }
+  .btn-text-link { background: transparent; color: var(--link); border: none; padding: 0; text-decoration: underline; height: auto; }
+  .btn-icon {
+    width: 40px; height: 40px; border-radius: 50%;
+    background: transparent; border: 1px solid var(--ink); color: var(--ink);
+    display: inline-flex; align-items: center; justify-content: center; font-size: 16px;
+  }
+
+  .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 32px; min-width: 0; }
+  .card-grid > * { min-width: 0; }
+
+  .career-callout-card { background: var(--surface-card); padding: 16px; border: 1px solid var(--hairline); width: 100%; max-width: 320px; }
+  .career-callout-card .thumb { width: 100%; aspect-ratio: 16/9; background: linear-gradient(135deg, #1a1a1a 0%, #2b2b2b 100%); margin-bottom: 12px; }
+  .career-callout-card p { font-family: var(--text); font-size: 14px; color: var(--body); margin-bottom: 12px; line-height: 1.4; }
+  .career-callout-card .link { font-family: var(--mono); font-size: 11px; color: var(--ink); text-transform: uppercase; letter-spacing: 1.5px; cursor: pointer; }
+
+  .model-photo-card { background: var(--canvas); }
+  .model-photo-card .photo { aspect-ratio: 16/9; background: linear-gradient(135deg, #2b2b2b 0%, #0a0a0a 100%); margin-bottom: 24px; }
+  .model-photo-card h4 { font-family: var(--display); font-size: 32px; font-weight: 400; color: var(--ink); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 2px; }
+  .model-photo-card .specs { font-family: var(--mono); font-size: 11px; color: var(--muted); margin-bottom: 16px; text-transform: uppercase; letter-spacing: 1.5px; }
+
+  .newsroom-article-card { background: var(--canvas); border: 1px solid var(--hairline); padding: 24px; }
+  .newsroom-article-card .thumb { width: 100%; aspect-ratio: 16/9; background: linear-gradient(135deg, #1a1a1a 0%, #2b2b2b 100%); margin-bottom: 16px; }
+  .newsroom-article-card .date { font-family: var(--mono); font-size: 11px; color: var(--muted); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 2px; }
+  .newsroom-article-card h4 { font-family: var(--display); font-size: 20px; font-weight: 400; color: var(--ink); margin-bottom: 12px; line-height: 1.3; text-transform: uppercase; letter-spacing: 1px; }
+  .newsroom-article-card p { font-family: var(--text); font-size: 14px; color: var(--body); line-height: 1.5; }
+
+  .career-listing { display: flex; flex-direction: column; }
+  .career-row { display: grid; grid-template-columns: 1fr auto auto auto; gap: 24px; padding: 24px 0; border-bottom: 1px solid var(--hairline); align-items: center; color: var(--ink); }
+  .career-row .title { font-family: var(--display); font-size: 20px; font-weight: 400; text-transform: uppercase; letter-spacing: 1px; }
+  .career-row .meta { font-family: var(--mono); font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 1.5px; }
+  .career-row .arrow { font-size: 20px; color: var(--ink); }
+
+  .spec-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 0; border-top: 1px solid var(--hairline); }
+  .spec-cell { padding: 24px 0; border-bottom: 1px solid var(--hairline); border-right: 1px solid var(--hairline); padding-left: 24px; padding-right: 24px; }
+  .spec-cell:nth-child(4n) { border-right: none; }
+  .spec-cell .value { font-family: var(--display); font-size: 28px; color: var(--ink); margin-bottom: 8px; letter-spacing: 1.5px; text-transform: uppercase; }
+  .spec-cell .label { font-family: var(--mono); font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 2px; }
+
+  .form-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 32px; }
+  .form-cell { min-width: 0; }
+  .form-label { font-family: var(--mono); font-size: 11px; font-weight: 400; color: var(--muted); margin-bottom: 12px; display: block; text-transform: uppercase; letter-spacing: 2px; }
+  .form-input {
+    width: 100%; background: transparent; color: var(--ink);
+    border: none; border-bottom: 1px solid var(--hairline-strong);
+    padding: 12px 0; font-size: 16px; height: 44px; font-family: var(--text);
+  }
+  .form-input::placeholder { color: var(--muted-soft); font-style: italic; }
+  .form-input:focus { outline: none; border-bottom-color: var(--ink); }
+
+  .caption-overlay { font-family: var(--mono); font-size: 11px; color: var(--ink); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 24px; }
+
+  .spacing-row { display: flex; align-items: flex-end; gap: 16px; flex-wrap: wrap; }
+  .spacing-block { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+  .spacing-bar { background: var(--ink); height: 28px; }
+  .spacing-label { font-family: var(--mono); font-size: 11px; color: var(--muted); letter-spacing: 1px; }
+
+  .radius-row { display: flex; gap: 24px; align-items: center; flex-wrap: wrap; }
+  .radius-block { width: 96px; height: 96px; background: var(--surface-card); border: 1px solid var(--ink); display: flex; align-items: center; justify-content: center; font-family: var(--mono); font-size: 11px; color: var(--ink); letter-spacing: 1.5px; }
+
+  .elevation-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 24px; }
+  .elevation-card { padding: 24px; font-size: 13px; color: var(--ink); border: 1px solid var(--hairline); }
+  .elevation-card h5 { font-family: var(--display); font-weight: 400; color: var(--ink); margin-bottom: 8px; font-size: 12px; text-transform: uppercase; letter-spacing: 1.5px; }
+  .elevation-card p { font-family: var(--text); color: var(--muted); font-size: 13px; line-height: 1.5; }
+  .elevation-flat { background: var(--canvas); }
+  .elevation-soft { background: var(--surface-soft); }
+  .elevation-card-surface { background: var(--surface-card); }
+  .elevation-elevated { background: var(--surface-elevated); }
+
+  .responsive-table { width: 100%; border-collapse: collapse; margin-bottom: 32px; font-size: 14px; font-family: var(--text); }
+  .responsive-table th, .responsive-table td { text-align: left; padding: 16px; border-bottom: 1px solid var(--hairline); }
+  .responsive-table th { font-family: var(--mono); font-weight: 400; color: var(--ink); font-size: 11px; text-transform: uppercase; letter-spacing: 2px; }
+  .responsive-table td { color: var(--body); }
+  .device-ladder { display: flex; align-items: flex-end; gap: 16px; margin-bottom: 32px; flex-wrap: wrap; }
+  .device-bar { background: var(--surface-elevated); color: var(--muted); text-align: center; padding: 8px; font-size: 11px; font-family: var(--mono); flex-shrink: 0; letter-spacing: 1px; }
+
+  .responsive-sub { margin-top: 32px; }
+  .responsive-sub h4 { font-family: var(--display); font-size: 18px; font-weight: 400; color: var(--ink); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1.5px; }
+  .responsive-sub ul { padding-left: 20px; color: var(--body); font-size: 14px; font-family: var(--text); line-height: 1.6; }
+  .responsive-sub ul li { margin-bottom: 8px; }
+
+  .footer { background: var(--canvas); color: var(--muted); padding: 48px; text-align: center; font-size: 13px; border-top: 1px solid var(--hairline); font-family: var(--text); }
+  .footer a { color: var(--ink); font-weight: 400; }
+
+  .cell, .cell > *, .demo, .button-cell, .component-cell { min-width: 0; }
+  .cell.wide, .button-cell.wide, .component-cell.wide { grid-column: span 2; }
+
+  @media (max-width: 1024px) {
+    section { padding: 80px 32px; }
+    .section-heading { font-size: 36px; letter-spacing: 2px; }
+    .nav > :last-child { display: none; }
+    .hero { grid-template-columns: 1fr; gap: 32px; padding: 64px 32px; }
+    .hero h1 { font-size: 44px; letter-spacing: 3px; }
+    .hero-art, .hero-art-photo { display: none; }
+    .type-row { grid-template-columns: 1fr; gap: 8px; }
+    .type-row .type-meta { padding-bottom: 4px; }
+    .career-row { grid-template-columns: 1fr; gap: 8px; }
+    .spec-grid { grid-template-columns: repeat(2, 1fr); }
+    .spec-cell:nth-child(4n) { border-right: 1px solid var(--hairline); }
+    .spec-cell:nth-child(2n) { border-right: none; }
+  }
+  @media (max-width: 720px) {
+    .cell.wide, .button-cell.wide, .component-cell.wide { grid-column: span 1; }
+    .nav { padding: 0 48px; height: auto; min-height: 56px; }
     .nav-links { display: none; }
-    .media-block { padding: 36px 28px; aspect-ratio: 4/3; }
-    .media-headline { font-size: 44px; }
+    .hero { padding: 48px 20px; }
+    .hero h1 { font-size: 32px; letter-spacing: 2px; }
+    .hero p { font-size: 16px; }
+    section { padding: 64px 20px; }
+    .section-heading { font-size: 28px; letter-spacing: 1.5px; }
+    .palette-grid, .button-grid, .card-grid, .form-grid, .elevation-grid { grid-template-columns: 1fr !important; gap: 16px; }
+    .spec-grid { grid-template-columns: 1fr; }
+    .spec-cell { border-right: none !important; }
+    .spacing-row, .radius-row { gap: 12px; }
+    .responsive-table { font-size: 12px; }
+    .responsive-table th, .responsive-table td { padding: 10px 8px; }
+    .device-ladder { gap: 8px; }
+    .footer { padding: 24px 16px; font-size: 12px; }
   }
 
   /* preview nav */
   .nav-left { display: flex; align-items: center; gap: 20px; }
-  .nav-brand-link,
-  .nav-brand-link:link,
-  .nav-brand-link:visited,
-  .nav-brand-link:hover,
-  .nav-brand-link:active { text-decoration: none; color: inherit; }
-  .nav-github,
-  .nav-github:link,
-  .nav-github:visited,
-  .nav-github:hover,
-  .nav-github:active {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 12px;
-    font-weight: 600;
-    color: inherit;
-    text-decoration: none;
-    padding: 5px 10px;
-    border: 1px solid rgba(128, 128, 128, 0.3);
-    border-radius: 6px;
-    opacity: 0.75;
-    transition: opacity 200ms ease, border-color 200ms ease;
-    font-family: inherit;
-    line-height: 1;
-    white-space: nowrap;
+  .nav-brand-link, .nav-brand-link:link, .nav-brand-link:visited, .nav-brand-link:hover, .nav-brand-link:active { text-decoration: none; color: inherit; }
+  .nav-brand { font-family: var(--display); font-weight: 400; font-size: 14px; color: var(--ink); letter-spacing: 6px; text-transform: uppercase; }
+  .nav-github, .nav-github:link, .nav-github:visited, .nav-github:hover, .nav-github:active {
+    display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 600;
+    color: inherit; text-decoration: none; padding: 5px 10px;
+    border: 1px solid rgba(128, 128, 128, 0.3); border-radius: 6px;
+    opacity: 0.75; transition: opacity 200ms ease, border-color 200ms ease;
+    font-family: var(--mono); line-height: 1; white-space: nowrap; letter-spacing: 1px;
   }
   .nav-github:hover { opacity: 1; border-color: rgba(128, 128, 128, 0.55); }
   .nav-github svg { display: block; flex-shrink: 0; }
@@ -597,269 +263,253 @@
   .nav > .nav-left { justify-self: start; }
   .nav > .nav-links { justify-self: center; }
   .nav > :last-child { justify-self: end; }
-
   .nav .nav-github { color: #ffffff; border-color: rgba(255, 255, 255, 0.25); }
   .nav .nav-github:hover { border-color: rgba(255, 255, 255, 0.5); }
 </style>
 </head>
 <body>
-
 <nav class="nav">
   <div class="nav-left">
-    <a rel="noopener noreferrer" class="nav-brand-link">
-      <span class="nav-brand">Design Viewer</span>
-    </a>
+    <a rel="noopener noreferrer" class="nav-brand-link"><span class="nav-brand">Design Viewer</span></a>
     
   </div>
-
   <ul class="nav-links">
-    <li><a href="#palette">Palette</a></li>
-    <li><a href="#typography">Type</a></li>
+    <li><a href="#colors">Colors</a></li>
+    <li><a href="#typography">Typography</a></li>
     <li><a href="#components">Components</a></li>
-    <li><a href="#layout">Layout</a></li>
+    <li><a href="#responsive">Responsive</a></li>
   </ul>
-
-  <button class="nav-cta">Store</button>
+  <button class="nav-cta">Discover</button>
 </nav>
 
-<section class="hero">
-  <span class="hero-eyebrow">Design System / Couture Automotive</span>
-  <h1>Design System Inspiration of Bugatti</h1>
-  <p>Cinematic negative space, monumental display typography, and a monochrome palette that refuses to compete with the product. Generated from DESIGN.md.</p>
-  <div class="hero-buttons">
-    <button class="btn-primary">Explore the System</button>
-    <button class="btn-inverted">Read the Dossier</button>
+<div class="hero">
+  <div class="hero-content">
+    <div class="caption-overlay">Honoring the Veyron and its visionary creator</div>
+    <h1>Design System Inspiration of Bugatti</h1>
+    <p>An austere luxury-automotive interface that uses near-pure black canvas, white uppercase letterspaced display, and full-bleed automotive photography as the only voltage. No accent color. No decorative element. No chrome.</p>
+    <div class="hero-actions">
+      <button class="btn-hero-primary">Witness The Legend</button>
+      <button class="btn-hero-secondary">Discover</button>
+    </div>
   </div>
-</section>
+  <div class="hero-art-photo"></div>
+</div>
 
-<section class="preview-section" id="palette">
-  <span class="section-eyebrow">Section 01 / Palette</span>
-  <h2 class="section-title">Color Palette</h2>
-  <p class="section-subtitle">Velvet black canvas, showroom white type, one gray for the quiet moments. No accents. The product provides the color.</p>
+<section id="colors">
+  <div class="section-label">01 — Color Palette</div>
+  <h2 class="section-heading">Total Monochrome</h2>
+  <p class="section-intro">The system has no accent color outside one desaturated ice-blue used on inline anchor links. Brand voltage comes from photography, typography, and the wordmark — never from chromatic decoration.</p>
 
-  <div class="color-group">
-    <div class="color-group-label">Primary</div>
-    <div class="color-grid">
-      <div class="color-swatch">
-        <div class="color-block" style="background: #000000;"></div>
-        <div class="color-meta">
-          <div class="color-name">Velvet Black</div>
-          <div class="color-hex">#000000</div>
-          <div class="color-role">The entire canvas. A display-stand surface — the way a jewelry brand treats black velvet.</div>
-        </div>
-      </div>
-      <div class="color-swatch">
-        <div class="color-block" style="background: #ffffff;"></div>
-        <div class="color-meta">
-          <div class="color-name">Showroom White</div>
-          <div class="color-hex">#FFFFFF</div>
-          <div class="color-role">All text, all borders, all CTAs. The only color at rest on the chrome.</div>
-        </div>
-      </div>
+  <div class="palette-group">
+    <h3>Brand</h3>
+    <div class="palette-grid">
+      <div class="swatch"><div class="swatch-color" style="background:#ffffff;"></div><div class="swatch-meta"><div class="swatch-name">primary / ink</div><div class="swatch-hex">#ffffff</div><div class="swatch-role">All headlines, primary text, button outlines, the Bugatti wordmark.</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#c3d9f3;"></div><div class="swatch-meta"><div class="swatch-name">link</div><div class="swatch-hex">#c3d9f3</div><div class="swatch-role">The single non-monochrome color. Inline anchor links only.</div></div></div>
     </div>
   </div>
 
-  <div class="color-group">
-    <div class="color-group-label">Secondary</div>
-    <div class="color-grid">
-      <div class="color-swatch">
-        <div class="color-block" style="background: #999999;"></div>
-        <div class="color-meta">
-          <div class="color-name">Silver Mist</div>
-          <div class="color-hex">#999999</div>
-          <div class="color-role">The one gray. Tertiary text, disabled states, secondary button borders. Never a color — just quieter white.</div>
-        </div>
-      </div>
+  <div class="palette-group">
+    <h3>Surface</h3>
+    <div class="palette-grid">
+      <div class="swatch"><div class="swatch-color" style="background:#000000;"></div><div class="swatch-meta"><div class="swatch-name">canvas</div><div class="swatch-hex">#000000</div><div class="swatch-role">Default page floor across every surface.</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#0d0d0d;"></div><div class="swatch-meta"><div class="swatch-name">surface-soft</div><div class="swatch-hex">#0d0d0d</div><div class="swatch-role">Spec table rows, dense data sections.</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#141414;"></div><div class="swatch-meta"><div class="swatch-name">surface-card</div><div class="swatch-hex">#141414</div><div class="swatch-role">Career callout, newsroom article container.</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#1f1f1f;"></div><div class="swatch-meta"><div class="swatch-name">surface-elevated</div><div class="swatch-hex">#1f1f1f</div><div class="swatch-role">Nested cards on rare dense pages.</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#262626;"></div><div class="swatch-meta"><div class="swatch-name">hairline</div><div class="swatch-hex">#262626</div><div class="swatch-role">1px dividers, table rows, card outlines.</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#3a3a3a;"></div><div class="swatch-meta"><div class="swatch-name">hairline-strong</div><div class="swatch-hex">#3a3a3a</div><div class="swatch-role">Heavier divider on input underlines.</div></div></div>
     </div>
   </div>
 
-  <div class="color-group">
-    <div class="color-group-label">Accent</div>
-    <div class="color-grid">
-      <div class="color-swatch">
-        <div class="color-block" style="background: repeating-linear-gradient(45deg, #0a0a0a, #0a0a0a 12px, #000000 12px, #000000 24px);"></div>
-        <div class="color-meta">
-          <div class="color-name">None</div>
-          <div class="color-hex">—</div>
-          <div class="color-role">Bugatti does not use accent colors. The car paint is the accent. The chrome stays silent.</div>
-        </div>
-      </div>
+  <div class="palette-group">
+    <h3>Text</h3>
+    <div class="palette-grid">
+      <div class="swatch"><div class="swatch-color" style="background:#ffffff;"></div><div class="swatch-meta"><div class="swatch-name">on-dark</div><div class="swatch-hex">#ffffff</div><div class="swatch-role">All headline and primary text on canvas.</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#e6e6e6;"></div><div class="swatch-meta"><div class="swatch-name">body-strong</div><div class="swatch-hex">#e6e6e6</div><div class="swatch-role">Emphasized body / lead paragraph.</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#cccccc;"></div><div class="swatch-meta"><div class="swatch-name">body</div><div class="swatch-hex">#cccccc</div><div class="swatch-role">Default running-text. Cooler than pure white.</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#999999;"></div><div class="swatch-meta"><div class="swatch-name">muted</div><div class="swatch-hex">#999999</div><div class="swatch-role">Captions, dates, footer links.</div></div></div>
+      <div class="swatch"><div class="swatch-color" style="background:#666666;"></div><div class="swatch-meta"><div class="swatch-name">muted-soft</div><div class="swatch-hex">#666666</div><div class="swatch-role">Legal disclaimer, copyright line.</div></div></div>
     </div>
   </div>
 </section>
 
-<section class="preview-section" id="typography">
-  <span class="section-eyebrow">Section 02 / Typography</span>
-  <h2 class="section-title">Typographic Hierarchy</h2>
-  <p class="section-subtitle">Bugatti Display for monumental headlines. Bugatti Monospace for every UI label. Bugatti Text Regular for body. No bold, only scale.</p>
+<section id="typography">
+  <div class="section-label">02 — Typography Trinity</div>
+  <h2 class="section-heading">Display · Text · Monospace</h2>
+  <p class="section-intro">Three custom Bugatti typefaces in a rigid trinity. Bugatti Display for headlines + wordmark. Bugatti Text Regular (serif) for body. Bugatti Monospace for buttons + nav + captions. Substituted here with Saira Condensed + EB Garamond + JetBrains Mono.</p>
 
-  <div class="type-row">
-    <div class="type-meta"><strong>Monumental Hero</strong>Bugatti Display · 288px / 400 / 1.00</div>
-    <div class="type-sample" style="font-family: var(--font-display); font-size: clamp(72px, 14vw, 200px); font-weight: 400; line-height: 1.00; letter-spacing: -1px; text-transform: uppercase;">BUGATTI</div>
-  </div>
-  <div class="type-row">
-    <div class="type-meta"><strong>Mid Display</strong>Bugatti Display · 60px / 400 / 1.00 / 1.4px</div>
-    <div class="type-sample" style="font-family: var(--font-display); font-size: 60px; font-weight: 400; line-height: 1.00; letter-spacing: 1.4px; text-transform: uppercase;">The F.K.P. Hommage</div>
-  </div>
-  <div class="type-row">
-    <div class="type-meta"><strong>Section Heading</strong>Bugatti Display · 36px / 400 / 1.11</div>
-    <div class="type-sample" style="font-family: var(--font-display); font-size: 36px; font-weight: 400; line-height: 1.11;">A tribute to visionary creation</div>
-  </div>
-  <div class="type-row">
-    <div class="type-meta"><strong>Monumental Mono</strong>Bugatti Monospace · 60px / 400 / 1.00</div>
-    <div class="type-sample" style="font-family: var(--font-mono); font-size: 60px; font-weight: 400; line-height: 1.00; text-transform: uppercase;">W16 / 1600HP</div>
-  </div>
-  <div class="type-row">
-    <div class="type-meta"><strong>Lead Body</strong>Bugatti Text Regular · 20px / 400 / 1.40</div>
-    <div class="type-sample" style="font-family: var(--font-text); font-size: 20px; font-weight: 400; line-height: 1.40;">Honoring the vision and the visionary creator, this chapter of Bugatti's history is dedicated to the founding spirit of the marque.</div>
-  </div>
-  <div class="type-row">
-    <div class="type-meta"><strong>Body Regular</strong>Bugatti Text Regular · 16px / 400 / 1.50</div>
-    <div class="type-sample" style="font-family: var(--font-text); font-size: 16px; font-weight: 400; line-height: 1.50;">Standard reading body copy for the rare paragraph moments where narrative context supports the imagery.</div>
-  </div>
-  <div class="type-row">
-    <div class="type-meta"><strong>UI Link / Button</strong>Bugatti Monospace · 14px / 400 / 1.43 / 1.4px / UPPER</div>
-    <div class="type-sample" style="font-family: var(--font-mono); font-size: 14px; font-weight: 400; line-height: 1.43; letter-spacing: 1.4px; text-transform: uppercase;">Explore our opportunities</div>
-  </div>
-  <div class="type-row">
-    <div class="type-meta"><strong>Compact Button</strong>Bugatti Monospace · 12px / 400 / 1.33 / 1.2px / UPPER</div>
-    <div class="type-sample" style="font-family: var(--font-mono); font-size: 12px; font-weight: 400; line-height: 1.33; letter-spacing: 1.2px; text-transform: uppercase;">Menu</div>
-  </div>
-  <div class="type-row">
-    <div class="type-meta"><strong>Caption Wide</strong>Bugatti Monospace · 14px / 400 / 1.43 / 1.4px</div>
-    <div class="type-sample" style="font-family: var(--font-mono); font-size: 14px; font-weight: 400; line-height: 1.43; letter-spacing: 1.4px;">Molsheim, France · 2026</div>
-  </div>
-  <div class="type-row">
-    <div class="type-meta"><strong>Caption Micro</strong>Bugatti Monospace · 12px / 400 / 1.33</div>
-    <div class="type-sample" style="font-family: var(--font-mono); font-size: 12px; font-weight: 400; line-height: 1.33;">Photography by the Bugatti Atelier</div>
-  </div>
+  <div class="type-row"><div class="type-meta"><strong>display-xl</strong>64px / 400 / 1.1 / 4px<br>Bugatti Display</div><div class="type-sample" style="font-family:var(--display); font-size:64px; font-weight:400; letter-spacing:4px; text-transform:uppercase;">The Tourbillon</div></div>
+  <div class="type-row"><div class="type-meta"><strong>display-lg</strong>48px / 400 / 1.15 / 3px<br>Bugatti Display</div><div class="type-sample" style="font-family:var(--display); font-size:48px; font-weight:400; letter-spacing:3px; text-transform:uppercase;">Engineered Beyond Reason</div></div>
+  <div class="type-row"><div class="type-meta"><strong>display-md</strong>32px / 400 / 1.2 / 2px<br>Bugatti Display</div><div class="type-sample" style="font-family:var(--display); font-size:32px; font-weight:400; letter-spacing:2px; text-transform:uppercase;">Heritage of Excellence</div></div>
+  <div class="type-row"><div class="type-meta"><strong>display-sm</strong>24px / 400 / 1.3 / 1.5px<br>Bugatti Display</div><div class="type-sample" style="font-family:var(--display); font-size:24px; font-weight:400; letter-spacing:1.5px; text-transform:uppercase;">Hand-Built In Molsheim</div></div>
+  <div class="type-row"><div class="type-meta"><strong>wordmark</strong>14px / 400 / 1.0 / 6px<br>Bugatti Display, the widest tracking</div><div class="type-sample" style="font-family:var(--display); font-size:14px; font-weight:400; letter-spacing:6px; text-transform:uppercase;">BUGATTI</div></div>
+  <div class="type-row"><div class="type-meta"><strong>title-md</strong>20px / 400 / 1.3 / 1px<br>Bugatti Display</div><div class="type-sample" style="font-family:var(--display); font-size:20px; font-weight:400; letter-spacing:1px; text-transform:uppercase;">Career Opportunities</div></div>
+  <div class="type-row"><div class="type-meta"><strong>caption-uppercase</strong>11px / 400 / 1.4 / 2px<br>Bugatti Monospace</div><div class="type-sample" style="font-family:var(--mono); font-size:11px; font-weight:400; letter-spacing:2px; text-transform:uppercase;">Honoring The Veyron and its Visionary Creator</div></div>
+  <div class="type-row"><div class="type-meta"><strong>body-md</strong>16px / 400 / 1.5 / 0<br>Bugatti Text Regular (serif!)</div><div class="type-sample" style="font-family:var(--text); font-size:16px; font-weight:400; line-height:1.5;">The hyper-engineered four-rotor electric powertrain of the Tourbillon delivers performance at a level that redefines what is possible — paired with hand-finished marquetry interiors crafted in Molsheim.</div></div>
+  <div class="type-row"><div class="type-meta"><strong>body-sm</strong>14px / 400 / 1.5 / 0<br>Bugatti Text Regular</div><div class="type-sample" style="font-family:var(--text); font-size:14px; color:var(--body); line-height:1.5;">Footer body, fine-print legal text, copyright disclaimer — all in the same serif body face. Bugatti's editorial voice extends to the smallest type.</div></div>
+  <div class="type-row"><div class="type-meta"><strong>button</strong>14px / 400 / 1.0 / 2.5px<br>Bugatti Monospace</div><div class="type-sample" style="font-family:var(--mono); font-size:14px; font-weight:400; letter-spacing:2.5px; text-transform:uppercase;">Witness The Legend</div></div>
+  <div class="type-row"><div class="type-meta"><strong>nav-link</strong>12px / 400 / 1.4 / 2px<br>Bugatti Monospace</div><div class="type-sample" style="font-family:var(--mono); font-size:12px; font-weight:400; letter-spacing:2px; text-transform:uppercase;">Menu · Heritage · Models · Store</div></div>
 </section>
 
-<section class="preview-section" id="components">
-  <span class="section-eyebrow">Section 03 / Buttons</span>
-  <h2 class="section-title">Button Variants</h2>
-  <p class="section-subtitle">Full-pill or slightly-rounded utility. Transparent fills with 1px borders. Mono caps labels only.</p>
+<section id="components">
+  <div class="section-label">03 — Button Variants</div>
+  <h2 class="section-heading">Transparent Pill, Outline Only</h2>
+  <p class="section-intro">Bugatti's primary CTA is the only fully-transparent button in the luxury-auto category. White outline + uppercase Monospace label + pill radius + no fill is the signature.</p>
+
   <div class="button-grid">
-    <div class="button-cell">
-      <span class="label">Primary — Outlined Pill</span>
-      <div><button class="btn-primary">Explore Models</button></div>
+    <div class="button-cell"><div class="button-label">button-primary</div><button class="btn">Witness The Legend</button><div class="button-meta">Transparent / 1px white outline / pill radius / Monospace label</div></div>
+    <div class="button-cell on-photo"><div class="button-label">button-primary (on photo)</div><button class="btn">Discover</button><div class="button-meta">Same shape over photography. Outline stays white.</div></div>
+    <div class="button-cell"><div class="button-label">button-icon</div><div style="display:flex; gap:12px;"><button class="btn-icon" aria-label="prev">‹</button><button class="btn-icon" aria-label="next">›</button></div><div class="button-meta">40 × 40 / transparent / 1px outline / full radius</div></div>
+    <div class="button-cell"><div class="button-label">text-link</div><button class="btn-text-link">Read about Bugatti's heritage</button><div class="button-meta">Inline link in #c3d9f3 — the only non-monochrome color</div></div>
+  </div>
+</section>
+
+<section>
+  <div class="section-label">04 — Cards &amp; Containers</div>
+  <h2 class="section-heading">Photography &amp; Whitespace</h2>
+  <p class="section-intro">Cards are barely-different-from-canvas. The newsroom card has a thin hairline border. The career callout floats over the hero photo at desktop. Both stay rectangular at 0px corners.</p>
+
+  <div class="card-grid">
+    <div class="career-callout-card">
+      <div class="thumb"></div>
+      <p>Are you ready for a new adventure? We are hiring.</p>
+      <div class="link">Explore our opportunities →</div>
     </div>
-    <div class="button-cell">
-      <span class="label">Inverted — Filled Pill</span>
-      <div><button class="btn-inverted">Configure</button></div>
+    <div class="model-photo-card">
+      <div class="photo"></div>
+      <h4>Tourbillon</h4>
+      <div class="specs">V16 · 1,800 PS · Hand-built in Molsheim</div>
+      <button class="btn-text-link">Discover the Tourbillon →</button>
     </div>
-    <div class="button-cell">
-      <span class="label">Secondary — 6px Utility</span>
-      <div><button class="btn-secondary">Close</button></div>
-    </div>
-    <div class="button-cell">
-      <span class="label">Ghost — Unbordered</span>
-      <div><button class="btn-ghost">Learn More →</button></div>
+    <div class="model-photo-card">
+      <div class="photo" style="background:linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);"></div>
+      <h4>Mistral</h4>
+      <div class="specs">Roadster · W16 · Final 99 units</div>
+      <button class="btn-text-link">Discover Mistral →</button>
     </div>
   </div>
 </section>
 
-<section class="preview-section">
-  <span class="section-eyebrow">Section 04 / Media Chapters</span>
-  <h2 class="section-title">Film Chapters</h2>
-  <p class="section-subtitle">Bugatti has no cards. It has cinematic chapters — full-bleed media with an overlaid headline and single CTA.</p>
-  <div class="media-grid">
-    <div class="media-block">
-      <span class="media-eyebrow">Chapter 01 · Molsheim</span>
-      <h3 class="media-headline">Handcrafted in the atelier</h3>
-      <a class="media-cta">Read the Story</a>
+<section>
+  <div class="section-label">05 — Newsroom Article Cards</div>
+
+  <div class="card-grid">
+    <div class="newsroom-article-card">
+      <div class="thumb"></div>
+      <div class="date">12 November 2025</div>
+      <h4>Tourbillon Begins Production</h4>
+      <p>The first customer Tourbillon rolls off the line in Molsheim, marking the start of an 18-month production run for the 250-unit V16 hyper-sports car.</p>
     </div>
-    <div class="media-block" style="background: linear-gradient(135deg, #2a1a0a 0%, #000000 100%);">
-      <span class="media-eyebrow">Chapter 02 · Engineering</span>
-      <h3 class="media-headline">1600 horsepower of quiet ambition</h3>
-      <a class="media-cta">Discover the W16</a>
+    <div class="newsroom-article-card">
+      <div class="thumb" style="background:linear-gradient(135deg, #2b2b2b 0%, #0a0a0a 100%);"></div>
+      <div class="date">02 October 2025</div>
+      <h4>Bugatti Mistral Bids Farewell to W16</h4>
+      <p>The final example of the W16-engined Mistral roadster departs Molsheim, closing a chapter that began with the Veyron in 2005 and reshaped the hypercar landscape forever.</p>
     </div>
   </div>
 </section>
 
-<section class="preview-section">
-  <span class="section-eyebrow">Section 05 / Forms</span>
-  <h2 class="section-title">Inputs</h2>
-  <p class="section-subtitle">The homepage has no forms. When they appear on deeper pages, they follow the same restraint: 6px radius, Silver Mist border, no color accents.</p>
-  <div class="form-stack">
-    <div class="form-field">
-      <label class="form-label">Email — Default</label>
-      <input class="form-input" type="email" placeholder="atelier@bugatti.com">
-    </div>
-    <div class="form-field">
-      <label class="form-label">Email — Focus</label>
-      <input class="form-input focus" type="email" placeholder="atelier@bugatti.com">
-    </div>
-    <div class="form-field">
-      <label class="form-label">Email — Error</label>
-      <input class="form-input error" type="email" value="not-an-email">
-      <span class="form-error">Please enter a valid address</span>
-    </div>
-    <div class="form-field">
-      <label class="form-label">Message — Textarea</label>
-      <textarea class="form-input form-textarea" placeholder="Your inquiry..."></textarea>
-    </div>
+<section>
+  <div class="section-label">06 — Career Listings</div>
+  <h2 class="section-heading">Join Bugatti</h2>
+
+  <div class="career-listing">
+    <div class="career-row"><div class="title">Senior Powertrain Engineer</div><div class="meta">Molsheim, FR</div><div class="meta">R&amp;D · Engine</div><div class="arrow">→</div></div>
+    <div class="career-row"><div class="title">Brand Communications Manager</div><div class="meta">Molsheim, FR</div><div class="meta">Marketing</div><div class="arrow">→</div></div>
+    <div class="career-row"><div class="title">CFD Simulation Specialist</div><div class="meta">Wolfsburg, DE</div><div class="meta">Aerodynamics</div><div class="arrow">→</div></div>
+    <div class="career-row"><div class="title">Bespoke Atelier Craftsman</div><div class="meta">Molsheim, FR</div><div class="meta">Artisanal</div><div class="arrow">→</div></div>
   </div>
 </section>
 
-<section class="preview-section" id="layout">
-  <span class="section-eyebrow">Section 06 / Spacing</span>
-  <h2 class="section-title">Spacing Scale</h2>
-  <p class="section-subtitle">Six discrete values — one of the smallest spacing scales in this catalog. Bugatti refuses to invent in-between gaps.</p>
+<section>
+  <div class="section-label">07 — Spec Cells (Tourbillon)</div>
+  <h2 class="section-heading">Engineered Numbers</h2>
+  <p class="section-intro">No card chrome. Just the value, the label, and a hairline divider grid.</p>
+
+  <div class="spec-grid">
+    <div class="spec-cell"><div class="value">1,800 PS</div><div class="label">Combined Power</div></div>
+    <div class="spec-cell"><div class="value">2.0s</div><div class="label">0 – 100 km/h</div></div>
+    <div class="spec-cell"><div class="value">445 km/h</div><div class="label">Top Speed</div></div>
+    <div class="spec-cell"><div class="value">V16</div><div class="label">Engine Layout</div></div>
+    <div class="spec-cell"><div class="value">8.3L</div><div class="label">Displacement</div></div>
+    <div class="spec-cell"><div class="value">3 · Electric</div><div class="label">Motors</div></div>
+    <div class="spec-cell"><div class="value">250</div><div class="label">Units Built</div></div>
+    <div class="spec-cell"><div class="value">€3.8M</div><div class="label">Starting Price</div></div>
+  </div>
+</section>
+
+<section>
+  <div class="section-label">08 — Form Elements</div>
+  <h2 class="section-heading">Underline-Only Inputs</h2>
+  <p class="section-intro">Inputs have no border outline — only a 1px hairline-strong underline. Background transparent. Focus state thickens the underline to white.</p>
+
+  <div class="form-grid">
+    <div class="form-cell"><label class="form-label">Full Name</label><input class="form-input" type="text" placeholder="Enter your name"></div>
+    <div class="form-cell"><label class="form-label">Email Address</label><input class="form-input" type="email" placeholder="you@example.com"></div>
+    <div class="form-cell"><label class="form-label">Country of Residence</label><input class="form-input" type="text" placeholder="Select your country"></div>
+    <div class="form-cell wide"><label class="form-label">Inquiry Message</label><input class="form-input" type="text" placeholder="Tell us about your interest in Bugatti..."></div>
+  </div>
+</section>
+
+<section>
+  <div class="section-label">09 — Spacing Scale</div>
+  <p class="section-intro">Section rhythm 120px — longer than typical. The whitespace frames the photography.</p>
   <div class="spacing-row">
-    <div class="spacing-item"><div class="spacing-block" style="width: 4px;"></div><span class="spacing-label">4px</span></div>
-    <div class="spacing-item"><div class="spacing-block" style="width: 6px;"></div><span class="spacing-label">6px</span></div>
-    <div class="spacing-item"><div class="spacing-block" style="width: 12px;"></div><span class="spacing-label">12px</span></div>
-    <div class="spacing-item"><div class="spacing-block" style="width: 36px;"></div><span class="spacing-label">36px</span></div>
-    <div class="spacing-item"><div class="spacing-block" style="width: 48px;"></div><span class="spacing-label">48px</span></div>
-    <div class="spacing-item"><div class="spacing-block" style="width: 64px;"></div><span class="spacing-label">64px</span></div>
+    <div class="spacing-block"><div class="spacing-bar" style="width:4px;"></div><div class="spacing-label">xxs · 4px</div></div>
+    <div class="spacing-block"><div class="spacing-bar" style="width:8px;"></div><div class="spacing-label">xs · 8px</div></div>
+    <div class="spacing-block"><div class="spacing-bar" style="width:12px;"></div><div class="spacing-label">sm · 12px</div></div>
+    <div class="spacing-block"><div class="spacing-bar" style="width:16px;"></div><div class="spacing-label">md · 16px</div></div>
+    <div class="spacing-block"><div class="spacing-bar" style="width:24px;"></div><div class="spacing-label">lg · 24px</div></div>
+    <div class="spacing-block"><div class="spacing-bar" style="width:40px;"></div><div class="spacing-label">xl · 40px</div></div>
+    <div class="spacing-block"><div class="spacing-bar" style="width:64px;"></div><div class="spacing-label">xxl · 64px</div></div>
+    <div class="spacing-block"><div class="spacing-bar" style="width:120px;"></div><div class="spacing-label">section · 120px</div></div>
   </div>
 </section>
 
-<section class="preview-section">
-  <span class="section-eyebrow">Section 07 / Radius</span>
-  <h2 class="section-title">Border Radius Scale</h2>
-  <p class="section-subtitle">Three values. Rectangle, slightly-rounded utility, or full pill. Nothing in between.</p>
+<section>
+  <div class="section-label">10 — Border Radius Scale</div>
+  <p class="section-intro">Binary: rectangular for everything except buttons (pills) and icon buttons (circles). No 4px / 8px / 12px in between.</p>
   <div class="radius-row">
-    <div class="radius-item">
-      <div class="radius-block r0"></div>
-      <span class="radius-label">0<small>Default — media, hero</small></span>
-    </div>
-    <div class="radius-item">
-      <div class="radius-block r6"></div>
-      <span class="radius-label">6px<small>Utility, small frames</small></span>
-    </div>
-    <div class="radius-item">
-      <div class="radius-block r9999"></div>
-      <span class="radius-label">9999px<small>Primary pill buttons</small></span>
-    </div>
+    <div class="radius-block" style="border-radius:0;">0 · none</div>
+    <div class="radius-block" style="border-radius:9999px;">pill</div>
+    <div class="radius-block" style="border-radius:50%;">full</div>
   </div>
 </section>
 
-<section class="preview-section">
-  <span class="section-eyebrow">Section 08 / Elevation</span>
-  <h2 class="section-title">Depth &amp; Elevation</h2>
-  <p class="section-subtitle">Hairline borders only. No drop shadows anywhere. The only gradient is a vignette over video for text legibility.</p>
+<section>
+  <div class="section-label">11 — Elevation &amp; Depth</div>
+  <p class="section-intro">No shadows. Depth comes from photography and from the contrast between black canvas and minimally-elevated surface tones.</p>
   <div class="elevation-grid">
-    <div class="elevation-cell lvl-0">
-      <span class="label">Level 0</span>
-      <div class="desc">No shadow, no border — plain canvas</div>
-    </div>
-    <div class="elevation-cell lvl-1">
-      <span class="label">Level 1</span>
-      <div class="desc">1px solid Silver Mist — secondary containers</div>
-    </div>
-    <div class="elevation-cell lvl-2">
-      <span class="label">Level 2</span>
-      <div class="desc">1px solid Showroom White — primary state</div>
-    </div>
-    <div class="elevation-cell lvl-3">
-      <span class="label">Level 3</span>
-      <div class="desc">Bottom vignette — text legibility over media</div>
-    </div>
+    <div class="elevation-card elevation-flat"><h5>Flat / Canvas</h5><p>Body sections, top nav, footer.</p></div>
+    <div class="elevation-card elevation-soft"><h5>Surface Soft</h5><p>Spec table rows, dense data.</p></div>
+    <div class="elevation-card elevation-card-surface"><h5>Surface Card</h5><p>Career callout, newsroom article.</p></div>
+    <div class="elevation-card elevation-elevated"><h5>Surface Elevated</h5><p>Nested cards on dense pages.</p></div>
+    <div class="elevation-card elevation-flat"><h5>Photographic</h5><p>Subject + lens + lighting do shadow's work.</p></div>
+    <div class="elevation-card elevation-flat"><h5>No drop shadow</h5><p>Anywhere. The brand has none.</p></div>
   </div>
 </section>
 
+<section id="responsive">
+  <div class="section-label">12 — Responsive Behavior</div>
+  <table class="responsive-table">
+    <thead><tr><th>Name</th><th>Width</th><th>Key Changes</th></tr></thead>
+    <tbody>
+      <tr><td>Mobile</td><td>&lt; 768px</td><td>Hamburger nav with wordmark centered; hero h1 64→32px; career callout hides; spec grid 1-up.</td></tr>
+      <tr><td>Tablet</td><td>768–1024px</td><td>Minimal top-nav; 1-up newsroom grid; spec cells 2-up.</td></tr>
+      <tr><td>Desktop</td><td>1024–1440px</td><td>Full minimal nav; 2-up newsroom; 4-up spec grid.</td></tr>
+      <tr><td>Wide</td><td>&gt; 1440px</td><td>Same as desktop with more breathing room; max content 1280px.</td></tr>
+    </tbody>
+  </table>
+  <div class="device-ladder">
+    <div class="device-bar" style="width:60px; height:120px;">375<br>mobile</div>
+    <div class="device-bar" style="width:90px; height:140px;">600<br>small phone</div>
+    <div class="device-bar" style="width:140px; height:160px;">768<br>tablet</div>
+    <div class="device-bar" style="width:200px; height:180px;">1024<br>laptop</div>
+    <div class="device-bar" style="width:260px; height:200px;">1280<br>desktop</div>
+    <div class="device-bar" style="width:320px; height:220px;">1440<br>wide</div>
+  </div>
+  <div class="responsive-sub"><h4>Touch Targets</h4><ul><li>button-primary at min 44 × 44px — meets WCAG AAA.</li><li>button-icon at exactly 40 × 40 — slightly under 44 but visually centered.</li><li>text-input height 44px.</li></ul></div>
+  <div class="responsive-sub"><h4>Collapsing Strategy</h4><ul><li>Top nav stays minimal at all breakpoints. Wordmark stays centered even when MENU/STORE collapse on mobile.</li><li>Hero photography stays full-bleed at every breakpoint.</li><li>Career callout card hides at &lt; 768px.</li><li>2-up newsroom grid → 1-up at &lt; 768px.</li><li>Spec cells reflow 4 → 2 → 1; values stay at the same display size.</li></ul></div>
+</section>
 
 
 

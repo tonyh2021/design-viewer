@@ -1,1163 +1,362 @@
-<!DOCTYPE html><html lang="en"><head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Design System Inspired by Ferrari</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Barlow+Condensed:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Design System Inspiration of Ferrari</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
 <style>
-  :root {
-    --ferrari-red: #DA291C;
-    --dark-red: #B01E0A;
-    --deep-red: #9D2211;
-    --pure-white: #FFFFFF;
-    --absolute-black: #000000;
-    --dark-surface: #303030;
-    --light-gray-surface: #D2D2D2;
-    --near-black: #181818;
-    --dark-gray: #666666;
-    --mid-gray: #8F8F8F;
-    --silver-gray: #969696;
-    --border-gray: #CCCCCC;
-    --border-mid: #909090;
-    --warning-red: #F13A2C;
-    --success-green: #03904A;
-    --info-blue: #4C98B9;
-    --link-blue: #3860BE;
-    --teal-hover: #1EAEDB;
-    --racing-yellow: #FFF200;
-    --modena-yellow: #F6E500;
-    --overlay-dark: hsla(0, 0%, 7%, 0.8);
-    --font-heading: 'DM Sans', Arial, Helvetica, sans-serif;
-    --font-body: 'Barlow Condensed', Arial, Helvetica, sans-serif;
-  }
-
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-
-  body {
-    font-family: var(--font-heading);
-    background: var(--pure-white);
-    color: var(--near-black);
-    font-size: 13px;
-    font-weight: 400;
-    line-height: 1.50;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  /* NAV */
-  nav {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 14px 40px;
-    background: var(--absolute-black);
-    min-height: 52px;
-  }
-  .nav-brand {
-    font-family: var(--font-heading);
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--pure-white);
-    text-decoration: none;
-    letter-spacing: 0.13px;
-  }
-  .nav-links {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    list-style: none;
-  }
-  .nav-links a {
-    font-family: var(--font-heading);
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--pure-white);
-    text-decoration: none;
-    padding: 6px 14px;
-    border-radius: 2px;
-    display: inline-flex;
-    align-items: center;
-    transition: color 0.3s;
-  }
-  .nav-links a:hover { color: var(--link-blue); }
-  .nav-cta {
-    background: var(--ferrari-red);
-    color: var(--pure-white) !important;
-    padding: 8px 20px;
-    border-radius: 2px;
-    font-family: var(--font-heading);
-    font-size: 13px;
-    font-weight: 600;
-    text-decoration: none;
-    transition: background-color 0.3s;
-    display: inline-flex;
-    align-items: center;
-    border: none;
-    cursor: pointer;
-  }
-  .nav-cta:hover { background: var(--dark-red); }
-
-  /* HERO */
-  .hero {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 100px 40px 80px;
-    background: var(--absolute-black);
-    text-align: center;
-    overflow: hidden;
-  }
-  .hero::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 600px;
-    height: 600px;
-    background: radial-gradient(circle, rgba(218,41,28,0.06) 0%, transparent 70%);
-    pointer-events: none;
-  }
-  .hero h1 {
-    font-family: var(--font-heading);
-    font-size: 42px;
-    font-weight: 500;
-    line-height: 1.20;
-    letter-spacing: normal;
-    color: var(--pure-white);
-    margin-bottom: 16px;
-    position: relative;
-  }
-  .hero .subtitle {
-    font-family: var(--font-heading);
-    font-size: 16px;
-    font-weight: 400;
-    color: var(--silver-gray);
-    margin-bottom: 12px;
-    line-height: 1.50;
-    position: relative;
-  }
-  .hero .label-tag {
-    font-family: var(--font-body);
-    font-size: 12px;
-    font-weight: 400;
-    color: var(--mid-gray);
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    margin-bottom: 40px;
-    position: relative;
-  }
-  .hero-buttons {
-    display: flex;
-    gap: 16px;
-    position: relative;
-  }
-  .btn-primary-red {
-    background: var(--ferrari-red);
-    color: var(--pure-white);
-    border: none;
-    border-radius: 2px;
-    padding: 12px 28px;
-    font-family: var(--font-heading);
-    font-size: 16px;
-    font-weight: 400;
-    letter-spacing: 1.28px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .btn-primary-red:hover { background: var(--dark-red); }
-  .btn-ghost {
-    background: transparent;
-    color: var(--pure-white);
-    border: 1px solid var(--pure-white);
-    border-radius: 2px;
-    padding: 12px 28px;
-    font-family: var(--font-heading);
-    font-size: 16px;
-    font-weight: 400;
-    letter-spacing: 1.28px;
-    cursor: pointer;
-    transition: background-color 0.3s, color 0.3s;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .btn-ghost:hover { background: var(--teal-hover); border-color: var(--teal-hover); }
-
-  /* SECTIONS */
-  .section {
-    padding: 80px 40px;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  .section-dark {
-    background: var(--pure-white);
-  }
-  .section-title {
-    font-family: var(--font-heading);
-    font-size: 26px;
-    font-weight: 500;
-    color: var(--near-black);
-    margin-bottom: 8px;
-    line-height: 1.20;
-  }
-  .section-desc {
-    font-family: var(--font-heading);
-    font-size: 13px;
-    color: var(--dark-gray);
-    margin-bottom: 40px;
-    line-height: 1.50;
-    letter-spacing: 0.195px;
-  }
-  .section-divider {
-    border: none;
-    border-top: 1px solid var(--light-gray-surface);
-    margin: 0 40px;
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  /* 1. COLOR PALETTE */
-  .color-group-label {
-    font-family: var(--font-body);
-    font-size: 12px;
-    font-weight: 400;
-    color: var(--mid-gray);
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    margin-bottom: 16px;
-    margin-top: 32px;
-  }
-  .color-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(155px, 1fr));
-    gap: 16px;
-    margin-bottom: 32px;
-  }
-  .color-swatch {
-    border-radius: 2px;
-    overflow: hidden;
-  }
-  .color-swatch .swatch-block {
-    height: 80px;
-    border-radius: 2px 2px 0 0;
-  }
-  .color-swatch .swatch-info {
-    padding: 12px;
-    background: var(--pure-white);
-    border: 1px solid var(--border-gray);
-    border-top: none;
-    border-radius: 0 0 2px 2px;
-  }
-  .color-swatch .swatch-name {
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--near-black);
-    margin-bottom: 2px;
-  }
-  .color-swatch .swatch-hex {
-    font-size: 12px;
-    color: var(--dark-gray);
-    margin-bottom: 4px;
-    font-family: monospace;
-  }
-  .color-swatch .swatch-role {
-    font-size: 11px;
-    color: var(--mid-gray);
-    line-height: 1.3;
-  }
-
-  /* 2. TYPOGRAPHY */
-  .type-sample {
-    margin-bottom: 32px;
-    padding-bottom: 24px;
-    border-bottom: 1px solid var(--light-gray-surface);
-  }
-  .type-sample:last-child { border-bottom: none; }
-  .type-label {
-    font-family: var(--font-body);
-    font-size: 11px;
-    font-weight: 400;
-    color: var(--mid-gray);
-    margin-top: 8px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    line-height: 1.27;
-  }
-
-  /* 3. BUTTONS */
-  .button-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    align-items: flex-end;
-    margin-bottom: 24px;
-  }
-  .button-item {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-  .button-item .btn-label {
-    font-family: var(--font-body);
-    font-size: 11px;
-    color: var(--mid-gray);
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    line-height: 1.27;
-  }
-  .btn-white-cta {
-    background: var(--pure-white);
-    color: var(--absolute-black);
-    border: 1px solid var(--absolute-black);
-    border-radius: 2px;
-    padding: 12px 10px;
-    font-family: var(--font-heading);
-    font-size: 16px;
-    font-weight: 400;
-    letter-spacing: 1.28px;
-    cursor: pointer;
-    transition: background-color 0.3s, color 0.3s;
-    min-width: 160px;
-    text-align: center;
-  }
-  .btn-white-cta:hover { background: var(--teal-hover); color: var(--pure-white); border-color: var(--teal-hover); }
-  .btn-red-cta {
-    background: var(--ferrari-red);
-    color: var(--pure-white);
-    border: 1px solid var(--ferrari-red);
-    border-radius: 2px;
-    padding: 12px 10px;
-    font-family: var(--font-heading);
-    font-size: 16px;
-    font-weight: 400;
-    letter-spacing: 1.28px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    min-width: 160px;
-    text-align: center;
-  }
-  .btn-red-cta:hover { background: var(--dark-red); border-color: var(--dark-red); }
-  .btn-ghost-dark {
-    background: transparent;
-    color: var(--pure-white);
-    border: 1px solid var(--pure-white);
-    border-radius: 2px;
-    padding: 12px 10px;
-    font-family: var(--font-heading);
-    font-size: 16px;
-    font-weight: 400;
-    letter-spacing: 1.28px;
-    cursor: pointer;
-    transition: background-color 0.3s, color 0.3s;
-    min-width: 160px;
-    text-align: center;
-  }
-  .btn-ghost-dark:hover { background: var(--teal-hover); border-color: var(--teal-hover); }
-  .btn-text-link {
-    background: none;
-    border: none;
-    color: var(--near-black);
-    font-family: var(--font-heading);
-    font-size: 13px;
-    font-weight: 400;
-    letter-spacing: 0.195px;
-    cursor: pointer;
-    text-decoration: none;
-    transition: color 0.3s;
-    padding: 0;
-  }
-  .btn-text-link:hover { color: var(--link-blue); }
-  .dark-btn-row {
-    background: var(--absolute-black);
-    padding: 24px;
-    border-radius: 2px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    align-items: flex-end;
-  }
-  .dark-btn-row .btn-label { color: var(--silver-gray); }
-
-  /* 4. CARDS */
-  .card-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 24px;
-  }
-  .card {
-    background: var(--pure-white);
-    border-radius: 0;
-    overflow: hidden;
-  }
-  .card-img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    display: block;
-    background: var(--light-gray-surface);
-  }
-  .card-body { padding: 20px 0; }
-  .card-heading {
-    font-family: var(--font-heading);
-    font-size: 16px;
-    font-weight: 700;
-    color: var(--near-black);
-    line-height: 1.30;
-    margin-bottom: 8px;
-  }
-  .card-caption {
-    font-family: var(--font-body);
-    font-size: 12px;
-    font-weight: 400;
-    color: var(--mid-gray);
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    line-height: 1.27;
-    margin-bottom: 8px;
-  }
-  .card-text {
-    font-family: var(--font-heading);
-    font-size: 13px;
-    color: var(--dark-gray);
-    line-height: 1.50;
-  }
-  .card-dark {
-    background: var(--absolute-black);
-    border-radius: 0;
-    overflow: hidden;
-  }
-  .card-dark .card-img { background: var(--dark-surface); }
-  .card-dark .card-body { padding: 20px; }
-  .card-dark .card-heading { color: var(--pure-white); }
-  .card-dark .card-caption { color: var(--silver-gray); }
-  .card-dark .card-text { color: var(--mid-gray); }
-  .card-hover {
-    transition: transform 0.3s;
-  }
-  .card-hover:hover { transform: translateY(-2px); }
-
-  /* 5. FORMS */
-  .form-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
-    max-width: 700px;
-  }
-  .form-group { display: flex; flex-direction: column; gap: 6px; }
-  .form-group.full { grid-column: 1 / -1; }
-  .form-label {
-    font-family: var(--font-body);
-    font-size: 12px;
-    font-weight: 400;
-    color: var(--mid-gray);
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    line-height: 1.27;
-  }
-  .form-input {
-    font-family: var(--font-heading);
-    font-size: 13px;
-    color: var(--near-black);
-    background: transparent;
-    border: 1px solid var(--border-gray);
-    border-radius: 2px;
-    padding: 12px 10px;
-    outline: none;
-    transition: border-color 0.3s;
-    line-height: 1.50;
-    letter-spacing: 0.195px;
-  }
-  .form-input::placeholder { color: var(--silver-gray); }
-  .form-input:focus { border-color: var(--ferrari-red); }
-  .form-input-error {
-    border-color: var(--warning-red);
-  }
-  .form-error-text {
-    font-size: 11px;
-    color: var(--warning-red);
-    font-family: var(--font-heading);
-  }
-  textarea.form-input {
-    resize: vertical;
-    min-height: 100px;
-  }
-
-  /* 6. SPACING */
-  .spacing-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    align-items: flex-end;
-  }
-  .spacing-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 6px;
-  }
-  .spacing-box {
-    background: var(--ferrari-red);
-    border-radius: 1px;
-    opacity: 0.8;
-    height: 40px;
-  }
-  .spacing-label {
-    font-family: monospace;
-    font-size: 10px;
-    color: var(--mid-gray);
-    white-space: nowrap;
-  }
-
-  /* 7. RADIUS */
-  .radius-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 24px;
-    align-items: flex-end;
-  }
-  .radius-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-  }
-  .radius-box {
-    width: 80px;
-    height: 80px;
-    background: var(--light-gray-surface);
-    border: 1px solid var(--border-gray);
-  }
-  .radius-label {
-    font-family: monospace;
-    font-size: 11px;
-    color: var(--mid-gray);
-    text-align: center;
-    line-height: 1.3;
-  }
-  .radius-context {
-    font-family: var(--font-body);
-    font-size: 11px;
-    color: var(--silver-gray);
-    text-align: center;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    line-height: 1.27;
-  }
-
-  /* 8. ELEVATION */
-  .elevation-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    gap: 24px;
-    padding: 40px;
-    background: #F5F5F5;
-    border-radius: 2px;
-  }
-  .elevation-card {
-    background: var(--pure-white);
-    padding: 24px;
-    min-height: 120px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-  }
-  .elevation-label {
-    font-family: var(--font-heading);
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--near-black);
-    margin-bottom: 4px;
-  }
-  .elevation-desc {
-    font-family: var(--font-heading);
-    font-size: 12px;
-    color: var(--mid-gray);
-    line-height: 1.50;
-  }
-
-  /* RESPONSIVE */
-  @media (max-width: 768px) {
-    nav { padding: 12px 20px; }
-    .nav-links { display: none; }
-    .hero { padding: 60px 20px; }
-    .hero h1 { font-size: 28px; }
-    .hero-buttons { flex-direction: column; gap: 12px; }
-    .section { padding: 48px 20px; }
-    .section-title { font-size: 22px; }
-    .color-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); }
-    .card-grid { grid-template-columns: 1fr; }
-    .form-grid { grid-template-columns: 1fr; }
-    .form-group.full { grid-column: auto; }
-    .button-row, .dark-btn-row { flex-direction: column; align-items: flex-start; }
-    .elevation-grid { grid-template-columns: 1fr; padding: 20px; }
-  }
-
-  /* preview nav */
-  .nav-left { display: flex; align-items: center; gap: 20px; }
-  .nav-brand-link,
-  .nav-brand-link:link,
-  .nav-brand-link:visited,
-  .nav-brand-link:hover,
-  .nav-brand-link:active { text-decoration: none; color: inherit; }
-  .nav-github,
-  .nav-github:link,
-  .nav-github:visited,
-  .nav-github:hover,
-  .nav-github:active {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 12px;
-    font-weight: 600;
-    color: inherit;
-    text-decoration: none;
-    padding: 5px 10px;
-    border: 1px solid rgba(128, 128, 128, 0.3);
-    border-radius: 6px;
-    opacity: 0.75;
-    transition: opacity 200ms ease, border-color 200ms ease;
-    font-family: inherit;
-    line-height: 1;
-    white-space: nowrap;
-  }
-  .nav-github:hover { opacity: 1; border-color: rgba(128, 128, 128, 0.55); }
-  .nav-github svg { display: block; flex-shrink: 0; }
-
-  /* preview nav */
-  .nav { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; }
-  .nav > .nav-left { justify-self: start; }
-  .nav > .nav-links { justify-self: center; }
-  .nav > :last-child { justify-self: end; }
-</style>
-</head>
+:root{--primary:#da291c;--primary-active:#b01e0a;--primary-hover:#9d2211;--ink:#fff;--body:#969696;--body-strong:#fff;--body-on-light:#181818;--muted:#666;--muted-soft:#8f8f8f;--hairline:#303030;--hairline-on-light:#d2d2d2;--hairline-soft:#ebebeb;--canvas:#181818;--canvas-elevated:#303030;--canvas-light:#fff;--surface-card:#303030;--surface-soft-light:#f7f7f7;--surface-strong-light:#ebebeb;--on-primary:#fff;--on-dark:#fff;--on-light:#181818;--accent-yellow-hypersail:#fff200;--accent-yellow:#f6e500;--semantic-info:#4c98b9;--semantic-success:#03904a;--semantic-warning:#f13a2c;--display:'Inter','FerrariSans',-apple-system,system-ui,sans-serif;--text:'Inter','FerrariSans',sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--canvas);color:var(--body);font-family:var(--text);font-size:14px;line-height:1.5}
+.nav{position:sticky;top:0;z-index:100;background:var(--canvas);border-bottom:1px solid var(--hairline);padding: 0 48px;height:64px}
+.nav-links{list-style:none;display:flex;gap:24px;align-items:center}
+.nav-links a{color:var(--ink);text-decoration:none;font-size:13px;font-weight:600;letter-spacing:0.65px;text-transform:uppercase}
+.nav-cta{background:var(--primary);color:var(--on-primary);border:none;padding:14px 32px;font-weight:700;font-size:14px;cursor:pointer;font-family:inherit;border-radius:0;height:48px;letter-spacing:1.4px;text-transform:uppercase}
+.hero{padding:96px 48px;background:var(--canvas);max-width:1440px;margin:0 auto}
+.hero-content{max-width:1200px}
+.hero h1{font-family:var(--display);font-size:80px;font-weight:500;line-height:1.2;color:var(--ink);margin:0 0 40px;letter-spacing:-1.6px}
+.hero p{font-size:14px;color:var(--body);max-width:900px;margin:0 0 32px;line-height:1.5}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+.btn-hero-primary{background:var(--primary);color:var(--on-primary);border:none;padding:14px 32px;height:48px;font-weight:700;font-size:14px;cursor:pointer;font-family:inherit;border-radius:0;letter-spacing:1.4px;text-transform:uppercase}
+.btn-hero-secondary{background:transparent;color:var(--ink);border:1px solid var(--ink);padding:13px 31px;height:48px;font-weight:700;font-size:14px;cursor:pointer;font-family:inherit;border-radius:0;letter-spacing:1.4px;text-transform:uppercase}
+section{max-width:1280px;margin:0 auto;padding:96px 48px;border-top:1px solid var(--hairline)}
+.section-label{font-size:11px;text-transform:uppercase;letter-spacing:1.1px;color:var(--muted);font-weight:600;margin-bottom:12px}
+.section-heading{font-family:var(--display);font-size:36px;font-weight:500;color:var(--ink);margin-bottom:16px;line-height:1.2;letter-spacing:-0.36px}
+.section-intro{font-size:14px;color:var(--body);max-width:720px;margin-bottom:48px;line-height:1.5}
+.palette-group{margin-bottom:48px}
+.palette-group h3{font-size:11px;font-weight:600;color:var(--ink);margin-bottom:16px;text-transform:uppercase;letter-spacing:1.1px}
+.palette-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px}
+.swatch{border:1px solid var(--hairline);background:var(--canvas-elevated);overflow:hidden}
+.swatch-color{height:90px}
+.swatch-meta{padding:12px 14px}
+.swatch-name{font-weight:600;font-size:13px;color:var(--ink);margin-bottom:4px}
+.swatch-hex{font-family:ui-monospace,monospace;font-size:12px;color:var(--muted);margin-bottom:6px}
+.swatch-role{font-size:13px;color:var(--body);line-height:1.5}
+.type-row{display:grid;grid-template-columns:320px 1fr;gap:32px;align-items:baseline;padding:20px 0;border-bottom:1px solid var(--hairline)}
+.type-row:last-child{border-bottom:none}
+.type-meta{font-size:12px;color:var(--muted);line-height:1.5}
+.type-meta strong{display:block;color:var(--ink);font-weight:600;font-size:12px;margin-bottom:4px;text-transform:uppercase;letter-spacing:0.5px}
+.type-sample{color:var(--ink)}
+.button-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px}
+.button-cell{border:1px solid var(--hairline);padding:28px;background:var(--canvas-elevated);min-width:0}
+.button-cell.on-light{background:var(--canvas-light);border-color:var(--hairline-on-light)}
+.button-cell.on-light .button-label{color:var(--on-light)}
+.button-cell.on-light .button-meta{color:var(--muted)}
+.button-label{font-size:11px;color:var(--ink);font-weight:600;margin-bottom:14px;text-transform:uppercase;letter-spacing:1.1px}
+.button-meta{font-size:12px;color:var(--muted);margin-top:14px;line-height:1.5}
+.btn{display:inline-block;padding:14px 32px;height:48px;font-size:14px;font-weight:700;border:none;cursor:pointer;font-family:inherit;line-height:1;border-radius:0;letter-spacing:1.4px;text-transform:uppercase}
+.btn-primary{background:var(--primary);color:var(--on-primary)}
+.btn-primary-active{background:var(--primary-active);color:var(--on-primary)}
+.btn-outline-on-dark{background:transparent;color:var(--ink);border:1px solid var(--ink);padding:13px 31px}
+.btn-outline-on-light{background:transparent;color:var(--on-light);border:1px solid var(--on-light);padding:13px 31px}
+.btn-tertiary-text{background:transparent;color:var(--ink);padding:0;height:auto;letter-spacing:1.4px;text-transform:uppercase}
+.card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:24px}
+.card-grid>*{min-width:0}
+.feature-card-photo{background:var(--canvas);border:1px solid var(--hairline);overflow:hidden}
+.feature-card-photo .photo{aspect-ratio:16/10;background:linear-gradient(135deg,#222 0%,#3c3c3c 50%,#a00c01 100%)}
+.feature-card-photo .meta{padding:24px}
+.feature-card-photo h4{font-size:18px;font-weight:700;color:var(--ink);margin-bottom:8px}
+.feature-card-photo p{font-size:13px;color:var(--body);line-height:1.5;margin-bottom:16px}
+.feature-card-light{background:var(--canvas-light);border:1px solid var(--hairline-on-light);padding:32px}
+.feature-card-light h4{font-size:18px;font-weight:700;color:var(--on-light);margin-bottom:8px}
+.feature-card-light p{font-size:13px;color:#666;line-height:1.5;margin-bottom:16px}
+.driver-card{background:var(--canvas-elevated);padding:24px;text-align:center}
+.driver-card .portrait{width:100%;aspect-ratio:1;background:linear-gradient(180deg,#3c3c3c 0%,#181818 100%);margin-bottom:16px;display:flex;align-items:flex-end;justify-content:center;font-size:80px;color:var(--primary);font-weight:700}
+.driver-card h4{font-size:18px;font-weight:700;color:var(--ink);margin-bottom:4px}
+.driver-card .num{font-family:var(--display);font-size:32px;font-weight:700;color:var(--primary);margin-bottom:4px;letter-spacing:-0.5px}
+.driver-card .team{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:1.1px}
+.livery-band{background:var(--primary);color:var(--ink);padding:96px 48px;text-align:center;margin:0 -48px}
+.livery-band h2{font-family:var(--display);font-size:36px;font-weight:500;color:var(--ink);margin:0 0 24px;letter-spacing:-0.36px}
+.livery-band .number-display{font-family:var(--display);font-size:80px;font-weight:700;color:var(--ink);line-height:1;letter-spacing:-1.6px;margin-bottom:24px}
+.spec-row{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline)}
+.spec-cell{padding:32px 16px;text-align:center;border-right:1px solid var(--hairline)}
+.spec-cell:last-child{border-right:none}
+.spec-cell .value{font-family:var(--display);font-size:64px;font-weight:700;color:var(--ink);line-height:1.0;letter-spacing:-1.28px;margin-bottom:8px}
+.spec-cell .label{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:1.1px;font-weight:600}
+.race-row{display:grid;grid-template-columns:80px 1fr 100px;gap:24px;align-items:center;padding:16px 0;border-bottom:1px solid var(--hairline)}
+.race-row:last-child{border-bottom:none}
+.race-row .date{font-family:var(--display);font-size:14px;font-weight:500;color:var(--ink);text-transform:uppercase;letter-spacing:0.7px}
+.race-row .name{font-size:14px;color:var(--ink);font-weight:500}
+.race-row .circuit{font-size:12px;color:var(--muted);margin-top:2px}
+.race-row .position{font-family:var(--display);font-size:32px;font-weight:700;color:var(--primary);text-align:right;letter-spacing:-0.5px}
+.preowned-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;background:var(--hairline-on-light)}
+.preowned-listing-card{background:var(--canvas-light);padding:24px}
+.preowned-listing-card .photo{aspect-ratio:4/3;background:linear-gradient(135deg,#a00c01 0%,#5a0500 60%,#222 100%);margin-bottom:16px}
+.preowned-listing-card .model{font-size:14px;font-weight:700;color:var(--on-light);margin-bottom:4px}
+.preowned-listing-card .meta{font-size:12px;color:#666;margin-bottom:8px}
+.preowned-listing-card .price{font-family:var(--display);font-size:18px;font-weight:700;color:var(--on-light);letter-spacing:0}
+.form-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px}
+.form-cell{min-width:0}
+.form-label{font-size:13px;font-weight:600;color:var(--ink);margin-bottom:8px;display:block}
+.text-input{width:100%;background:var(--canvas);color:var(--ink);border:1px solid var(--hairline);padding:14px 16px;height:48px;font-size:14px;font-family:inherit;border-radius:4px;outline:none}
+.text-input.focused{border:1px solid var(--ink)}
+.badge-pill{display:inline-block;background:var(--canvas-elevated);color:var(--ink);border-radius:9999px;padding:4px 12px;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:1.1px}
+.badge-pill.red{background:var(--primary)}
+.spacing-row{display:flex;align-items:flex-end;gap:16px;flex-wrap:wrap}
+.spacing-block{display:flex;flex-direction:column;align-items:center;gap:8px}
+.spacing-bar{background:var(--ink);height:28px}
+.spacing-label{font-size:11px;color:var(--muted);font-family:ui-monospace,monospace}
+.radius-row{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.radius-block{width:96px;height:96px;background:var(--canvas-elevated);border:1px solid var(--hairline);display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--ink);font-weight:600;font-family:ui-monospace,monospace}
+.elevation-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:24px}
+.elevation-card{padding:24px;font-size:13px;color:var(--body);border:1px solid var(--hairline);background:var(--canvas-elevated)}
+.elevation-card.canvas{background:var(--canvas)}
+.elevation-card.light{background:var(--canvas-light);color:#666;border-color:var(--hairline-on-light)}
+.elevation-card.with-shadow{box-shadow:0 4px 8px rgba(0,0,0,0.4)}
+.elevation-card h5{font-weight:600;color:var(--ink);margin-bottom:8px;font-size:13px}
+.elevation-card.light h5{color:var(--on-light)}
+.responsive-table{width:100%;border-collapse:collapse;margin-bottom:32px;font-size:13px}
+.responsive-table th,.responsive-table td{text-align:left;padding:14px 16px;border-bottom:1px solid var(--hairline)}
+.responsive-table th{font-weight:600;color:var(--ink);font-size:11px;text-transform:uppercase;letter-spacing:1.1px}
+.responsive-table td{color:var(--body)}
+.device-ladder{display:flex;align-items:flex-end;gap:16px;margin-bottom:32px;flex-wrap:wrap}
+.device-bar{background:var(--canvas-elevated);border:1px solid var(--hairline);color:var(--muted);text-align:center;padding:8px;font-size:11px;font-family:ui-monospace,monospace}
+.responsive-sub{margin-top:32px}
+.responsive-sub h4{font-size:18px;font-weight:700;color:var(--ink);margin-bottom:12px}
+.responsive-sub ul{padding-left:20px;color:var(--body);font-size:13px;line-height:1.5}
+.footer{background:var(--canvas);color:var(--body);padding:32px 48px;font-size:13px;text-align:center;border-top:1px solid var(--hairline)}
+.footer a{color:var(--ink)}
+.cell,.cell>*,.demo,.button-cell,.component-cell{min-width:0}
+.cell.wide,.button-cell.wide,.component-cell.wide{grid-column:span 2}
+@media (max-width:1024px){section{padding:64px 32px}.section-heading{font-size:28px}.nav>:last-child{display:none}.hero{min-height:400px}.hero-content{max-width:1200px}.hero h1{font-size:48px;letter-spacing:-1px}.type-row{grid-template-columns:1fr;gap:8px}.preowned-grid{grid-template-columns:repeat(2,1fr)}.spec-row{grid-template-columns:repeat(2,1fr);border:none}.spec-cell{border-right:none;border-bottom:1px solid var(--hairline)}.race-row{grid-template-columns:80px 1fr}.race-row .position{display:none}}
+@media (max-width:720px){.cell.wide,.button-cell.wide,.component-cell.wide{grid-column:span 1}.nav{padding: 0 48px;height:auto;min-height:56px}.nav-links{display:none}.hero-content{max-width:1200px}.hero h1{font-size:36px;letter-spacing:-0.5px}.hero p{font-size:13px}section{padding:48px 20px}.section-heading{font-size:24px}.palette-grid,.button-grid,.card-grid,.form-grid,.elevation-grid{grid-template-columns:1fr!important;gap:16px}.preowned-grid{grid-template-columns:1fr}.spacing-row,.radius-row{gap:12px}.responsive-table{font-size:12px}.responsive-table th,.responsive-table td{padding:10px 8px}.device-ladder{gap:8px}.footer{padding:24px 16px;font-size:12px}.livery-band{padding:48px 20px}.livery-band h2{font-size:28px}.livery-band .number-display{font-size:56px}}
+.nav-left{display:flex;align-items:center;gap:20px}
+.nav-brand-link,.nav-brand-link:link,.nav-brand-link:visited,.nav-brand-link:hover,.nav-brand-link:active{text-decoration:none;color:inherit}
+.nav-brand{font-family:var(--display);font-weight:600;font-size:16px;color:var(--ink)}
+.nav-github,.nav-github:link,.nav-github:visited,.nav-github:hover,.nav-github:active{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;color:inherit;text-decoration:none;padding:5px 10px;border:1px solid rgba(128,128,128,0.3);border-radius:6px;opacity:0.75;transition:opacity 200ms ease,border-color 200ms ease;font-family:inherit;line-height:1;white-space:nowrap}
+.nav-github:hover{opacity:1;border-color:rgba(128,128,128,0.55)}
+.nav-github svg{display:block;flex-shrink:0}
+.nav{display:grid;grid-template-columns:1fr auto 1fr;align-items:center}
+.nav>.nav-left{justify-self:start}
+.nav>.nav-links{justify-self:center}
+.nav>:last-child{justify-self:end}
+.nav .nav-github{color:#fff;border-color:rgba(255,255,255,0.25)}
+.nav .nav-github:hover{border-color:rgba(255,255,255,0.5)}
+</style></head>
 <body>
-
-<!-- NAV -->
 <nav class="nav">
   <div class="nav-left">
-    <a rel="noopener noreferrer" class="nav-brand-link">
-      <span class="nav-brand">Design Viewer</span>
-    </a>
+    <a rel="noopener noreferrer" class="nav-brand-link"><span class="nav-brand">Design Viewer</span></a>
     
   </div>
-  <ul class="nav-links">
-    <li><a href="#colors">Colors</a></li>
-    <li><a href="#typography">Typography</a></li>
-    <li><a href="#buttons">Buttons</a></li>
-    <li><a href="#cards">Cards</a></li>
-    <li><a href="#forms">Forms</a></li>
-    <li><a href="#spacing">Spacing</a></li>
-    
-  </ul>
-  <a class="nav-cta" href="#elevation">Explore</a>
-
+  <ul class="nav-links"><li><a href="#colors">Colors</a></li><li><a href="#typography">Typography</a></li><li><a href="#components">Components</a></li><li><a href="#responsive">Responsive</a></li></ul>
+  <button class="nav-cta">Discover</button>
 </nav>
+<div class="hero">
+  <div class="hero-content">
+    <h1>Design System Inspiration of Ferrari</h1>
+    <p>Luxury-automotive brand as cinematic editorial. Near-black canvas, Rosso Corsa accent, FerrariSans at modest weights with uppercase tracked CTAs and sharp 0px corners.</p>
+    <div class="hero-actions">
+      <button class="btn-hero-primary">Discover</button>
+      <button class="btn-hero-secondary">F1 Calendar</button>
+    </div>
+  </div>
+</div>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="label-tag">Design System Inspired by Ferrari</div>
-  <h1>Design System Inspired by Ferrari</h1>
-  <p class="subtitle">A visual reference generated from DESIGN.md — every color, type rule, and component token documented</p>
-  <div class="label-tag">Precision Engineering Meets Editorial Design</div>
-  <div class="hero-buttons">
-    <a href="#colors" class="btn-primary-red">Subscribe</a>
-    <a href="#typography" class="btn-ghost">Configure</a>
+<section id="colors">
+  <div class="section-label">01 — Color Palette</div>
+  <h2 class="section-heading">Rosso Corsa + near-black + light editorial</h2>
+  <p class="section-intro">Single brand voltage on a near-black canvas. White editorial bands inside specific contexts (preowned, pricing).</p>
+  <div class="palette-group"><h3>Brand</h3><div class="palette-grid">
+    <div class="swatch"><div class="swatch-color" style="background:#da291c"></div><div class="swatch-meta"><div class="swatch-name">primary (Rosso Corsa)</div><div class="swatch-hex">#da291c</div><div class="swatch-role">Iconic Ferrari racing red. Primary CTAs, Cavallino, F1 race-position.</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#b01e0a"></div><div class="swatch-meta"><div class="swatch-name">primary-active</div><div class="swatch-hex">#b01e0a</div><div class="swatch-role">Press state.</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#fff200"></div><div class="swatch-meta"><div class="swatch-name">accent-yellow-hypersail</div><div class="swatch-hex">#fff200</div><div class="swatch-role">Hypersail program only.</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#f6e500"></div><div class="swatch-meta"><div class="swatch-name">accent-yellow (focus)</div><div class="swatch-hex">#f6e500</div><div class="swatch-role">Global focus-ring color.</div></div></div>
+  </div></div>
+  <div class="palette-group"><h3>Surface</h3><div class="palette-grid">
+    <div class="swatch"><div class="swatch-color" style="background:#181818"></div><div class="swatch-meta"><div class="swatch-name">canvas</div><div class="swatch-hex">#181818</div><div class="swatch-role">Near-black page floor.</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#303030"></div><div class="swatch-meta"><div class="swatch-name">canvas-elevated</div><div class="swatch-hex">#303030</div><div class="swatch-role">Cards on dark canvas.</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#fff;border-bottom:1px solid #303030"></div><div class="swatch-meta"><div class="swatch-name">canvas-light</div><div class="swatch-hex">#ffffff</div><div class="swatch-role">White editorial bands.</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#f7f7f7;border-bottom:1px solid #303030"></div><div class="swatch-meta"><div class="swatch-name">surface-soft-light</div><div class="swatch-hex">#f7f7f7</div><div class="swatch-role">Light alternating band.</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#ebebeb;border-bottom:1px solid #303030"></div><div class="swatch-meta"><div class="swatch-name">surface-strong-light</div><div class="swatch-hex">#ebebeb</div><div class="swatch-role">Light dividers.</div></div></div>
+  </div></div>
+  <div class="palette-group"><h3>Text &amp; Hairlines</h3><div class="palette-grid">
+    <div class="swatch"><div class="swatch-color" style="background:#fff;border-bottom:1px solid #303030"></div><div class="swatch-meta"><div class="swatch-name">ink</div><div class="swatch-hex">#ffffff</div><div class="swatch-role">Display, body emphasis on dark.</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#969696"></div><div class="swatch-meta"><div class="swatch-name">body</div><div class="swatch-hex">#969696</div><div class="swatch-role">Default running-text on dark.</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#666"></div><div class="swatch-meta"><div class="swatch-name">muted</div><div class="swatch-hex">#666666</div><div class="swatch-role">Sub-titles, captions.</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#8f8f8f"></div><div class="swatch-meta"><div class="swatch-name">muted-soft</div><div class="swatch-hex">#8f8f8f</div><div class="swatch-role">Disabled link text.</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#303030"></div><div class="swatch-meta"><div class="swatch-name">hairline</div><div class="swatch-hex">#303030</div><div class="swatch-role">1px divider on dark.</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#d2d2d2"></div><div class="swatch-meta"><div class="swatch-name">hairline-on-light</div><div class="swatch-hex">#d2d2d2</div><div class="swatch-role">1px divider on light.</div></div></div>
+  </div></div>
+  <div class="palette-group"><h3>Semantic</h3><div class="palette-grid">
+    <div class="swatch"><div class="swatch-color" style="background:#03904a"></div><div class="swatch-meta"><div class="swatch-name">success</div><div class="swatch-hex">#03904a</div><div class="swatch-role">Confirmation.</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#4c98b9"></div><div class="swatch-meta"><div class="swatch-name">info</div><div class="swatch-hex">#4c98b9</div><div class="swatch-role">Info badges.</div></div></div>
+    <div class="swatch"><div class="swatch-color" style="background:#f13a2c"></div><div class="swatch-meta"><div class="swatch-name">warning</div><div class="swatch-hex">#f13a2c</div><div class="swatch-role">Validation warnings.</div></div></div>
+  </div></div>
+</section>
+
+<section id="typography">
+  <div class="section-label">02 — Typography</div>
+  <h2 class="section-heading">FerrariSans 500 + uppercase CTAs</h2>
+  <p class="section-intro">Single sans family. Display sits at weight 500. CTA labels uppercase with 1.4px tracking — luxury precision.</p>
+  <div class="type-row"><div class="type-meta"><strong>display-mega</strong>80px / 500 / 1.05 / -1.6px</div><div class="type-sample" style="font-family:var(--display);font-size:64px;font-weight:500;letter-spacing:-1.6px">Ferrari Hypersail</div></div>
+  <div class="type-row"><div class="type-meta"><strong>display-xl</strong>56px / 500 / 1.1 / -1.12px</div><div class="type-sample" style="font-family:var(--display);font-size:48px;font-weight:500;letter-spacing:-1.12px">Tribute to Niki Lauda</div></div>
+  <div class="type-row"><div class="type-meta"><strong>display-lg</strong>36px / 500 / 1.2 / -0.36px</div><div class="type-sample" style="font-family:var(--display);font-size:32px;font-weight:500;letter-spacing:-0.36px">Section heading</div></div>
+  <div class="type-row"><div class="type-meta"><strong>display-md</strong>26px / 500 / 1.5 / 0.195px</div><div class="type-sample" style="font-family:var(--display);font-size:26px;font-weight:500;letter-spacing:0.195px">Sub-section heading</div></div>
+  <div class="type-row"><div class="type-meta"><strong>title-md</strong>18px / 700 / 1.2</div><div class="type-sample" style="font-size:18px;font-weight:700">Component title</div></div>
+  <div class="type-row"><div class="type-meta"><strong>body-md</strong>14px / 400 / 1.5</div><div class="type-sample" style="font-size:14px">Default body text on near-black canvas. Editorial pacing.</div></div>
+  <div class="type-row"><div class="type-meta"><strong>body-sm</strong>13px / 400 / 1.5</div><div class="type-sample" style="font-size:13px">Footer body, fine print.</div></div>
+  <div class="type-row"><div class="type-meta"><strong>caption-uppercase</strong>11px / 600 / 1.4 / 1.1px</div><div class="type-sample" style="font-size:11px;font-weight:600;letter-spacing:1.1px;text-transform:uppercase">Section label</div></div>
+  <div class="type-row"><div class="type-meta"><strong>button</strong>14px / 700 / 1.0 / 1.4px (uppercase)</div><div class="type-sample" style="font-size:14px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase">Discover</div></div>
+  <div class="type-row"><div class="type-meta"><strong>nav-link</strong>13px / 600 / 1.4 / 0.65px (uppercase)</div><div class="type-sample" style="font-size:13px;font-weight:600;letter-spacing:0.65px;text-transform:uppercase">Models · Formula 1 · Lifestyle · Owners</div></div>
+  <div class="type-row"><div class="type-meta"><strong>number-display</strong>80px / 700 / 1.0 / -1.6px</div><div class="type-sample" style="font-family:var(--display);font-size:64px;font-weight:700;color:var(--primary);letter-spacing:-1.28px">P1</div></div>
+</section>
+
+<section id="components">
+  <div class="section-label">03 — Buttons</div>
+  <h2 class="section-heading">Sharp 0px corners, uppercase tracked labels</h2>
+  <p class="section-intro">Every CTA is sharp-cornered. The brand never uses rounded pills.</p>
+  <div class="button-grid">
+    <div class="button-cell"><div class="button-label">button-primary</div><button class="btn btn-primary">Discover</button><div class="button-meta">Rosso Corsa / 0px / 48px / uppercase 1.4px</div></div>
+    <div class="button-cell"><div class="button-label">button-primary-active</div><button class="btn btn-primary-active">Pressed</button><div class="button-meta">Deeper red press state.</div></div>
+    <div class="button-cell"><div class="button-label">button-outline-on-dark</div><button class="btn btn-outline-on-dark">F1 Calendar</button><div class="button-meta">Transparent + 1px white border.</div></div>
+    <div class="button-cell on-light"><div class="button-label">button-outline-on-light</div><button class="btn btn-outline-on-light">View Listing</button><div class="button-meta">Transparent + 1px ink border on light.</div></div>
+    <div class="button-cell"><div class="button-label">button-tertiary-text</div><button class="btn btn-tertiary-text">Read more →</button><div class="button-meta">Inline ink uppercase tracked text.</div></div>
   </div>
 </section>
 
-<!-- 1. COLOR PALETTE -->
-<div id="colors" class="section">
-  <h2 class="section-title">Color Palette</h2>
-  <p class="section-desc">Every color extracted from Ferrari's design system with semantic names, hex values, and functional roles.</p>
-
-  <div class="color-group-label">Primary</div>
-  <div class="color-grid">
-    <div class="color-swatch">
-      <div class="swatch-block" style="background:#DA291C;"></div>
-      <div class="swatch-info">
-        <div class="swatch-name">Ferrari Red</div>
-        <div class="swatch-hex">#DA291C</div>
-        <div class="swatch-role">Primary CTA and brand accent (--f-color-accent-100)</div>
-      </div>
-    </div>
-    <div class="color-swatch">
-      <div class="swatch-block" style="background:#FFFFFF; border:1px solid #D2D2D2;"></div>
-      <div class="swatch-info">
-        <div class="swatch-name">Pure White</div>
-        <div class="swatch-hex">#FFFFFF</div>
-        <div class="swatch-role">Primary surface for editorial panels (--f-color-ui-0)</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="color-group-label">Secondary &amp; Accent</div>
-  <div class="color-grid">
-    <div class="color-swatch">
-      <div class="swatch-block" style="background:#B01E0A;"></div>
-      <div class="swatch-info">
-        <div class="swatch-name">Dark Red</div>
-        <div class="swatch-hex">#B01E0A</div>
-        <div class="swatch-role">Hover/pressed states (--f-color-accent-90)</div>
-      </div>
-    </div>
-    <div class="color-swatch">
-      <div class="swatch-block" style="background:#9D2211;"></div>
-      <div class="swatch-info">
-        <div class="swatch-name">Deep Red</div>
-        <div class="swatch-hex">#9D2211</div>
-        <div class="swatch-role">Active states, extra emphasis (--f-color-accent-80)</div>
-      </div>
-    </div>
-    <div class="color-swatch">
-      <div class="swatch-block" style="background:#FFF200;"></div>
-      <div class="swatch-info">
-        <div class="swatch-name">Racing Yellow</div>
-        <div class="swatch-hex">#FFF200</div>
-        <div class="swatch-role">Heritage racing accent (--f-color-yellow-hypersail)</div>
-      </div>
-    </div>
-    <div class="color-swatch">
-      <div class="swatch-block" style="background:#F6E500;"></div>
-      <div class="swatch-info">
-        <div class="swatch-name">Modena Yellow</div>
-        <div class="swatch-hex">#F6E500</div>
-        <div class="swatch-role">Secondary heritage accent (--f-color-yellow)</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="color-group-label">Surface &amp; Background</div>
-  <div class="color-grid">
-    <div class="color-swatch">
-      <div class="swatch-block" style="background:#000000;"></div>
-      <div class="swatch-info">
-        <div class="swatch-name">Absolute Black</div>
-        <div class="swatch-hex">#000000</div>
-        <div class="swatch-role">Hero sections, cinematic backgrounds</div>
-      </div>
-    </div>
-    <div class="color-swatch">
-      <div class="swatch-block" style="background:#303030;"></div>
-      <div class="swatch-info">
-        <div class="swatch-name">Dark Surface</div>
-        <div class="swatch-hex">#303030</div>
-        <div class="swatch-role">Footer, newsletter sections (--f-color-ui-90)</div>
-      </div>
-    </div>
-    <div class="color-swatch">
-      <div class="swatch-block" style="background:#D2D2D2;"></div>
-      <div class="swatch-info">
-        <div class="swatch-name">Light Gray Surface</div>
-        <div class="swatch-hex">#D2D2D2</div>
-        <div class="swatch-role">Dividers, border treatments (--f-color-ui-20)</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="color-group-label">Neutrals &amp; Text</div>
-  <div class="color-grid">
-    <div class="color-swatch">
-      <div class="swatch-block" style="background:#181818;"></div>
-      <div class="swatch-info">
-        <div class="swatch-name">Near Black</div>
-        <div class="swatch-hex">#181818</div>
-        <div class="swatch-role">Primary body text on light surfaces</div>
-      </div>
-    </div>
-    <div class="color-swatch">
-      <div class="swatch-block" style="background:#666666;"></div>
-      <div class="swatch-info">
-        <div class="swatch-name">Dark Gray</div>
-        <div class="swatch-hex">#666666</div>
-        <div class="swatch-role">Secondary text, subdued labels (--f-color-black-60)</div>
-      </div>
-    </div>
-    <div class="color-swatch">
-      <div class="swatch-block" style="background:#8F8F8F;"></div>
-      <div class="swatch-info">
-        <div class="swatch-name">Mid Gray</div>
-        <div class="swatch-hex">#8F8F8F</div>
-        <div class="swatch-role">Tertiary text, metadata (--f-color-black-50)</div>
-      </div>
-    </div>
-    <div class="color-swatch">
-      <div class="swatch-block" style="background:#969696;"></div>
-      <div class="swatch-info">
-        <div class="swatch-name">Silver Gray</div>
-        <div class="swatch-hex">#969696</div>
-        <div class="swatch-role">Placeholder, disabled states (--f-color-black-55)</div>
-      </div>
-    </div>
-    <div class="color-swatch">
-      <div class="swatch-block" style="background:#CCCCCC;"></div>
-      <div class="swatch-info">
-        <div class="swatch-name">Border Gray</div>
-        <div class="swatch-hex">#CCCCCC</div>
-        <div class="swatch-role">Input borders, form containers</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="color-group-label">Semantic</div>
-  <div class="color-grid">
-    <div class="color-swatch">
-      <div class="swatch-block" style="background:#F13A2C;"></div>
-      <div class="swatch-info">
-        <div class="swatch-name">Warning Red</div>
-        <div class="swatch-hex">#F13A2C</div>
-        <div class="swatch-role">Accessible warning state (--f-color-accessible-warning)</div>
-      </div>
-    </div>
-    <div class="color-swatch">
-      <div class="swatch-block" style="background:#03904A;"></div>
-      <div class="swatch-info">
-        <div class="swatch-name">Success Green</div>
-        <div class="swatch-hex">#03904A</div>
-        <div class="swatch-role">Positive status (--f-color-accessible-success)</div>
-      </div>
-    </div>
-    <div class="color-swatch">
-      <div class="swatch-block" style="background:#4C98B9;"></div>
-      <div class="swatch-info">
-        <div class="swatch-name">Info Blue</div>
-        <div class="swatch-hex">#4C98B9</div>
-        <div class="swatch-role">Informational callouts (--f-color-accessible-info)</div>
-      </div>
-    </div>
-    <div class="color-swatch">
-      <div class="swatch-block" style="background:#3860BE;"></div>
-      <div class="swatch-info">
-        <div class="swatch-name">Link Hover Blue</div>
-        <div class="swatch-hex">#3860BE</div>
-        <div class="swatch-role">Interactive hover state for text links</div>
-      </div>
-    </div>
-    <div class="color-swatch">
-      <div class="swatch-block" style="background:#1EAEDB;"></div>
-      <div class="swatch-info">
-        <div class="swatch-name">Teal</div>
-        <div class="swatch-hex">#1EAEDB</div>
-        <div class="swatch-role">Button hover state</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<hr class="section-divider">
-
-<!-- 2. TYPOGRAPHY -->
-<div id="typography" class="section">
-  <h2 class="section-title">Typography Scale</h2>
-  <p class="section-desc">FerrariSans for headings and editorial content, Body-Font for labels and captions. Rendered with DM Sans and Barlow Condensed as Google Font substitutes.</p>
-
-  <div class="type-sample">
-    <div style="font-family:var(--font-heading);font-size:26px;font-weight:500;line-height:1.20;color:var(--near-black);">Section Title — The Art of Engineering</div>
-    <div class="type-label">Section Title — 26px / 500 / 1.20 LH / normal — FerrariSans</div>
-  </div>
-
-  <div class="type-sample">
-    <div style="font-family:var(--font-heading);font-size:24px;font-weight:400;line-height:normal;color:var(--near-black);">Card Heading — Concept Revealed</div>
-    <div class="type-label">Card Heading — 24px / 400 / normal LH / normal — FerrariSans</div>
-  </div>
-
-  <div class="type-sample">
-    <div style="font-family:var(--font-heading);font-size:18px;font-weight:700;line-height:1.20;color:var(--near-black);">Subheading — Maranello Edition</div>
-    <div class="type-label">Subheading — 18px / 700 / 1.20 LH / normal — FerrariSans</div>
-  </div>
-
-  <div class="type-sample">
-    <div style="font-family:var(--font-heading);font-size:16px;font-weight:500;line-height:1.40;letter-spacing:0.08px;color:var(--near-black);">UI Heading — Vehicle Configuration</div>
-    <div class="type-label">UI Heading — 16px / 500 / 1.40 LH / 0.08px — FerrariSans</div>
-  </div>
-
-  <div class="type-sample">
-    <div style="font-family:var(--font-heading);font-size:16px;font-weight:700;line-height:1.30;color:var(--near-black);">Body Bold — Performance Specifications</div>
-    <div class="type-label">Body Bold — 16px / 700 / 1.30 LH / normal — FerrariSans</div>
-  </div>
-
-  <div class="type-sample">
-    <div style="font-family:var(--font-heading);font-size:16px;font-weight:400;line-height:normal;letter-spacing:1.28px;color:var(--near-black);">Button Label — Configure</div>
-    <div class="type-label">Button Label — 16px / 400 / normal LH / 1.28px — FerrariSans</div>
-  </div>
-
-  <div class="type-sample">
-    <div style="font-family:var(--font-heading);font-size:14.4px;font-weight:700;line-height:1.00;color:var(--near-black);">Small Button — Discover More</div>
-    <div class="type-label">Small Button — 14.4px / 700 / 1.00 LH / normal — FerrariSans</div>
-  </div>
-
-  <div class="type-sample">
-    <div style="font-family:var(--font-heading);font-size:13px;font-weight:600;line-height:1.20;letter-spacing:0.13px;color:var(--near-black);">Nav Link — Models &amp; Range</div>
-    <div class="type-label">Nav Link — 13px / 600 / 1.20 LH / 0.13px — FerrariSans</div>
-  </div>
-
-  <div class="type-sample">
-    <div style="font-family:var(--font-heading);font-size:13px;font-weight:400;line-height:1.50;letter-spacing:0.195px;color:var(--dark-gray);">Caption — Photographed at the Fiorano test circuit during the annual event, showcasing the latest innovations in motorsport technology.</div>
-    <div class="type-label">Caption — 13px / 400 / 1.50 LH / 0.195px — FerrariSans/Body-Font</div>
-  </div>
-
-  <div class="type-sample">
-    <div style="font-family:var(--font-heading);font-size:12px;font-weight:700;line-height:1.00;letter-spacing:0.96px;color:var(--near-black);">Micro Button</div>
-    <div class="type-label">Micro Button — 12px / 700 / 1.00 LH / 0.96px — FerrariSans</div>
-  </div>
-
-  <div class="type-sample">
-    <div style="font-family:var(--font-body);font-size:12px;font-weight:400;line-height:1.27;letter-spacing:1px;text-transform:uppercase;color:var(--mid-gray);">Label Upper — Motorsport Heritage</div>
-    <div class="type-label">Label Upper — 12px / 400 / 1.27 LH / 1px / uppercase — Body-Font</div>
-  </div>
-
-  <div class="type-sample">
-    <div style="font-family:var(--font-body);font-size:11px;font-weight:400;line-height:1.27;letter-spacing:1px;text-transform:uppercase;color:var(--mid-gray);">Micro Label — Racing Division</div>
-    <div class="type-label">Micro Label — 11px / 400 / 1.27 LH / 1px / uppercase — Body-Font</div>
-  </div>
-</div>
-
-<hr class="section-divider">
-
-<!-- 3. BUTTONS -->
-<div id="buttons" class="section">
-  <h2 class="section-title">Button Variants</h2>
-  <p class="section-desc">All button variants from the design system. Ferrari's CTA philosophy: architecture, not decoration.</p>
-
-  <div class="button-row" style="margin-bottom:32px;">
-    <div class="button-item">
-      <span class="btn-label">Primary CTA (White)</span>
-      <button class="btn-white-cta">Configure</button>
-    </div>
-    <div class="button-item">
-      <span class="btn-label">Subscribe CTA (Red)</span>
-      <button class="btn-red-cta">Subscribe</button>
-    </div>
-    <div class="button-item">
-      <span class="btn-label">Text Link</span>
-      <a href="#" class="btn-text-link">View Details</a>
-    </div>
-  </div>
-
-  <div class="color-group-label">On Dark Background</div>
-  <div class="dark-btn-row">
-    <div class="button-item">
-      <span class="btn-label">Ghost Button (White Border)</span>
-      <button class="btn-ghost-dark">Explore</button>
-    </div>
-    <div class="button-item">
-      <span class="btn-label">Subscribe CTA (Red)</span>
-      <button class="btn-red-cta">Subscribe</button>
-    </div>
-    <div class="button-item">
-      <span class="btn-label">Text Link (White)</span>
-      <a href="#" style="color:var(--pure-white);font-size:13px;font-family:var(--font-heading);text-decoration:underline;transition:color 0.3s;">View All</a>
-    </div>
-  </div>
-</div>
-
-<hr class="section-divider">
-
-<!-- 4. CARDS -->
-<div id="cards" class="section">
-  <h2 class="section-title">Card Examples</h2>
-  <p class="section-desc">Editorial cards and dark cinematic cards — the two primary container treatments.</p>
-
+<section>
+  <div class="section-label">04 — Feature Cards</div>
+  <h2 class="section-heading">Photo-first cinematic cards</h2>
+  <p class="section-intro">Image fills the top edge-to-edge; meta sits beneath. Sharp 0px corners.</p>
   <div class="card-grid">
-    <div class="card card-hover">
-      <div class="card-img" style="background:linear-gradient(135deg, #D2D2D2 0%, #F5F5F5 100%);"></div>
-      <div class="card-body">
-        <div class="card-caption">Motorsport</div>
-        <div class="card-heading">Championship Season Highlights</div>
-        <div class="card-text">A curated look back at the defining moments from this season's racing campaign across Formula 1 and endurance events.</div>
-      </div>
-    </div>
-
-    <div class="card-dark card-hover">
-      <div class="card-img" style="background:linear-gradient(135deg, #000000 0%, #303030 100%);"></div>
-      <div class="card-body">
-        <div class="card-caption">Concept</div>
-        <div class="card-heading">Vision GT Unveiled</div>
-        <div class="card-text">The latest concept from the Maranello design studio merges aerodynamic precision with sculptural beauty.</div>
-      </div>
-    </div>
-
-    <div class="card card-hover">
-      <div class="card-img" style="background:linear-gradient(135deg, #DA291C 0%, #9D2211 100%);"></div>
-      <div class="card-body">
-        <div class="card-caption">Heritage</div>
-        <div class="card-heading">Celebrating 75 Years of Excellence</div>
-        <div class="card-text">From the 125 S to the SF-23 — tracing the evolution of engineering artistry that defines the Prancing Horse.</div>
-      </div>
-    </div>
+    <div class="feature-card-photo"><div class="photo"></div><div class="meta"><h4>Greatest Hits</h4><p>Iconic moments from Ferrari's racing history.</p><button class="btn btn-tertiary-text">Read more →</button></div></div>
+    <div class="feature-card-photo"><div class="photo" style="background:linear-gradient(135deg,#222,#3c3c3c 50%,#181818)"></div><div class="meta"><h4>Restored, Just as Niki Raced It</h4><p>The 312T2 from the 1976 season returns to the track.</p><button class="btn btn-tertiary-text">Read more →</button></div></div>
+    <div class="feature-card-photo"><div class="photo" style="background:linear-gradient(135deg,#a00c01,#5a0500 60%,#181818)"></div><div class="meta"><h4>Replica 2026</h4><p>The new road-legal grand tourer revealed.</p><button class="btn btn-tertiary-text">Read more →</button></div></div>
   </div>
-</div>
+</section>
 
-<hr class="section-divider">
+<section>
+  <div class="section-label">05 — Livery Band (Rosso Corsa)</div>
+  <h2 class="section-heading">Brand-red atmospheric callout</h2>
+  <p class="section-intro">A full-width Rosso Corsa accent band used between dark editorial sections.</p>
+  <div class="livery-band">
+    <div class="number-display">75</div>
+    <h2>Years of Racing Excellence</h2>
+    <button class="btn btn-outline-on-dark">Discover the Legacy</button>
+  </div>
+</section>
 
-<!-- 5. FORMS -->
-<div id="forms" class="section">
-  <h2 class="section-title">Form Elements</h2>
-  <p class="section-desc">Input fields, labels, and states — following Ferrari's transparent-background input treatment with precise 2px radius.</p>
+<section>
+  <div class="section-label">06 — Tech Specs</div>
+  <h2 class="section-heading">Number-display values on hairline-divided cells</h2>
+  <p class="section-intro">Spec values render in number-display 80px / 700 white; labels in caption-uppercase 1.1px tracking.</p>
+  <div class="spec-row">
+    <div class="spec-cell"><div class="value">340</div><div class="label">km/h Top Speed</div></div>
+    <div class="spec-cell"><div class="value">2.5</div><div class="label">sec 0-100 km/h</div></div>
+    <div class="spec-cell"><div class="value">1000</div><div class="label">cv Power</div></div>
+    <div class="spec-cell"><div class="value">V12</div><div class="label">Engine Layout</div></div>
+  </div>
+</section>
 
+<section>
+  <div class="section-label">07 — F1 Drivers</div>
+  <h2 class="section-heading">Driver portrait cards</h2>
+  <div class="card-grid">
+    <div class="driver-card"><div class="portrait">CL</div><div class="num">P1</div><h4>Charles Leclerc</h4><div class="team">Ferrari · #16</div></div>
+    <div class="driver-card"><div class="portrait">CS</div><div class="num">P3</div><h4>Carlos Sainz</h4><div class="team">Ferrari · #55</div></div>
+  </div>
+</section>
+
+<section>
+  <div class="section-label">08 — F1 Race Calendar</div>
+  <h2 class="section-heading">Race position highlights</h2>
+  <p class="section-intro">Hairline-divided rows. Race-position cells render in Rosso Corsa using `number-display` typography — the brand's racing identity.</p>
+  <div>
+    <div class="race-row"><div class="date">14 Mar</div><div><div class="name">Bahrain Grand Prix</div><div class="circuit">Bahrain International Circuit</div></div><div class="position">P1</div></div>
+    <div class="race-row"><div class="date">21 Mar</div><div><div class="name">Saudi Arabian GP</div><div class="circuit">Jeddah Corniche Circuit</div></div><div class="position">P3</div></div>
+    <div class="race-row"><div class="date">04 Apr</div><div><div class="name">Australian GP</div><div class="circuit">Albert Park Circuit</div></div><div class="position">P2</div></div>
+    <div class="race-row"><div class="date">18 Apr</div><div><div class="name">Chinese GP</div><div class="circuit">Shanghai International Circuit</div></div><div class="position">P1</div></div>
+  </div>
+</section>
+
+<section>
+  <div class="section-label">09 — Preowned Listings</div>
+  <h2 class="section-heading">White editorial band</h2>
+  <p class="section-intro">Preowned Ferrari listings sit on a white canvas band — the only place pure-white surface dominates.</p>
+  <div class="preowned-grid">
+    <div class="preowned-listing-card"><div class="photo"></div><div class="model">Ferrari Roma</div><div class="meta">2022 · 12,400 km</div><div class="price">€189,000</div></div>
+    <div class="preowned-listing-card"><div class="photo" style="background:linear-gradient(135deg,#3c3c3c 0%,#181818 60%,#a00c01 100%)"></div><div class="model">F8 Tributo</div><div class="meta">2021 · 8,200 km</div><div class="price">€259,000</div></div>
+    <div class="preowned-listing-card"><div class="photo" style="background:linear-gradient(135deg,#5a0500 0%,#a00c01 60%,#181818 100%)"></div><div class="model">Portofino M</div><div class="meta">2023 · 4,600 km</div><div class="price">€212,000</div></div>
+    <div class="preowned-listing-card"><div class="photo" style="background:linear-gradient(135deg,#222 0%,#3c3c3c 60%,#5a0500 100%)"></div><div class="model">812 GTS</div><div class="meta">2022 · 9,800 km</div><div class="price">€349,000</div></div>
+  </div>
+</section>
+
+<section>
+  <div class="section-label">10 — Forms</div>
+  <h2 class="section-heading">Inputs</h2>
   <div class="form-grid">
-    <div class="form-group">
-      <label class="form-label">First Name</label>
-      <input type="text" class="form-input" placeholder="Enter first name">
-    </div>
-    <div class="form-group">
-      <label class="form-label">Last Name</label>
-      <input type="text" class="form-input" placeholder="Enter last name">
-    </div>
-    <div class="form-group">
-      <label class="form-label">Email (Focus State)</label>
-      <input type="email" class="form-input" placeholder="email@example.com" style="border-color:#DA291C;">
-    </div>
-    <div class="form-group">
-      <label class="form-label">Phone (Error State)</label>
-      <input type="tel" class="form-input form-input-error" placeholder="Invalid number" value="+1 555">
-      <span class="form-error-text">Please enter a valid phone number</span>
-    </div>
-    <div class="form-group full">
-      <label class="form-label">Message</label>
-      <textarea class="form-input" placeholder="Write your message here..."></textarea>
-    </div>
+    <div class="form-cell"><label class="form-label">Email</label><input class="text-input" type="email" placeholder="you@example.com"></div>
+    <div class="form-cell"><label class="form-label">Country</label><input class="text-input focused" type="text" value="Italy"></div>
+    <div class="form-cell"><label class="form-label">Model interest</label><input class="text-input" type="text" placeholder="Roma · F8 · 296 GTB"></div>
   </div>
-</div>
+</section>
 
-<hr class="section-divider">
+<section>
+  <div class="section-label">11 — Badges</div>
+  <p class="section-intro">Pill geometry only here — every other component is sharp-cornered.</p>
+  <div style="display:flex;gap:12px;flex-wrap:wrap"><span class="badge-pill">New</span><span class="badge-pill red">F1</span><span class="badge-pill">Limited</span><span class="badge-pill">Hypersail</span></div>
+</section>
 
-<!-- 6. SPACING -->
-<div id="spacing" class="section">
-  <h2 class="section-title">Spacing Scale</h2>
-  <p class="section-desc">Base unit: 8px. The full spacing scale extracted from Ferrari's design tokens.</p>
-
+<section>
+  <div class="section-label">12 — Spacing Scale</div>
+  <p class="section-intro">Explicit 8px ladder: xxxs · xxs · xs · sm · md · lg · xl · xxl · super.</p>
   <div class="spacing-row">
-    <div class="spacing-item">
-      <div class="spacing-box" style="width:1px;"></div>
-      <span class="spacing-label">1px</span>
-    </div>
-    <div class="spacing-item">
-      <div class="spacing-box" style="width:2px;"></div>
-      <span class="spacing-label">2px</span>
-    </div>
-    <div class="spacing-item">
-      <div class="spacing-box" style="width:4px;"></div>
-      <span class="spacing-label">4px</span>
-    </div>
-    <div class="spacing-item">
-      <div class="spacing-box" style="width:5px;"></div>
-      <span class="spacing-label">5px</span>
-    </div>
-    <div class="spacing-item">
-      <div class="spacing-box" style="width:6px;"></div>
-      <span class="spacing-label">6px</span>
-    </div>
-    <div class="spacing-item">
-      <div class="spacing-box" style="width:9px;"></div>
-      <span class="spacing-label">9px</span>
-    </div>
-    <div class="spacing-item">
-      <div class="spacing-box" style="width:10px;"></div>
-      <span class="spacing-label">10px</span>
-    </div>
-    <div class="spacing-item">
-      <div class="spacing-box" style="width:12px;"></div>
-      <span class="spacing-label">12px</span>
-    </div>
-    <div class="spacing-item">
-      <div class="spacing-box" style="width:13px;"></div>
-      <span class="spacing-label">13px</span>
-    </div>
-    <div class="spacing-item">
-      <div class="spacing-box" style="width:15px;"></div>
-      <span class="spacing-label">15px</span>
-    </div>
-    <div class="spacing-item">
-      <div class="spacing-box" style="width:16px;"></div>
-      <span class="spacing-label">16px</span>
-    </div>
-    <div class="spacing-item">
-      <div class="spacing-box" style="width:19px;"></div>
-      <span class="spacing-label">19px</span>
-    </div>
-    <div class="spacing-item">
-      <div class="spacing-box" style="width:20px;"></div>
-      <span class="spacing-label">20px</span>
-    </div>
-    <div class="spacing-item">
-      <div class="spacing-box" style="width:25px;"></div>
-      <span class="spacing-label">25px</span>
-    </div>
+    <div class="spacing-block"><div class="spacing-bar" style="width:4px"></div><div class="spacing-label">xxxs · 4</div></div>
+    <div class="spacing-block"><div class="spacing-bar" style="width:8px"></div><div class="spacing-label">xxs · 8</div></div>
+    <div class="spacing-block"><div class="spacing-bar" style="width:16px"></div><div class="spacing-label">xs · 16</div></div>
+    <div class="spacing-block"><div class="spacing-bar" style="width:24px"></div><div class="spacing-label">sm · 24</div></div>
+    <div class="spacing-block"><div class="spacing-bar" style="width:32px"></div><div class="spacing-label">md · 32</div></div>
+    <div class="spacing-block"><div class="spacing-bar" style="width:48px"></div><div class="spacing-label">lg · 48</div></div>
+    <div class="spacing-block"><div class="spacing-bar" style="width:64px"></div><div class="spacing-label">xl · 64</div></div>
+    <div class="spacing-block"><div class="spacing-bar" style="width:96px"></div><div class="spacing-label">xxl · 96</div></div>
+    <div class="spacing-block"><div class="spacing-bar" style="width:128px"></div><div class="spacing-label">super · 128</div></div>
   </div>
-</div>
+</section>
 
-<hr class="section-divider">
-
-<!-- 7. BORDER RADIUS -->
-<div id="radius" class="section">
-  <h2 class="section-title">Border Radius Scale</h2>
-  <p class="section-desc">Ferrari's precision engineering aesthetic demands near-zero border-radius. The 2px default is razor-sharp.</p>
-
+<section>
+  <div class="section-label">13 — Border Radius</div>
+  <p class="section-intro">Sharp 0px corners are the brand button. Pill is reserved for badges only.</p>
   <div class="radius-row">
-    <div class="radius-item">
-      <div class="radius-box" style="border-radius:1px;"></div>
-      <span class="radius-label">1px</span>
-      <span class="radius-context">Inline Elements</span>
-    </div>
-    <div class="radius-item">
-      <div class="radius-box" style="border-radius:2px;"></div>
-      <span class="radius-label">2px</span>
-      <span class="radius-context">Buttons, Inputs</span>
-    </div>
-    <div class="radius-item">
-      <div class="radius-box" style="border-radius:8px;"></div>
-      <span class="radius-label">8px</span>
-      <span class="radius-context">Dialogs, Modals</span>
-    </div>
-    <div class="radius-item">
-      <div class="radius-box" style="border-radius:50%;"></div>
-      <span class="radius-label">50%</span>
-      <span class="radius-context">Dots, Avatars</span>
-    </div>
+    <div class="radius-block" style="border-radius:0">0 · none</div>
+    <div class="radius-block" style="border-radius:2px">2 · xs</div>
+    <div class="radius-block" style="border-radius:4px">4 · sm</div>
+    <div class="radius-block" style="border-radius:6px">6 · md</div>
+    <div class="radius-block" style="border-radius:8px">8 · lg</div>
+    <div class="radius-block" style="border-radius:12px">12 · xl</div>
+    <div class="radius-block" style="border-radius:9999px">full</div>
   </div>
-</div>
+</section>
 
-<hr class="section-divider">
-
-<!-- 8. ELEVATION -->
-<div id="elevation" class="section">
-  <h2 class="section-title">Elevation &amp; Depth</h2>
-  <p class="section-desc">Ferrari communicates hierarchy through surface color contrast and photography, not shadows. The single shadow token is a 1-pixel whisper.</p>
-
+<section>
+  <div class="section-label">14 — Elevation &amp; Depth</div>
+  <p class="section-intro">Photographic depth + brightness-step elevation. Single soft-small shadow tier.</p>
   <div class="elevation-grid">
-    <div class="elevation-card" style="box-shadow:none; border:1px solid #D2D2D2;">
-      <div class="elevation-label">Level 0 — Flat</div>
-      <div class="elevation-desc">No shadow, no border. Default for all content sections and cards.</div>
-    </div>
-    <div class="elevation-card" style="box-shadow:rgb(153,153,153) 1px 1px 1px 0px;">
-      <div class="elevation-label">Level 1 — Subtle</div>
-      <div class="elevation-desc">1px whisper shadow. Rare — cookie consent dialogs and dropdown menus.</div>
-    </div>
-    <div class="elevation-card" style="background:rgba(18,18,18,0.95); color:var(--pure-white);">
-      <div class="elevation-label" style="color:var(--pure-white);">Level 2 — Overlay</div>
-      <div class="elevation-desc" style="color:var(--silver-gray);">hsla(0,0%,7%,0.8) backdrop. Modal overlays and image captions.</div>
-    </div>
-    <div class="elevation-card" style="box-shadow:none; border:1px solid #CCCCCC;">
-      <div class="elevation-label">Level 3 — Border</div>
-      <div class="elevation-desc">1px solid #CCCCCC. Input fields and form containers — depth through delineation.</div>
-    </div>
+    <div class="elevation-card canvas"><h5>Flat / Canvas</h5><p>Body bands, footer.</p></div>
+    <div class="elevation-card"><h5>Card</h5><p>canvas-elevated #303030 — driver cards, livery plates.</p></div>
+    <div class="elevation-card light"><h5>Light band</h5><p>White editorial — preowned, pricing.</p></div>
+    <div class="elevation-card with-shadow"><h5>Soft drop</h5><p>0 4px 8px rgba(0,0,0,0.1). Single shadow tier.</p></div>
   </div>
-</div>
+</section>
 
-<!-- FOOTER -->
-
+<section id="responsive">
+  <div class="section-label">15 — Responsive Behavior</div>
+  <table class="responsive-table">
+    <thead><tr><th>Name</th><th>Width</th><th>Key Changes</th></tr></thead>
+    <tbody>
+      <tr><td>Mobile</td><td>&lt; 640px</td><td>Hero crops vertically; hero h1 80→32px; feature grid 1-up; nav hamburger; preowned 1-up.</td></tr>
+      <tr><td>Tablet</td><td>640–1024px</td><td>Hero h1 56px; feature grid 2-up; preowned 2-up.</td></tr>
+      <tr><td>Desktop</td><td>1024–1280px</td><td>Full hero h1 80px; feature grid 3-up; preowned 4-up.</td></tr>
+      <tr><td>Wide</td><td>&gt; 1280px</td><td>Editorial body caps at 1280px; hero photography full-bleed.</td></tr>
+    </tbody>
+  </table>
+  <div class="device-ladder">
+    <div class="device-bar" style="width:60px;height:120px">375<br>mobile</div>
+    <div class="device-bar" style="width:90px;height:140px">640<br>small</div>
+    <div class="device-bar" style="width:140px;height:160px">768<br>tablet</div>
+    <div class="device-bar" style="width:200px;height:180px">1024<br>laptop</div>
+    <div class="device-bar" style="width:260px;height:200px">1280<br>desktop</div>
+  </div>
+  <div class="responsive-sub"><h4>Touch Targets</h4><ul><li>Primary CTA at 48px height — at WCAG AAA.</li><li>Nav items uppercase tracked, padded for 48px tap area.</li></ul></div>
+  <div class="responsive-sub"><h4>Collapsing Strategy</h4><ul><li>Top nav switches to hamburger below 768px.</li><li>Hero photograph reframes per breakpoint via art direction.</li><li>Feature grid: 4-up → 3-up → 2-up → 1-up.</li><li>Preowned listing tiles: 4-up → 2-up → 1-up.</li></ul></div>
+</section>
 
 
 

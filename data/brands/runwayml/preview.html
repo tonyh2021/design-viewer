@@ -1,7 +1,7 @@
 <!DOCTYPE html><html lang="en"><head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Design System Inspired by RunwayML</title>
+<title>Design System Preview: Runway (Light)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;450;500;600&amp;display=swap" rel="stylesheet">
@@ -336,70 +336,26 @@
     .card-grid { grid-template-columns: 1fr; }
     .hero-buttons { flex-direction: column; align-items: center; }
   }
-
-  /* preview nav */
-  .nav-left { display: flex; align-items: center; gap: 20px; }
-  .nav-brand-link,
-  .nav-brand-link:link,
-  .nav-brand-link:visited,
-  .nav-brand-link:hover,
-  .nav-brand-link:active { text-decoration: none; color: inherit; }
-  .nav-github,
-  .nav-github:link,
-  .nav-github:visited,
-  .nav-github:hover,
-  .nav-github:active {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 12px;
-    font-weight: 600;
-    color: inherit;
-    text-decoration: none;
-    padding: 5px 10px;
-    border: 1px solid rgba(128, 128, 128, 0.3);
-    border-radius: 6px;
-    opacity: 0.75;
-    transition: opacity 200ms ease, border-color 200ms ease;
-    font-family: inherit;
-    line-height: 1;
-    white-space: nowrap;
-  }
-  .nav-github:hover { opacity: 1; border-color: rgba(128, 128, 128, 0.55); }
-  .nav-github svg { display: block; flex-shrink: 0; }
-
-  /* preview nav */
-  .nav { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; }
-  .nav > .nav-left { justify-self: start; }
-  .nav > .nav-links { justify-self: center; }
-  .nav > :last-child { justify-self: end; }
 </style>
 </head>
 <body>
 
 <!-- NAV -->
 <nav class="nav">
-  <div class="nav-left">
-    <a rel="noopener noreferrer" class="nav-brand-link">
-      <span class="nav-brand">Design Viewer</span>
-    </a>
-    
-  </div>
+  <div class="nav-brand">Runway</div>
   <div class="nav-links">
     <a href="#colors">Colors</a>
     <a href="#typography">Typography</a>
     <a href="#cards">Cards</a>
     <a href="#spacing">Spacing</a>
     <a href="#elevation">Elevation</a>
-    
+    <button class="nav-cta">Try Runway</button>
   </div>
-  <button class="nav-cta">Try Runway</button>
-
 </nav>
 
 <!-- HERO -->
 <section class="hero">
-  <h1>Design System<br>Inspired by RunwayML</h1>
+  <h1>Design System Preview:<br>Runway</h1>
   <p>Cinematic, minimal, editorial design tokens from DESIGN.md</p>
   <div class="hero-buttons">
     <button class="btn-primary">Explore Tokens</button>

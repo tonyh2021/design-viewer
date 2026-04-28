@@ -50,6 +50,16 @@
     "_hash": "4c6cffeca525"
   },
   {
+    "slug": "bmw-m",
+    "name": "BMW M",
+    "description": "Motorsport automotive. Pure black canvas, M tricolor stripe accents, full-bleed photography.",
+    "avatar": "<svg role=\"img\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 192.756 192.756\"><title>BMW M</title><g fill-rule=\"evenodd\" clip-rule=\"evenodd\"><path fill=\"#33a0d1\" d=\"M41.517 65.083H63.49l-33.012 59.935H8.504l33.013-59.935z\"></path><path fill=\"#373485\" d=\"M63.49 65.083h23.718l-33.012 59.935H30.478L63.49 65.083z\"></path><path fill=\"#c52b30\" d=\"M87.208 65.083h23.626l-33.011 59.935H54.196l33.012-59.935z\"></path><path fill=\"currentColor\" d=\"M118.26 65.083h22.043l.687 26.952 14.844-26.952h19.463l1.498 59.935h-20.609V97.532l-13.793 27.486h-19.571l.315-26.782-14.117 26.782H85.248l33.012-59.935z\"></path></g></svg>",
+    "installs": "—",
+    "bookmarks": "—",
+    "category": "Other",
+    "_hash": "4bdc683d0515"
+  },
+  {
     "slug": "bugatti",
     "name": "Bugatti",
     "description": "Hypercar brand. Cinema-black canvas, monochrome austerity, monumental display type.",
@@ -258,6 +268,16 @@
     "bookmarks": "—",
     "category": "Developer Tools & IDEs",
     "_hash": "2e30f04323e7"
+  },
+  {
+    "slug": "mastercard",
+    "name": "Mastercard",
+    "description": "Global payments network. Warm cream canvas, orbital pill shapes, editorial warmth.",
+    "avatar": "https://github.com/mastercard.png?size=40",
+    "installs": "—",
+    "bookmarks": "—",
+    "category": "Fintech & Crypto",
+    "_hash": "c9812aea2165"
   },
   {
     "slug": "meta",
@@ -510,6 +530,16 @@
     "_hash": "a5dad25080fc"
   },
   {
+    "slug": "starbucks",
+    "name": "Starbucks",
+    "description": "Global coffee retail brand. Four-tier green system, warm cream canvas, full-pill buttons.",
+    "avatar": "https://github.com/starbucks.png?size=40",
+    "installs": "—",
+    "bookmarks": "—",
+    "category": "E-commerce & Retail",
+    "_hash": "34343a4414e5"
+  },
+  {
     "slug": "stripe",
     "name": "Stripe",
     "description": "Payment infrastructure. Signature purple gradients, weight-300 elegance.",
@@ -588,6 +618,16 @@
     "bookmarks": "—",
     "category": "Developer Tools & IDEs",
     "_hash": "059b685de584"
+  },
+  {
+    "slug": "vodafone",
+    "name": "Vodafone",
+    "description": "Global telecom brand. Monumental uppercase display, Vodafone Red chapter bands.",
+    "avatar": "https://github.com/vodafone.png?size=40",
+    "installs": "—",
+    "bookmarks": "—",
+    "category": "Media & Consumer Tech",
+    "_hash": "9b0c01c2ce4d"
   },
   {
     "slug": "voltagent",
